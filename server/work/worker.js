@@ -3,6 +3,7 @@ var amqp = require('amqp');
 var connection = amqp.createConnection({host: 'localhost'});
 
 connection.on('ready', function(){
+    console.log('ready');
     connection.queue('task_queue', {autoDelete: false,
         durable: true}, function(queue){
 

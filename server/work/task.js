@@ -9,7 +9,8 @@ connection.on('ready', function(){
         durable: true}, function(queue){
         for(var i = 0; i < 100000; i++){
             connection.publish('task_queue', message, {deliveryMode: 2});
+            console.log(" [x] Sent %s", message);
         }
-        //console.log(" [x] Sent %s", message);
+
     });
 });

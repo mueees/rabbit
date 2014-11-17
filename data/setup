@@ -1,0 +1,8 @@
+sudo rabbitmq-plugins enable rabbitmq_management
+
+sudo rabbitmqctl add_user mue mue
+sudo rabbitmqctl set_user_tags mue administrator
+sudo rabbitmqctl set_permissions -p / mue ".*" ".*" ".*"
+sudo service rabbitmq-server restart
+
+// access by adres http://localhost:15672/

@@ -12,11 +12,10 @@ Vagrant::Config.run do |config|
   # config.vm.network :bridged
 
   # Port forwarding
-  config.vm.forward_port 5001, 5001
-  config.vm.forward_port 5002, 5002
-  config.vm.forward_port 27017, 27017
-  config.vm.forward_port 27018, 27018
-  config.vm.forward_port 80, 8080
+  config.vm.forward_port 6001, 6001
+  config.vm.forward_port 6002, 6002
+  # setup rabbitmq monitoring
+  config.vm.forward_port 15672, 15672
 
   # Provisioning
   # Needs build-essential cookbook from https://github.com/opscode/cookbooks
