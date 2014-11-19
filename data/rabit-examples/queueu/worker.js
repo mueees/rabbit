@@ -3,10 +3,8 @@ var amqp = require('amqp');
 var connection = amqp.createConnection({host: 'localhost'});
 
 connection.on('ready', function(){
-    connection.queue('task_queue', {
-        autoDelete: false,
-        durable: true
-    }, function(queue){
+    connection.queue('task_queue', {autoDelete: false,
+                                    durable: true}, function(queue){
 
         console.log(' [*] Waiting for messages. To exit press CTRL+C');
 
