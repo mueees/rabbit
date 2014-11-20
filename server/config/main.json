@@ -1,0 +1,8 @@
+{
+    "queues": {
+        "tasks": {
+            "updateFeed": "updateFeed",
+            "prepareRowPost": "prepareRowPost"
+        }
+    }
+}

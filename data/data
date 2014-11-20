@@ -1,1 +1,2 @@
-node -debug='5002' server.js
+export NODE_ENV=development
+export NODE_PATH=/vagrant/server

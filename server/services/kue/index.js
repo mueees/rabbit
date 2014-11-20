@@ -12,15 +12,3 @@ for(var i = 0; i < 10; i++){
         }
     });
 }
-
-
-
-
-/*
-tasks.create('tasks', {
-    title: 'TASKS'
-}).save(function (err) {
-    if(!err){
-        console.log('tasks added');
-    }
-});*/
