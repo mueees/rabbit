@@ -2,7 +2,11 @@
     "queues": {
         "tasks": {
             "updateFeed": "updateFeed",
-            "prepareRowPost": "prepareRowPost"
+            "prepareRowPost": "prepareRowPost",
+            "savePost": "savePost"
         }
+    },
+    "kue": {
+        "port": 6003
     }
 }

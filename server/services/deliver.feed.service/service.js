@@ -28,6 +28,7 @@ Service.prototype.deliverFeeds = function () {
          * Find all feds
          * */
         function (cb) {
+            logger.debug('Finding all feeds');
             FeedModel.find({}, {
                 _id: true,
                 url: true

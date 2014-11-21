@@ -1,2 +1,8 @@
 export NODE_ENV=development
 export NODE_PATH=/vagrant/server
+
+cd /vagrant/server/services/kue.ui
+pm2 start index.js --name kueui
+
+pm2 startup ubuntu
+pm2 save

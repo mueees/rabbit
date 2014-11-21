@@ -11,6 +11,11 @@ var worker = require('./updateFeedWorker'),
     logger = require('common/core/logs')(module),
     kue = require('kue');
 var tasks = kue.createQueue();
+
+//init connection to mongo database
 require('common/mongooseDb');
 
+/*
+* Proces all task
+* */
 tasks.process(config.get("queues:tasks:updateFeed"), configService.workerCount, worker);

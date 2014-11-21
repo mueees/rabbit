@@ -1,3 +1,7 @@
+/*
+* Add one feed for testing
+* */
+
 var logger = require('common/core/logs')(module);
 
 require('common/mongooseDb');
@@ -23,4 +27,3 @@ FeedModel.remove({}, function (err) {
     });
 
 });
-

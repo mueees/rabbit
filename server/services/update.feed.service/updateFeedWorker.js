@@ -9,8 +9,12 @@ var request = require('request'),
 
 function worker(feed, done){
     var data = feed.data;
-    if( !data ) throw new Error('Cannot find feed _id or url.');
+    if( !data ) {
+        logger.error('Cannot find feed information');
+        return done();
+    }
 
+    logger.info('Start work');
     Q.all([
         FeedModel.getPostsFromUrl(data.url, data._id),
         FeedModel.getLastPost(data._id)

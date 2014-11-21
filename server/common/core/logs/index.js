@@ -4,12 +4,18 @@ var ENV = process.env.NODE_ENV;
 
 function getLogger( module ){
     var pathModule = module.filename.split("/").slice(-2).join('/');
+    var level = ENV == "development" ? "debug" : "error";
 
     return new winston.Logger({
         transports: [
             new winston.transports.Console({
                 colorize: true,
-                level:  ENV == "development" ? "debug" : "error",
+                level:  level,
+                label: pathModule
+            }),
+            new winston.transports.File({
+                filename: '../../logs/logs.log',
+                level: "error",
                 label: pathModule
             })
         ]
