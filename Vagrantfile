@@ -12,6 +12,8 @@ Vagrant::Config.run do |config|
   # config.vm.network :bridged
 
   # Port forwarding
+
+  #api service
   config.vm.forward_port 6001, 6001
   config.vm.forward_port 6002, 6002
 

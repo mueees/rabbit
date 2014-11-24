@@ -8,5 +8,13 @@
     },
     "kue": {
         "port": 6003
+    },
+    "services": {
+        "api": {
+            "port": 6001
+        },
+        "auth": {
+            "port": 6004
+        }
     }
 }

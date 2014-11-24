@@ -1,8 +1,15 @@
 {
     "dependencies": {
-        "express": "*",
-        "q": "latest",
-        "kue": "latest",
+        "express": "4.10.3",
+        "passport": "0.2.1",
+        "passport-local": "1.0.0",
+        "passport-http-bearer": "1.0.1",
+        "crypto-js": "latest",
+        "validator": "latest",
+        "body-parser": "latest",
+
+        "q": "1.1.2",
+        "kue": "0.8.9",
         "nconf": "0.6.9",
         "winston": "0.8.3",
         "feedparser": "0.19.2",
@@ -10,6 +17,7 @@
         "async": "0.9.0",
         "cron": "1.0.5",
         "mongoose": "3.8.19",
-        "node-inspector": "latest"
+        "node-inspector": "0.7.4",
+        "dnode": "1.2.0"
     }
 }
