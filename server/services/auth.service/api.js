@@ -2,11 +2,19 @@ var validator = require('validator'),
     async = require('async'),
     logger = require('common/core/logs')(module),
     UserModel = require('common/resource/user.model'),
+    Controller = require('common/core/controller/base'),
+    util = require('util'),
     ServiceError = require('common/core/errors/service.error').ServiceError;
-var api = {
+
+function Api() {
+    Api.super_.call(this);
+}
+util.inherits(Api, Controller);
+
+Api.prototype = {
     /*
-    * Register user
-    * */
+     * Register user
+     * */
     signup: function (email, password, cb) {
         if( !validator.isEmail(email) ) {
             logger.error('signup: invalid email', {email: email});
@@ -34,7 +42,7 @@ var api = {
             }
         ], function(err, user){
             if( err ){
-                return cb(new ServiceError(400, "Cannot register user"));
+                return cb(new ServiceError(400, err));
             }
 
             cb(null, user);
@@ -42,10 +50,10 @@ var api = {
     },
 
     /*
-    * Confirm email user, using token
-    * */
+     * Confirm email user, using token
+     * */
     confirmUser: function (token) {
-        
+
     },
 
     /*
@@ -56,17 +64,19 @@ var api = {
     },
 
     /*
-    * Logout user, delete his token
-    * */
+     * Logout user, delete his token
+     * */
     logout: function () {
 
     },
 
     /*
-    * Get user information by token
-    * */
+     * Get user information by token
+     * */
     getUserByToken: function (token) {
 
     }
-};
-module.exports = api;
+}
+
+
+module.exports = Api;

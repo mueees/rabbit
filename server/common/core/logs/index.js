@@ -14,7 +14,7 @@ function getLogger( module ){
                 label: pathModule
             }),
             new winston.transports.File({
-                filename: '../../logs/log',
+                filename: __dirname + '/logRequest.log',
                 level: 'error',
                 label: pathModule
             })

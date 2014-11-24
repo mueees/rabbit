@@ -18,6 +18,9 @@
         "cron": "1.0.5",
         "mongoose": "3.8.19",
         "node-inspector": "0.7.4",
-        "dnode": "1.2.0"
+        "dnode": "1.2.0",
+
+        "chai": "latest",
+        "mocha": "latest"
     }
 }
