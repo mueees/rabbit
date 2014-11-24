@@ -7,7 +7,6 @@ var request = require('request'),
     tasks = kue.createQueue(),
     FeedParser = require('feedparser');
 
-
 function Worker(task, done){
     this.task = task;
     this.rowPost = task.data;
@@ -28,7 +27,7 @@ Worker.prototype = {
     },
     
     makeTask: function () {
-        this.task = tasks.create(config.get("queues:tasks:savePost"), this.rowPost);
+        this.task = tasks.create(config.get("queues:tasks:savePost"), this.rowPost).removeOnComplete(true);
     },
     saveTask: function () {
         var def = Q.defer();

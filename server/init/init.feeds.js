@@ -17,12 +17,19 @@ FeedModel.remove({}, function (err) {
     /*
      * Add some feed to DB
      * */
-    var feed = new FeedModel({
-        name: "Samiy sok",
-        url: 'http://ibigdan.livejournal.com/data/rss'
-    });
+    var feed = new FeedModel();
+    var feeds = [
+        {
+            url : "http://feeds.huffingtonpost.com/huffingtonpost/LatestNews",
+            name: "failed"
+        },
+        {
+            url : "http://dou.ua/forums/feed/",
+            name: "right"
+        }
+    ];
 
-    feed.save(function (err) {
+    FeedModel.create(feeds, function (err) {
         if(!err) logger.info('init.feed complete');
     });
 

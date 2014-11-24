@@ -100,20 +100,35 @@ var feedSchema = new Schema({
     }
 });
 
-feedSchema.statics.getPostsFromUrl = function(url, feedId){
+feedSchema.statics.getPostsFromUrl = function(options){
     var posts = [];
     var def = Q.defer();
 
     logger.debug('Fetching posts by url');
-    request( url )
+    request( {
+        url: options.url,
+        timeout: options.timeout || 20000
+    } )
         .on('error', function (error) {
-            logger.error(error);
-            def.reject(error);
+            var err = {
+                message: "Cannot make request",
+                data: {
+                    url: options.url
+                }
+            };
+            logger.error(err.message, err.data);
+            def.reject(err);
         })
         .pipe(new FeedParser())
         .on('error', function (error) {
-            logger.error(error);
-            def.reject(error);
+            var err = {
+                message: "Not a feed",
+                data: {
+                    url: options.url
+                }
+            };
+            logger.error(err.message, err.data);
+            def.reject(err);
         })
         .on('readable', function() {
             var post;
@@ -127,7 +142,7 @@ feedSchema.statics.getPostsFromUrl = function(url, feedId){
                     guid: post.guid || "",
                     image: post.image || "",
                     source: post.source || "",
-                    feedId: feedId
+                    feedId: options.feedId
                 });
             }
         })

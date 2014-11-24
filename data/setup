@@ -1,8 +1,10 @@
-sudo rabbitmq-plugins enable rabbitmq_management
-
-sudo rabbitmqctl add_user mue mue
-sudo rabbitmqctl set_user_tags mue administrator
-sudo rabbitmqctl set_permissions -p / mue ".*" ".*" ".*"
-sudo service rabbitmq-server restart
-
-// access by adres http://localhost:15672/
+services:
+1. сервис, который будет  проходиться и обновлять информацию про фиды
+    - иконку
+    - название
+    - автора
+2. севрси апи, основная задача которого
+    - авторизиация
+    - API для клиентов, для отображения постов
+3. сервис бекапа, который будет архивировать базу данных
+4.

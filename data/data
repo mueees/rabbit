@@ -4,5 +4,31 @@ export NODE_PATH=/vagrant/server
 cd /vagrant/server/services/kue.ui
 pm2 start index.js --name kueui
 
-pm2 startup ubuntu
-pm2 save
+cd /vagrant/server/services/deliver.feed.service
+pm2 start index.js --name deliver.feed.service
+
+cd /vagrant/server/services/update.feed.service
+pm2 start index.js --name update.feed.service
+
+cd /vagrant/server/services/prepare.post.service
+pm2 start index.js --name prepare.post.service
+
+cd /vagrant/server/services/save.post.service
+pm2 start index.js --name save.post.service
+
+pm2 monit
+
+//init feeds from last rss
+export NODE_ENV=development
+export NODE_PATH=/vagrant/server
+cd /vagrant/server/init/live
+node init.feeds.live.js
+
+
+cd /vagrant/server
+export NODE_SITE=development
+export NODE_PATH=/vagrant/server
+node-inspector
+
+cd /vagrant/server/services/update.feed.service
+node --debug-brk index.js

@@ -1,3 +1,4 @@
 module.exports = {
-    workerCount: 1
+    workerCount: 30,
+    executeTime: 12* 1000 //seconds
 };

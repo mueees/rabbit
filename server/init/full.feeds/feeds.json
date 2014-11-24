@@ -1,0 +1,702 @@
+[
+	{
+		"name" : "habrahabr: css",
+		"url" : "http://habrahabr.ru/rss/blogs/css/"
+	},
+	{
+		"name" : "dailyjs",
+		"url" : "http://feeds.feedburner.com/dailyjs"
+	},
+	{
+		"name" : "500px",
+		"url" : "http://feed.500px.com/500px-editors"
+	},
+	{
+		"name" : "smittenkitchen",
+		"url" : "http://feeds.feedburner.com/smittenkitchen"
+	},
+	{
+		"name" : "simplyrecipes",
+		"url" : "http://feeds.feedburner.com/elise/simplyrecipes"
+	},
+	{
+		"name" : "latartinegourmande",
+		"url" : "http://www.latartinegourmande.com/feed/"
+	},
+	{
+		"name" : "joythebaker",
+		"url" : "http://www.joythebaker.com/blog/feed/"
+	},
+	{
+		"name" : "CssTricks",
+		"url" : "http://feeds.feedburner.com/CssTricks"
+	},
+	{
+		"name" : "html5doctor",
+		"url" : "http://feeds2.feedburner.com/html5doctor"
+	},
+	{
+		"name" : "designspongeonline",
+		"url" : "http://www.designspongeonline.com/feed"
+	},
+	{
+		"name" : "failblog",
+		"url" : "http://feeds.feedburner.com/failblog"
+	},
+	{
+		"name" : "I Can Has Cheezburger",
+		"url" : "http://feeds.feedburner.com/ICanHasCheezburger"
+	},
+	{
+		"name" : "vimeo: 1nspirational",
+		"url" : "http://vimeo.com/channels/1nspirational/videos/rss"
+	},
+	{
+		"name" : "DD",
+		"url" : "http://demenyaka.livejournal.com/data/rss"
+	},
+	{
+		"name" : "DD5",
+		"url" : "http://demenyaka.livejournal.com/data/rss"
+	},
+	{
+		"name" : "nationalgeographic",
+		"url" : "http://www.nationalgeographic.com/rss/photography/photo-of-the-day"
+	},
+	{
+		"name" : "bigpicture",
+		"url" : "http://www.boston.com/bigpicture/index.xml"
+	},
+	{
+		"name" : "stuckincustoms",
+		"url" : "http://feeds.feedburner.com/stuckincustoms/EmRA"
+	},
+	{
+		"name" : "OneBigPhoto",
+		"url" : "http://feeds.feedburner.com/OneBigPhoto"
+	},
+	{
+		"name" : "Light-Stalking",
+		"url" : "http://feeds.feedburner.com/Light-Stalking"
+	},
+	{
+		"name" : "beckerstefan",
+		"url" : "http://beckerstefan.com/feed/"
+	},
+	{
+		"name" : "DigitalPhotographySchool",
+		"url" : "http://feeds.feedburner.com/DigitalPhotographySchool"
+	},
+	{
+		"name" : "strobist",
+		"url" : "http://strobist.blogspot.com/feeds/posts/default"
+	},
+	{
+		"name" : "diyphotography",
+		"url" : "http://www.diyphotography.net/node/feed"
+	},
+	{
+		"name" : "charlotte",
+		"url" : "http://feeds.feedburner.com/handmadecharlotte"
+	},
+	{
+		"name" : "vechernie-posidelki",
+		"url" : "http://vechernie-posidelki.blogspot.com/feeds/posts/default"
+	},
+	{
+		"name" : "ohmyhandmade",
+		"url" : "http://www.ohmyhandmade.com/feed/"
+	},
+	{
+		"name" : "master-klass",
+		"url" : "http://master-klass.livejournal.com/data/rss"
+	},
+	{
+		"name" : "trendario",
+		"url" : "http://trendario.blogspot.com/feeds/posts/default"
+	},
+	{
+		"name" : "cnn_topstories",
+		"url" : "http://rss.cnn.com/rss/cnn_topstories.rss"
+	},
+	{
+		"name" : "reuters",
+		"url" : "http://feeds.reuters.com/reuters/topNews?irpc=69"
+	},
+	{
+		"name" : "nytimes",
+		"url" : "http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+	},
+	{
+		"name" : "rus:dengi",
+		"url" : "http://dengi.ua/rss/index.xml"
+	},
+	{
+		"name" : "relax",
+		"url" : "http://relax.com.ua/feed/"
+	},
+	{
+		"name" : "zametkin.kiev",
+		"url" : "http://zametkin.kiev.ua/feed/"
+	},
+	{
+		"name" : "lifekiev",
+		"url" : "http://feeds.feedburner.com/lifekiev"
+	},
+	{
+		"name" : "EnglishAsASecondLanguagePodcast",
+		"url" : "http://feeds.feedburner.com/EnglishAsASecondLanguagePodcast"
+	},
+	{
+		"name" : "podcasts",
+		"url" : "http://downloads.bbc.co.uk/podcasts/worldservice/how2/rss.xml"
+	},
+	{
+		"name" : "englishbaby",
+		"url" : "http://www.englishbaby.com/lessons/rss"
+	},
+	{
+		"name" : "BetterAtEnglish",
+		"url" : "http://feeds.feedburner.com/BetterAtEnglish"
+	},
+	{
+		"name" : "tech.pro",
+		"url" : "http://tech.pro/rss/Tutorials?q=&algo=New"
+	},
+	{
+		"name" : "photoshtab",
+		"url" : "http://photoshtab.ru/feed/"
+	},
+	{
+		"name" : "korrespondent:last-news",
+		"url" : "http://k.img.com.ua/rss/ru/news.xml"
+	},
+	{
+		"name" : "Zerkalo nedeli",
+		"url" : "http://gazeta.zn.ua/rss"
+	},
+	{
+		"name" : "teropa",
+		"url" : "http://teropa.info/blog/feed.xml"
+	},
+	{
+		"name" : "jobs.dou.ua",
+		"url" : "http://jobs.dou.ua/vacancies/feeds/"
+	},
+	{
+		"name" : "rabota.ua",
+		"url" : "http://rabota.ua/Export/Vacancy/feed.ashx"
+	},
+	{
+		"name" : "hh.ua",
+		"url" : "http://hh.ua/rss/searchvacancy.xml?itemsOnPage=20&areaId=5&professionalAreaId=0&keyword1=&keyword2=&allFields=true&desireableCompensation=0&compensationCurrencyId=3&searchPeriod=3&orderBy=2&isFromAgency=10&isWithoutSalary=10&includeArchived=0&includeClosed=0&actionSearch=actionSearch&showRss=1"
+	},
+	{
+		"name" : "monocle",
+		"url" : "http://monocle.io/feed"
+	},
+	{
+		"name" : "Самый сок",
+		"url" : "http://ibigdan.livejournal.com/data/rss"
+	},
+	{
+		"name" : "dou интересное",
+		"url" : "http://dou.ua/lenta/feed/"
+	},
+	{
+		"name" : "dou calendar",
+		"url" : "http://dou.ua/calendar/feed/"
+	},
+	{
+		"name" : "zyalt",
+		"url" : "http://zyalt.livejournal.com/data/rss"
+	},
+	{
+		"name" : "drugoi",
+		"url" : "http://drugoi.livejournal.com/data/rss"
+	},
+	{
+		"name" : "tema",
+		"url" : "http://tema.livejournal.com/data/rss"
+	},
+	{
+		"name" : "eprst2000",
+		"url" : "http://eprst2000.livejournal.com/data/rss"
+	},
+	{
+		"name" : "chistoprudov",
+		"url" : "http://chistoprudov.livejournal.com/data/rss"
+	},
+	{
+		"name" : "foto-history",
+		"url" : "http://foto-history.livejournal.com/data/rss"
+	},
+	{
+		"name" : "chatska",
+		"url" : "http://bestblogs-ru.livejournal.com/data/rss"
+	},
+	{
+		"name" : "beauty-is-love",
+		"url" : "http://beauty-is-love.livejournal.com/data/rss"
+	},
+	{
+		"name" : "clear-text",
+		"url" : "http://clear-text.livejournal.com/data/rss"
+	},
+	{
+		"name" : "http://vsegda-tvoj.livejournal.com/data/rss",
+		"url" : "http://vsegda-tvoj.livejournal.com/data/rss"
+	},
+	{
+		"name" : "vasya-lozhkin",
+		"url" : "http://vasya-lozhkin.livejournal.com/data/rss"
+	},
+	{
+		"name" : "vneklsnoe chtenie",
+		"url" : "http://kulish.classs.ru/?feed=rss2"
+	},
+	{
+		"name" : "Art center",
+		"url" : "http://theartcenter.blogspot.com/feeds/posts/default"
+	},
+	{
+		"name" : "habrahabr:best",
+		"url" : "http://habrahabr.ru/rss/best/"
+	},
+	{
+		"name" : "toster",
+		"url" : "http://toster.ru/rss/questions_latest"
+	},
+	{
+		"name" : "freelansim",
+		"url" : "http://freelansim.ru/rss/tasks"
+	},
+	{
+		"name" : "odesk:Web Development",
+		"url" : "http://www.odesk.com/jobs/rss?q=&q_td=&c1=Web+Development"
+	},
+	{
+		"name" : "odesk:Web Programming",
+		"url" : "https://www.odesk.com/jobs/rss?from=find-work&c1=Web+Development&c2%5B0%5D=Web+Programming"
+	},
+	{
+		"name" : "adme",
+		"url" : "http://www.adme.ru/rss/"
+	},
+	{
+		"name" : "lenta.ru",
+		"url" : "http://lenta.ru/rss/"
+	},
+	{
+		"name" : "minski-gaon",
+		"url" : "http://minski-gaon.livejournal.com/data/rss"
+	},
+	{
+		"name" : "vile-gnus",
+		"url" : "http://vile-gnus.livejournal.com/data/rss"
+	},
+	{
+		"name" : "teh-nomad",
+		"url" : "http://teh-nomad.livejournal.com/data/rss"
+	},
+	{
+		"name" : "sergeydolya",
+		"url" : "http://sergeydolya.livejournal.com/data/rss"
+	},
+	{
+		"name" : "pora-valit",
+		"url" : "http://pora-valit.livejournal.com/data/rss"
+	},
+	{
+		"name" : "fritzmorgen",
+		"url" : "http://fritzmorgen.livejournal.com/data/rss"
+	},
+	{
+		"name" : "yahoo",
+		"url" : "http://rss.news.yahoo.com/rss/topstories"
+	},
+	{
+		"name" : "bbc",
+		"url" : "http://newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml"
+	},
+	{
+		"name" : "news.google.com",
+		"url" : "http://news.google.com/?topic=h&num=3&output=rss"
+	},
+	{
+		"name" : "timesofindia",
+		"url" : "http://timesofindia.indiatimes.com/rssfeedsdefault.cms"
+	},
+	{
+		"name" : "washingtonpost",
+		"url" : "http://www.washingtonpost.com/rss/homepage"
+	},
+	{
+		"name" : "reddit:front",
+		"url" : "http://www.reddit.com/.rss"
+	},
+	{
+		"name" : "reddit:programming",
+		"url" : "http://programming.reddit.com/.rss"
+	},
+	{
+		"name" : "reddit:todayilearned",
+		"url" : "http://www.reddit.com/r/todayilearned/.rss"
+	},
+	{
+		"name" : "reddit:funny",
+		"url" : "http://www.reddit.com/r/funny/.rss"
+	},
+	{
+		"name" : "reddit:gifs",
+		"url" : "http://www.reddit.com/r/gifs/.rss"
+	},
+	{
+		"name" : "kp.by",
+		"url" : "http://www.kp.by/rss/yandex-by-all.xml"
+	},
+	{
+		"name" : "belaruspartisan",
+		"url" : "http://www.belaruspartisan.org/bp-forte/?page=1040"
+	},
+	{
+		"name" : "static.feed.rbc.ru",
+		"url" : "http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/news.rss"
+	},
+	{
+		"name" : "news.tut.by",
+		"url" : "http://news.tut.by/rss/index.rss"
+	},
+	{
+		"name" : "www.ctv.by",
+		"url" : "http://www.ctv.by/news.rss"
+	},
+	{
+		"name" : "timkadlec",
+		"url" : "http://timkadlec.com/atom.xml"
+	},
+	{
+		"name" : "thenextweb",
+		"url" : "http://feeds2.feedburner.com/thenextweb"
+	},
+	{
+		"name" : "webdesignledger",
+		"url" : "http://webdesignledger.com/feed"
+	},
+	{
+		"name" : "blogs.adobe.com",
+		"url" : "http://blogs.adobe.com/index.xml"
+	},
+	{
+		"name" : "webdesignerdepot",
+		"url" : "http://feeds2.feedburner.com/webdesignerdepot"
+	},
+	{
+		"name" : "Line25",
+		"url" : "http://feeds2.feedburner.com/Line25"
+	},
+	{
+		"name" : "John Resig",
+		"url" : "http://feeds.feedburner.com/JohnResig"
+	},
+	{
+		"name" : "Dean Edwards",
+		"url" : "http://feeds.feedburner.com/deanedwards/weblog"
+	},
+	{
+		"name" : "Nicholas C. Zakas",
+		"url" : "http://feeds.feedburner.com/nczonline"
+	},
+	{
+		"name" : "Dustin Diaz",
+		"url" : "http://feeds.feedburner.com/WSwI"
+	},
+	{
+		"name" : "Brendan Eich",
+		"url" : "http://brendaneich.com/feed/"
+	},
+	{
+		"name" : "Thomas Fuchs",
+		"url" : "http://feeds.feedburner.com/miraculous"
+	},
+	{
+		"name" : "Paul Irish",
+		"url" : "http://feeds.feedburner.com/paul-irish"
+	},
+	{
+		"name" : "Yehuda Katz",
+		"url" : "http://yehudakatz.com/feed"
+	},
+	{
+		"name" : "Juriy Zaytsev",
+		"url" : "http://perfectionkills.com/feed.xml"
+	},
+	{
+		"name" : "Stoyan Stefanov",
+		"url" : "http://www.phpied.com/feed/"
+	},
+	{
+		"name" : "Addy Osmani",
+		"url" : "http://feeds.feedburner.com/addyosmani"
+	},
+	{
+		"name" : "james-iry",
+		"url" : "http://james-iry.blogspot.com/feeds/posts/default"
+	},
+	{
+		"name" : "Roy T. Fielding",
+		"url" : "http://roy.gbiv.com/untangled/feed"
+	},
+	{
+		"name" : "ashe dryden",
+		"url" : "http://ashedryden.com/blog/feed"
+	},
+	{
+		"name" : "jcoglan",
+		"url" : "http://blog.jcoglan.com/feed/"
+	},
+	{
+		"name" : "sencha blog",
+		"url" : "http://feeds.feedburner.com/extblog"
+	},
+	{
+		"name" : "smus com",
+		"url" : "http://feeds.feedburner.com/smuscom"
+	},
+	{
+		"name" : "Hacker News",
+		"url" : "https://news.ycombinator.com/rss"
+	},
+	{
+		"name" : "blog mozilla",
+		"url" : "http://blog.mozilla.com/feed/"
+	},
+	{
+		"name" : "aillarionov",
+		"url" : "http://aillarionov.livejournal.com/rss/data"
+	},
+	{
+		"name" : "bbc:russian",
+		"url" : "http://www.bbc.co.uk/russian/index.xml"
+	},
+	{
+		"name" : "lifenews",
+		"url" : "http://www.lifenews.ru/xml/mainrss.xml"
+	},
+	{
+		"name" : "rian",
+		"url" : "http://www.rian.ru/export/rss2/society/index.xml"
+	},
+	{
+		"name" : "rbc",
+		"url" : "http://www.rbc.ua/static/rss/topnews.rus.rss.xml"
+	},
+	{
+		"name" : "fyodorrrrr",
+		"url" : "http://fyodorrrrr.livejournal.com/data/rss"
+	},
+	{
+		"name" : "dou:forums",
+		"url" : "http://dou.ua/forums/feed/"
+	},
+	{
+		"name" : "brudno",
+		"url" : "http://brudno.com.ua/rss/index/"
+	},
+	{
+		"name" : "maxkatz",
+		"url" : "http://maxkatz.livejournal.com/data/rss"
+	},
+	{
+		"name" : "politota",
+		"url" : "http://www.reddit.com/r/politota/.rss"
+	},
+	{
+		"name" : "marv",
+		"url" : "http://marv.livejournal.com/data/rss"
+	},
+	{
+		"name" : "bell-mess",
+		"url" : "http://bell-mess.livejournal.com/data/rss"
+	},
+	{
+		"name" : "autokadabra",
+		"url" : "http://autokadabra.ru/rss/"
+	},
+	{
+		"name" : "ru-chp",
+		"url" : "http://ru-chp.livejournal.com/data/rss"
+	},
+	{
+		"name" : "marina-ogor",
+		"url" : "http://marina-ogor.livejournal.com/data/rss"
+	},
+	{
+		"name" : "varfolomeev",
+		"url" : "http://varfolomeev.livejournal.com/data/rss"
+	},
+	{
+		"name" : "hnovckiy",
+		"url" : "http://hnovckiy.livejournal.com/data/rss"
+	},
+	{
+		"name" : "Blognot",
+		"url" : "http://feeds.feedburner.com/Blognot"
+	},
+	{
+		"name" : "frontender",
+		"url" : "http://frontender.info/rss/"
+	},
+	{
+		"name" : "web-standards",
+		"url" : "http://web-standards.ru/feed/"
+	},
+	{
+		"name" : "iconicphotos",
+		"url" : "http://iconicphotos.ru/feed/atom/"
+	},
+	{
+		"name" : "Techcrunch",
+		"url" : "http://feeds.feedburner.com/Techcrunch"
+	},
+	{
+		"name" : "kungurov",
+		"url" : "http://kungurov.livejournal.com/data/rss"
+	},
+	{
+		"name" : "arstechnica",
+		"url" : "http://feeds.arstechnica.com/arstechnica/index/"
+	},
+	{
+		"name" : "!davidsulc",
+		"url" : "http://davidsulc.com/blog/feed/"
+	},
+	{
+		"name" : "eviltrout",
+		"url" : "http://eviltrout.com/feed.xml"
+	},
+	{
+		"name" : "andrew-lucas",
+		"url" : "http://andrew-lucas.livejournal.com/data/rss"
+	},
+	{
+		"name" : "vitaly-sokol",
+		"url" : "http://vitaly-sokol.livejournal.com/data/rss"
+	},
+	{
+		"name" : "atn",
+		"url" : "http://atn.ua/rss.xml"
+	},
+	{
+		"name" : "http://parfenov-indman.livejournal.com/data/rss",
+		"url" : "http://parfenov-indman.livejournal.com/data/rss"
+	},
+	{
+		"name" : "http://photokiselev.livejournal.com/data/rss",
+		"url" : "http://photokiselev.livejournal.com/data/rss"
+	},
+	{
+		"name" : "puzzle-english",
+		"url" : "http://puzzle-english.com/feed"
+	},
+	{
+		"name" : "SitepointFeed",
+		"url" : "http://feeds.feedburner.com/SitepointFeed"
+	},
+	{
+		"name" : "youtube:MinooAngloLink",
+		"url" : "http://gdata.youtube.com/feeds/base/users/MinooAngloLink/uploads?client=ytapi-youtube-rss-redirect&orderby=updated&alt=rss&v=2"
+	},
+	{
+		"name" : "youtube:Learn English with Let's Talk - Free English Lessons",
+		"url" : "http://gdata.youtube.com/feeds/base/users/learnexmumbai/uploads?alt=rss&client=ytapi-youtube-rss-redirect&orderby=updated&v=2"
+	},
+	{
+		"name" : "youtube: Speak English with Steve Ford",
+		"url" : "http://gdata.youtube.com/feeds/base/users/PrivateEnglishPortal/uploads?alt=rss&client=ytapi-youtube-rss-redirect&orderby=updated&v=2"
+	},
+	{
+		"name" : "youtube: JamesESL",
+		"url" : "http://gdata.youtube.com/feeds/base/users/JamesESL/uploads?client=ytapi-youtube-rss-redirect&orderby=updated&alt=rss&v=2"
+	},
+	{
+		"name" : "youtube: JamesESL",
+		"url" : "http://gdata.youtube.com/feeds/base/users/EnglishLessons4U/uploads?v=2&orderby=updated&alt=rss&client=ytapi-youtube-rss-redirect"
+	},
+	{
+		"name" : "youtube: AlexESLvid",
+		"url" : "http://gdata.youtube.com/feeds/base/users/AlexESLvid/uploads?alt=rss&client=ytapi-youtube-rss-redirect&v=2&orderby=updated"
+	},
+	{
+		"name" : "futureshorts",
+		"url" : "http://gdata.youtube.com/feeds/base/users/futureshorts/uploads?orderby=updated&v=2&client=ytapi-youtube-rss-redirect&alt=rss"
+	},
+	{
+		"name" : "ted",
+		"url" : "http://gdata.youtube.com/feeds/base/users/TEDtalksDirector/uploads?client=ytapi-youtube-rss-redirect&v=2&alt=rss&orderby=updated"
+	},
+	{
+		"name" : "leo-sosnine",
+		"url" : "http://leo-sosnine.livejournal.com/data/rss"
+	},
+	{
+		"name" : "moscou-actu",
+		"url" : "http://moscou-actu.livejournal.com/data/rss"
+	},
+	{
+		"name" : "pfcat42",
+		"url" : "http://pfcat42.livejournal.com/data/rss"
+	},
+	{
+		"name" : "wow-butt",
+		"url" : "http://wow-butt.livejournal.com/data/rss"
+	},
+	{
+		"name" : "real-nu-model",
+		"url" : "http://real-nu-model.livejournal.com/data/rss"
+	},
+	{
+		"name" : "beauty-i-like",
+		"url" : "http://beauty-i-like.livejournal.com/data/rss"
+	},
+	{
+		"name" : "mi3ch",
+		"url" : "http://mi3ch.livejournal.com/data/rss"
+	},
+	{
+		"name" : "redit:ukraina",
+		"url" : "http://www.reddit.com/r/ukraina/.rss"
+	},
+	{
+		"name" : "it:radio-t",
+		"url" : "http://feeds.rucast.net/radio-t"
+	},
+	{
+		"name" : "it:it_thoughts",
+		"url" : "http://feeds.feedburner.com/it_thoughts"
+	},
+	{
+		"name" : "it:The Art Of Programming",
+		"url" : "http://taop.rpod.ru/rss.xml"
+	},
+	{
+		"name" : "it:javascriptweekly",
+		"url" : "http://javascriptweekly.com/rss"
+	},
+	{
+		"name" : "tjournal",
+		"url" : "http://tjournal.ru/rss"
+	},
+	{
+		"name" : "popmech",
+		"url" : "http://www.popmech.ru/rss/"
+	},
+	{
+		"name" : "the-village",
+		"url" : "http://www.the-village.ru/village/recent.atom"
+	},
+	{
+		"name" : "tom-preston-werner",
+		"url" : "http://feeds.feedburner.com/tom-preston-werner"
+	}
+]

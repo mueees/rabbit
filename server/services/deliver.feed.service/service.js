@@ -53,7 +53,7 @@ Service.prototype.deliverFeeds = function () {
                     tasks.create( config.get("queues:tasks:updateFeed"), {
                         _id: feed._id,
                         url: feed.url
-                    }).save(function (err) {
+                    }).removeOnComplete(true).save(function (err) {
                         if(err) {
                             logger.error(err);
                             return cbParallel(err);
