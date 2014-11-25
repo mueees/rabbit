@@ -14,7 +14,6 @@ app.use(bodyParser.json({type: 'application/x-www-form-urlencoded'}));
 require("common/mongooseDb");
 
 //add modules
-require("./modules/dnode/index");
 
 //add middlewares
 app.use(require("./middleware/sendHttpError"));

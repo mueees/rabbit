@@ -2,6 +2,12 @@ export NODE_ENV=development
 export NODE_PATH=/vagrant/server
 cd /vagrant/server/services
 
+cd /vagrant/server/services/api.service
+pm2 start index.js --name api.service
+
+cd /vagrant/server/services/auth.service
+pm2 start index.js --name auth.service
+
 cd /vagrant/server/services/kue.ui
 pm2 start index.js --name kueui
 
@@ -26,9 +32,9 @@ cd /vagrant/server/init/live
 node init.feeds.live.js
 
 //start test
-cd /vagrant/server/test
-export NODE_SITE=development
+export NODE_ENV=test
 export NODE_PATH=/vagrant/server
+cd /vagrant/server/test
 mocha -t 10000
 
 cd /vagrant/server

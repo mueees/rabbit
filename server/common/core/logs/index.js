@@ -2,6 +2,8 @@ var winston = require('winston');
 var path = require('path');
 var ENV = process.env.NODE_ENV;
 
+
+
 function getLogger( module ){
     var pathModule = module.filename.split("/").slice(-2).join('/');
     var level = (ENV == "development") ? "debug" : "error";
@@ -14,12 +16,11 @@ function getLogger( module ){
                 label: pathModule
             }),
             new winston.transports.File({
-                filename: __dirname + '/logRequest.log',
+                filename: path.join(__dirname, '/logRequest.log'),
                 level: 'error',
                 label: pathModule
             })
         ]
     });
 }
-
 module.exports = getLogger;

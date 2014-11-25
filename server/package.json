@@ -21,6 +21,7 @@
         "dnode": "1.2.0",
 
         "chai": "latest",
-        "mocha": "latest"
+        "mocha": "latest",
+        "underscore": "latest"
     }
 }
