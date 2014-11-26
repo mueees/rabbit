@@ -52,7 +52,6 @@ _.extend(Controller.prototype, {
         var password = req.query.password;
 
         if(!email || !password){
-
             def.resolve({message: "Wrong login or password"});
             return next(new HttpError(400, {
                 message: "Wrong login or password"

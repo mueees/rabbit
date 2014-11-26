@@ -9,29 +9,7 @@ var Schema = mongoose.Schema;
 
 var ObjectId = Schema.ObjectId;
 
-var userDataSchema = new Schema({
 
-    /*
-     * User id
-     * */
-    userId: ObjectId,
-
-    /*
-     * This is category id, for current user
-     * */
-    categoryId: ObjectId,
-
-    /*
-     * Count of unread posts for current user
-     * */
-    unreadPosts: Number,
-
-    /*
-     * Name feed for current user
-     * */
-    name: String
-
-});
 
 var feedSchema = new Schema({
 
@@ -89,14 +67,6 @@ var feedSchema = new Schema({
             type: [ObjectId],
             default: []
         }
-    },
-
-    /*
-     * All data, that related to user
-     * */
-    users: {
-        type: [userDataSchema],
-        default: []
     }
 });
 

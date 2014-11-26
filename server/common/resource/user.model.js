@@ -1,30 +1,13 @@
 var mongoose = require('mongoose'),
     crypto = require('crypto'),
     async = require('async'),
+    categorySchema = require('./category.schema'),
+    tokenSchema = require('./token.schema'),
     logger = require('common/core/logs')(module);
 
 var Schema = mongoose.Schema;
 
 var ObjectId = Schema.ObjectId;
-
-var tokenSchema = new Schema({
-    token: {
-        type: "String",
-        required: true
-    },
-    token_to_update: {
-        type: "String",
-        required: true
-    },
-    date_create: {
-        type: 'Date',
-        default: new Date()
-    },
-    date_expired: {
-        type: 'Date',
-        required: true
-    }
-});
 
 var userSchema = new Schema({
     email: {
@@ -64,6 +47,11 @@ var userSchema = new Schema({
         type: Number,
         default: 400,
         required: true
+    },
+
+    categories: {
+        type: [categorySchema],
+        default: []
     }
 });
 
@@ -186,6 +174,84 @@ userSchema.statics.registerNewUser = function(email, password, cb){
         }
         cb(null, user);
     });
+};
+
+userSchema.statics.addCategory = function (userId, name, cb) {
+    this.findById(userId, function (err, user) {
+        if(err){
+            logger.error(err);
+            return cb(err);
+        }
+        if(!user){
+            logger.error("Cannot find user, with userId " + userId);
+            return cb("Cannot find user, with userId " + userId);
+        }
+
+        var category = user.categories.create({
+            name: name
+        });
+        user.categories.push(category);
+
+        user.save(function (err, user) {
+            if(err){
+                logger.error(err);
+                return cb(err);
+            }
+
+            cb(null, user, category);
+        });
+    })
+};
+
+userSchema.statics.editCategory = function (userId, name, categoryId, cb) {
+    this.findById(userId, function (err, user) {
+        if(err){
+            logger.error(err);
+            return cb(err);
+        }
+        if(!user){
+            logger.error("Cannot find user, with userId " + userId);
+            return cb("Cannot find user, with userId " + userId);
+        }
+
+        var category = user.categories.id(categoryId);
+        if(!category){
+            return cb("Cannot find category with id: " + categoryId);
+        }
+        category.name = name;
+        user.save(function (err, user) {
+            if(err){
+                logger.error(err);
+                return cb(err);
+            }
+
+            cb(null, user, category);
+        });
+    })
+};
+
+userSchema.statics.removeCategory = function (userId, categoryId, cb) {
+    this.findById(userId, function (err, user) {
+        if(err){
+            logger.error(err);
+            return cb(err);
+        }
+        if(!user){
+            logger.error("Cannot find user, with userId " + userId);
+            return cb("Cannot find user, with userId " + userId);
+        }
+
+        user.categories.id(categoryId).remove();
+
+        user.save(function (err, user) {
+            if(err){
+                logger.error(err);
+                return cb(err);
+            }
+
+            cb(null);
+        });
+    })
 };
 
 userSchema.methods.confirm = function(cb){

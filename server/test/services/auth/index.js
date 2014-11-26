@@ -236,8 +236,8 @@ describe('Auth service', function () {
                         helpers.db.user.registerConfirmSignin({
                             email: email,
                             pass: pass
-                        }).then(function (token) {
-                            api.getUserByToken(token.token, function (err ,user) {
+                        }).then(function (data) {
+                            api.getUserByToken(data.token.token, function (err ,user) {
                                 userData = user;
                                 done();
                             });

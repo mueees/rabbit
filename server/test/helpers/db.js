@@ -4,6 +4,8 @@ var UserModel = require('common/resource/user.model'),
     async = require('async'),
     logger = require("common/core/logs")(module);
 
+
+
 var api = {
     db: {
         user: {
@@ -35,13 +37,13 @@ var api = {
                 var email = options.email || "test@signup.com";
                 var pass = options.pass || "12345678";
                 var confirmationId = null;
-                var user = null;
+                var userData = null;
                 async.waterfall([
                     //register user
                     function (cb) {
                         authApi.signup(email, pass, function (err, user) {
                             confirmationId = user.confirmationId;
-                            user = user;
+                            userData = user;
                             cb();
                         });
                     },
@@ -52,7 +54,7 @@ var api = {
                         });
                     }
                 ], function () {
-                    def.resolve(user);
+                    def.resolve(userData);
                 });
                 return def.promise;
             },
@@ -65,15 +67,50 @@ var api = {
                 api.db.user.registerAndConfirmUser({
                     email: email,
                     pass: pass
-                }).then(function () {
+                }).then(function (user) {
                     authApi.signin(email, pass, function (err, token) {
-                        def.resolve(token);
+                        def.resolve({
+                            user: user,
+                            token: token
+                        });
                     });
                 });
                 return def.promise;
             }
-        }
+        },
+        category: {
+            add: function (options) {
+                var def = Q.defer();
+                options = options || {};
+                options.categoryName = options.categoryName || "test";
+                if( !options.userId ){
+                    new Error("Cannot find required data");
+                }
+                UserModel.addCategory(options.userId, options.categoryName, function (err, user, category) {
 
+                    def.resolve({
+                        category: category,
+                        user: user
+                    });
+                });
+                return def.promise;
+            },
+            userAuthCreateCategory: function () {
+                var def = Q.defer();
+                api.db.user.registerConfirmSignin()
+                    .then(function (data) {
+                        api.db.category.add({
+                            userId: data.user._id
+                        }).then(function (data) {
+                            def.resolve({
+                                category: data.category,
+                                user: data.user
+                            })
+                        })
+                    });
+                return def.promise;
+            }
+        }
     }
 };
 
