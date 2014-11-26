@@ -33,7 +33,7 @@ describe('Auth service', function () {
             var pass = '12345678';
 
             beforeEach(function (done) {
-                helpers.db.clearUsers().then(function () {
+                helpers.db.user.clearUsers().then(function () {
                     api.signup(email, pass, function (err, user) {
                         errData = err;
                         userData = user;
@@ -88,7 +88,7 @@ describe('Auth service', function () {
             var errData = null;
 
             before(function (done) {
-                helpers.db.clearUsers().then(function () {
+                helpers.db.user.clearUsers().then(function () {
 
                     async.waterfall([
                         //register user
@@ -121,7 +121,7 @@ describe('Auth service', function () {
             });
 
             after(function (done) {
-                helpers.db.clearUsers().then(function () {
+                helpers.db.user.clearUsers().then(function () {
                     done();
                 })
             });
@@ -157,8 +157,8 @@ describe('Auth service', function () {
                     var email = "test@signup.com";
                     var pass = "12345678";
 
-                    helpers.db.clearUsers().then(function () {
-                        helpers.db.registerAndConfirmUser({
+                    helpers.db.user.clearUsers().then(function () {
+                        helpers.db.user.registerAndConfirmUser({
                             email: email,
                             pass: pass
                         }).then(function (user) {
@@ -196,8 +196,8 @@ describe('Auth service', function () {
                     var email = "test@signup.com";
                     var pass = "12345678";
 
-                    helpers.db.clearUsers().then(function () {
-                        helpers.db.registerAndConfirmUser({
+                    helpers.db.user.clearUsers().then(function () {
+                        helpers.db.user.registerAndConfirmUser({
                             email: email,
                             pass: 23323
                         }).then(function (user) {
@@ -232,8 +232,8 @@ describe('Auth service', function () {
                 var userData = null;
 
                 before(function (done) {
-                    helpers.db.clearUsers().then(function () {
-                        helpers.db.registerConfirmSignin({
+                    helpers.db.user.clearUsers().then(function () {
+                        helpers.db.user.registerConfirmSignin({
                             email: email,
                             pass: pass
                         }).then(function (token) {
@@ -262,8 +262,8 @@ describe('Auth service', function () {
                 var errData = null;
 
                 before(function (done) {
-                    helpers.db.clearUsers().then(function () {
-                        helpers.db.registerConfirmSignin({
+                    helpers.db.user.clearUsers().then(function () {
+                        helpers.db.user.registerConfirmSignin({
                             email: email,
                             pass: pass
                         }).then(function (token) {

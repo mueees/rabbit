@@ -3,6 +3,4 @@ var dnode = require('dnode'),
     api = require('./api'),
     config = require('config');
 
-var server = dnode(api);
-server.listen(config.get('services:auth:port'));
-logger.info("Service listen " + config.get('services:auth:port') + " port");
+var server = require('common/core/service/server')(config.get('services:auth:port'), api);

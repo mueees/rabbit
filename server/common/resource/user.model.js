@@ -141,12 +141,12 @@ userSchema.statics.isRightCredential = function (email, password, cb) {
         },
         function (user, cb) {
             if(!user){
-                return cb("Cannot find user");
+                return cb("Wrong login or password");
             }
             if(User.comparePassword(password, user.password, user.email)){
                 cb(null, user);
             }else{
-                cb("Wrong password");
+                cb("Wrong login or password");
             }
         }
     ], function (err, user) {

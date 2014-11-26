@@ -2,4 +2,5 @@
 require('../common/mongooseDb/index');
 
 /* test for api service */
-require('./services/auth/index');
+require('./services/auth');
+require('./services/api');

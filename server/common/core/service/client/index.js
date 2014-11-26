@@ -1,4 +1,5 @@
 var dnode = require('dnode'),
+    ServiceError = require('common/core/errors/service.error').ServiceError;
     logger = require('common/core/logs')(module);
 
 function Service(port){
@@ -50,18 +51,21 @@ Service.prototype = {
     },
 
     execute: function (methodName, options) {
-        var args = [].splice.call(arguments,0);
+        var args = [].splice.call(arguments,0),
+            cb;
         args.splice(0, 1);
 
         if(!this.remote){
-            var cb = args.pop();
-            logger.error("Doesn't have access to remote service");
-            return cb({
-                status: 500,
-                message: "Doesn't have access to remote service"
-            });
+            cb = args.pop();
+            logger.error("Doesn't have connection to remote service");
+            return cb(new ServiceError(500, "Doesn't have connection to remote service"));
         }else{
-            this.remote[methodName].apply(this, args);
+            if( !this.remote[methodName] ){
+                cb = args.pop();
+                return cb(new ServiceError(500, "Doesn't have "+ methodName + " method"));
+            }else{
+                this.remote[methodName].apply(this, args);
+            }
         }
     }
 };

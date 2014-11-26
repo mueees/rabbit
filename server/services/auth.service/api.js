@@ -15,7 +15,9 @@ var api = {
     signup: function (email, password, cb) {
         if( !validator.isEmail(email) ) {
             logger.error('signup: invalid email', {email: email});
-            cb(new ServiceError(400, "Invalid Email"));
+            cb({
+                message: "Invalid Email"
+            });
             return false;
         }
 

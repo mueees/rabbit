@@ -22,6 +22,7 @@
 
         "chai": "latest",
         "mocha": "latest",
+        "sinon": "latest",
         "underscore": "latest"
     }
 }

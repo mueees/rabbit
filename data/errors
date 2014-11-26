@@ -1,0 +1,10 @@
+Error request
+
+Status: 400, 401
+{
+    message: "Server error",
+    reason: "Cannot check auth parameters",
+    data: {
+
+    }
+}

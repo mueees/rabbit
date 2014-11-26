@@ -9,7 +9,6 @@ module.exports = function(req, res, next){
         logger.error('No token');
         return next(new HttpError(401, "You are not login"));
     }
-
     authService.execute('getUserByToken', token, function (err, user) {
             if(err){
                 logger.error(err.message);
@@ -23,6 +22,4 @@ module.exports = function(req, res, next){
             next();
         }
     );
-
-
 };
