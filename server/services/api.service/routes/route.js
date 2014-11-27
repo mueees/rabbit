@@ -6,6 +6,7 @@ var prefix = '/api/v' + serviceConfig.get('version');
 var userController = require('../controllers/user');
 var categoryController = require('../controllers/rss/category');
 var feedController = require('../controllers/rss/feed');
+var postController = require('../controllers/rss/post');
 
 module.exports = function (app) {
 
@@ -65,16 +66,16 @@ module.exports = function (app) {
     //post
 
     /*Mark post as readed*/
-    //app.post(prefix + '/rss/post/mark/read', rssController.post.read);
+    app.post(prefix + '/rss/post/mark/read', checkAuth, postController.read);
 
     /*Mark post as unreaded*/
-    //app.post(prefix + '/rss/post/mark/unread', rssController.post.unread);
+    app.post(prefix + '/rss/post/mark/unread', postController.unread);
 
     /*Mark for reading later*/
-    //app.post(prefix + '/rss/post/readlater/check', rssController.post.check);
+    app.post(prefix + '/rss/post/readlater/check', postController.check);
 
     /*Uncheck reading later state*/
-    //app.post(prefix + '/rss/post/readlater/uncheck', rssController.post.uncheck);
+    app.post(prefix + '/rss/post/readlater/uncheck', postController.uncheck);
 
     /*Get posts by feed url */
     //app.post(prefix + '/rss/post/byurl', rssController.post.byurl);

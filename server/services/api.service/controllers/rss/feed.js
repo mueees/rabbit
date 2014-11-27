@@ -5,7 +5,6 @@ var _ = require('underscore'),
     UserModel = require('common/resource/user.model'),
     FeedModel = require('common/resource/feed.model'),
     async = require('async'),
-    //Controller = require('common/core/controller/base'),
     util = require('util');
 
 function Controller(){}
@@ -28,10 +27,6 @@ _.extend(Controller.prototype, {
                 message: "Doesn't have category or feed id"
             }));
         }
-
-        //check exist category and feed id
-        //save feed to category
-
         async.parallel([
             //find feed
             function (cb) {

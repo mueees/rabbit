@@ -1,5 +1,6 @@
 var UserModel = require('common/resource/user.model'),
     FeedModel = require('common/resource/feed.model'),
+    PostModel = require('common/resource/post.model'),
     Q = require('q'),
     authApi = require('services/auth.service/api'),
     async = require('async'),
@@ -8,6 +9,16 @@ var UserModel = require('common/resource/user.model'),
 
 var api = {
     db: {
+        clearDb: function () {
+            var def = Q.defer();
+            api.db.user.clearUsers()
+                .then(api.db.post.clearPosts)
+                .then(api.db.feed.clearFeeds)
+                .then(function () {
+                    def.resolve();
+                });
+            return def.promise;
+        },
         user: {
             clearUsers: function () {
                 var def = Q.defer();
@@ -160,6 +171,46 @@ var api = {
                     })
                 });
 
+                return def.promise;
+            },
+            clearFeeds: function () {
+                var def = Q.defer();
+                FeedModel.remove({}, function () {
+                    def.resolve();
+                });
+                return def.promise;
+            }
+        },
+        post: {
+            add: function (options) {
+                var def = Q.defer();
+                options = options || {};
+
+                if(!options.feedId){
+                    def.reject("Cannot find feed id");
+                }
+                PostModel.create({
+                    feedId: options.feedId,
+                    link: "Fake link",
+                    guid: "Fake guid"
+                }, function (err, post) {
+
+                    if(err){
+                        return def.reject(err);
+                    }
+
+                    def.resolve({
+                        post: post
+                    })
+                });
+                return def.promise;
+            },
+
+            clearPosts: function () {
+                var def = Q.defer();
+                PostModel.remove({}, function () {
+                    def.resolve();
+                });
                 return def.promise;
             }
         }
