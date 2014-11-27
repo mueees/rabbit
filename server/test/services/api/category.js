@@ -1,7 +1,6 @@
 var helpers = require('test/helpers'),
     Q = require('q'),
-    categoryController = require('services/api.service/controllers/rss/category'),
-    UserModel = require('common/resource/user.model');
+    categoryController = require('services/api.service/controllers/rss/category');
 
 var response = {
         send: function(){},
@@ -26,6 +25,7 @@ describe('POST /rss/category/add', function(){
             };
             def = Q.defer();
             promise = def.promise;
+
             helpers.db.user.clearUsers()
                 .then(helpers.db.user.registerConfirmSignin)
                 .then(function (data) {
@@ -71,7 +71,7 @@ describe('POST /rss/category/add', function(){
                 })
         });
 
-        it("should create category", function (done) {
+        it("should not create category", function (done) {
             assert.notOk(responseData._id);
             assert.ok(responseData.message);
             done();
@@ -119,7 +119,7 @@ describe('POST /rss/category/edit', function(){
                 })
         });
 
-        it("should create category", function (done) {
+        it("should edit category", function (done) {
             assert.ok(responseData._id);
             assert.ok(responseData.name);
             assert.equal(newCategoryName, responseData.name);
@@ -165,7 +165,7 @@ describe('POST /rss/category/edit', function(){
                 })
         });
 
-        it("should create category", function (done) {
+        it("should not edit category", function (done) {
             assert.notOk(responseData._id);
             assert.notOk(responseData.name);
             assert.ok(responseData.message);
@@ -204,11 +204,93 @@ describe('POST /rss/category/remove', function(){
                 })
         });
 
-        it("should create category", function (done) {
+        it("should remove category", function (done) {
             assert.notOk(responseData.message);
             done();
         });
 
 
+    })
+});
+
+describe('GET /rss/category/list', function(){
+
+    describe("Success request", function () {
+        var responseData,
+            promise,
+            def,
+            req,
+            user;
+
+        beforeEach(function (done) {
+            req = {
+                body: {
+                },
+                user: {}
+            };
+            def = Q.defer();
+            promise = def.promise;
+            helpers.db.user.clearUsers()
+                .then(helpers.db.category.userAuthCreateCategory)
+                .then(function (data) {
+                    helpers.db.category.add({
+                        userId: data.user._id
+                    }).then(function () {
+                        req.user._id = data.user._id;
+                        categoryController.list(req, response, next, def);
+                        promise.then(function (data) {
+                            responseData = data;
+                            done();
+                        });
+                    });
+                })
+        });
+
+        it("should return category list", function (done) {
+            assert.ok(responseData.data);
+            assert.equal(2, responseData.data.length);
+            done();
+        });
+    })
+});
+
+describe('GET /rss/category/list/feed', function(){
+
+    describe("Success request", function () {
+        var responseData,
+            promise,
+            def,
+            req,
+            user;
+
+        beforeEach(function (done) {
+            req = {
+                body: {
+                },
+                user: {}
+            };
+            def = Q.defer();
+            promise = def.promise;
+            helpers.db.user.clearUsers()
+                .then(helpers.db.category.userAuthCreateCategory)
+                .then(function (data) {
+                    helpers.db.category.add({
+                        userId: data.user._id
+                    }).then(function () {
+                        req.user._id = data.user._id;
+                        categoryController.list(req, response, next, def);
+                        promise.then(function (data) {
+                            responseData = data;
+                            done();
+                        });
+                    });
+                })
+        });
+
+        it("should return category list with feeds", function (done) {
+            assert.ok(responseData.data);
+            assert.equal(2, responseData.data.length);
+            done();
+        });
     })
 });

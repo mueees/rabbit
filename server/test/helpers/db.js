@@ -1,9 +1,9 @@
 var UserModel = require('common/resource/user.model'),
+    FeedModel = require('common/resource/feed.model'),
     Q = require('q'),
     authApi = require('services/auth.service/api'),
     async = require('async'),
     logger = require("common/core/logs")(module);
-
 
 
 var api = {
@@ -12,7 +12,7 @@ var api = {
             clearUsers: function () {
                 var def = Q.defer();
                 UserModel.remove({}, function (err) {
-                    if(err){
+                    if (err) {
                         def.reject();
                         return logger.error("Cannot clear users");
                     }
@@ -83,11 +83,11 @@ var api = {
                 var def = Q.defer();
                 options = options || {};
                 options.categoryName = options.categoryName || "test";
-                if( !options.userId ){
-                    new Error("Cannot find required data");
+
+                if (!options.userId) {
+                    def.reject("Category add : Cannot find userId");
                 }
                 UserModel.addCategory(options.userId, options.categoryName, function (err, user, category) {
-
                     def.resolve({
                         category: category,
                         user: user
@@ -108,6 +108,58 @@ var api = {
                             })
                         })
                     });
+                return def.promise;
+            }
+        },
+        feed: {
+            /*Add fake feed to feed collection
+             * It's not method for adding feedId to user category
+             * */
+            addFakeFeed: function (options) {
+                var def = Q.defer();
+                options = options || {};
+
+                options.name = options.name || "Fake feed name";
+                options.url = options.url || "Fake feed url";
+
+                FeedModel.create({
+                    name: options.name,
+                    url: options.url
+                }, function (err, feed) {
+                    def.resolve(feed);
+                });
+
+                return def.promise;
+            },
+            auth_addCategory_addFeed: function () {
+                var def = Q.defer();
+                var category = null;
+                var user = null;
+                var dataFeed = null;
+                api.db.category.userAuthCreateCategory().then(function (data) {
+                    category = data.category;
+                    user = data.user;
+                    return api.db.feed.addFakeFeed().then(function (feed) {
+                        dataFeed = feed;
+                    })
+                }).then(function () {
+                    var def = Q.defer();
+                    user.categories[0].feeds.push({
+                        name: dataFeed.name,
+                        feedId: dataFeed._id
+                    });
+                    user.save(function () {
+                        def.resolve();
+                    });
+                    return def.promise;
+                }).then(function () {
+                    def.resolve({
+                        user: user,
+                        category: category,
+                        feed: dataFeed
+                    })
+                });
+
                 return def.promise;
             }
         }

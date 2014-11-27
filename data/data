@@ -35,7 +35,7 @@ node init.feeds.live.js
 export NODE_ENV=test
 export NODE_PATH=/vagrant/server
 cd /vagrant/server/test
-mocha -t 10000
+mocha -t 2000
 
 cd /vagrant/server
 export NODE_SITE=development

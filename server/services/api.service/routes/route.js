@@ -5,6 +5,7 @@ var prefix = '/api/v' + serviceConfig.get('version');
 /*Controllers*/
 var userController = require('../controllers/user');
 var categoryController = require('../controllers/rss/category');
+var feedController = require('../controllers/rss/feed');
 
 module.exports = function (app) {
 
@@ -19,7 +20,6 @@ module.exports = function (app) {
 
     app.get(prefix + '/user/signin', userController.signin);
 
-
     /*******
     * RSS
     *******/
@@ -27,10 +27,11 @@ module.exports = function (app) {
     //category
 
     /* Just list of categories */
-    //app.get(prefix + '/rss/category/list', rssController.category.list);
+    app.get(prefix + '/rss/category/list', categoryController.list);
 
     /* List of categories with all feeds*/
-    //app.get(prefix + '/rss/category/list/feed', rssController.category.listFeed);
+    //todo: after api feed.add
+    //app.get(prefix + '/rss/category/list/feed', categoryController.listFeed);
 
     /*Add new category*/
     app.post(prefix + '/rss/category/add', checkAuth, categoryController.add);
@@ -44,13 +45,16 @@ module.exports = function (app) {
     //feed
 
     /*Add new feed*/
-    //app.post(prefix + '/rss/feed/add', rssController.feed.add);
+    app.post(prefix + '/rss/feed/add', checkAuth,  feedController.add);
 
     /*Edit feed*/
-    //app.post(prefix + '/rss/feed/remove', rssController.feed.edit);
+    app.post(prefix + '/rss/feed/edit', checkAuth, feedController.edit);
+
+    /* Change category for feed */
+    app.post(prefix + '/rss/feed/change/category', checkAuth, feedController.changeCategory);
 
     /*Remove feed*/
-    //app.post(prefix + '/rss/feed/remove', rssController.feed.remove);
+    app.post(prefix + '/rss/feed/remove', checkAuth, feedController.remove);
 
     /*Mark all post as read*/
     //app.post(prefix + '/rss/feed/mark/read', rssController.feed.read);

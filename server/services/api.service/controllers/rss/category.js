@@ -1,12 +1,15 @@
-var Controller = require('common/core/controller/base'),
-    _ = require('underscore'),
+var _ = require('underscore'),
     logger = require('common/core/logs')(module),
     HttpError = require('../../errors/HttpError').HttpError,
     Q = require('q'),
     UserModel = require('common/resource/user.model'),
+    //Controller = require('common/core/controller/base'),
     util = require('util');
 
+function Controller(){}
+
 _.extend(Controller.prototype, {
+
     add: function (req, res, next, def) {
         var body = req.body;
 
@@ -27,6 +30,8 @@ _.extend(Controller.prototype, {
             }
 
             var data = {_id: category.id};
+
+
             def.resolve(data);
             res.status(200);
             res.status(data);
@@ -36,6 +41,7 @@ _.extend(Controller.prototype, {
 
     edit: function (req, res, next, def) {
         var body = req.body;
+
 
         if(!body.name || !body._id){
             def.resolve({message: "Doesn't have name or id category"});
@@ -90,8 +96,28 @@ _.extend(Controller.prototype, {
 
         });
 
-    }
-});
+    },
 
+    list: function (req, res, next, def) {
+
+        UserModel.findById(req.user._id, {
+            "categories.name": true,
+            _id: false,
+            "categories._id": true
+        }, function (err, result) {
+            if(err){
+                logger.error(err);
+                def.resolve({message: "Cannot get category list"});
+                return next(new HttpError(400, "Cannot get category list"))
+            }
+            var data = {data: result.categories};
+            def.resolve(data);
+            res.status(200);
+            res.status(data);
+
+        });
+    }
+
+});
 
 module.exports = new Controller();

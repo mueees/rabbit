@@ -5,6 +5,11 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
 var feedSchema = new Schema({
+
+    feedId: {
+        type: ObjectId,
+        required: true
+    },
     /*
      * Count of unread posts for current user
      * */
