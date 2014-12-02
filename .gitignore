@@ -1,5 +1,7 @@
 node_modules
-server/node_modules
+client/bin
+client/build
+client/app/vendor
 
 .idea
 .vagrant
