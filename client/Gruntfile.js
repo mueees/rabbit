@@ -187,8 +187,7 @@ module.exports = function ( grunt ) {
             },
 
             compile_js: {
-                options: {
-                },
+                options: {},
                 src: [
                     '<%= vendor_files.js %>',
                     'module.prefix',
