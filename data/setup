@@ -10,18 +10,30 @@ services:
         - среднее время добавления постов: 1 в 5 дней
 
 2.2 сервис поиска битых фидов, подозрительной долгой безактивности
+rvices
 
-2.3 сервис поиска релевантных постов по пользовательским тегам
+cd /vagrant/server/services/api.service
+pm2 start index.js --name api.service
 
-3. сервис бекапа, который будет архивировать базу данных
+cd /vagrant/server/services/auth.service
+pm2 start index.js --name auth.service
 
-4. сервис для поиска интересных постов. Искать посты,отмеченные чтобы потом прочесть, и выводить их
+cd /vagrant/server/services/kue.ui
+pm2 start index.js --name kueui
 
-5. web socket сервер, для отправления актуальной информации. Возможно для удаленного logout пользователя.
+cd /vagrant/server/services/deliver.feed.service
+pm2 start index.js --name deliver.feed.service
 
-6. сервис апи, для администрирования rss
-    - выполнять быстрый експайринг всех токенов
+cd /vagrant/server/services/update.feed.service
+pm2 start index.js --name update.feed.service
 
-7. сервис поиска фидов по поисковому запросу
+cd /vagrant/server/services/prepare.post.service
+pm2 start index.js --name prepare.post.service
 
-Сохранять параметры signin при создании токена, при подозрительной активности, експайрить токен.
+cd /vagrant/server/services/save.post.service
+pm2 start index.js --name save.post.service
+ скорее всего будет другой дизайн.
+МК будет состоять из нескольки экранов.
+Экран в свою очередь может иметь свой тулбар, и свои сайдбары.
+Будут основные Экраны, и вспомогательные. Вспомогательные будут иметь ссылку на основные экраны в тулбаре.
+

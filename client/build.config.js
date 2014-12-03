@@ -3,28 +3,46 @@ module.exports = {
     compile_dir: 'bin',
 
     app_files: {
-        atpl: ['app/scripts/**/*.tpl.html'],
+        js: {
+            //angular templates
+            templates: ['app/scripts/**/*.tpl.html'],
 
-        // all js files without test
-        js: [ 'app/scripts/**/*.js', '!app/scripts/**/*.spec.js' ],
+            //all js unit tests
+            jsunit: [ 'app/scripts/**/*.spec.js' ],
 
-        jsunit: [ 'app/scripts/**/*.spec.js' ],
+            // main module (rss)
+            main: [
+                'app/scripts/rss.module.js',
+                'app/scripts/rss.*.js'
+            ],
+
+            // all js application file without main, unit test
+            app: [
+                'app/scripts/**/*.js',
+                '!app/scripts/**/*.spec.js',
+                '!app/scripts/rss.*.js'
+            ],
+
+            all: [
+                'app/scripts/**/*.js'
+            ]
+        },
 
         stylus: {
             default: 'app/stylus/rss-default.styl',
             dark: 'app/stylus/rss-dark.styl'
         },
+
         html: 'app/index.html'
     },
 
     vendor_files: {
         js: [
-            'app/vendor/jQuery/dist/jquery.min.js',
             'app/vendor/angular/angular.js',
+
             'app/vendor/underscore/underscore-min.js',
 
             'app/vendor/restangular/dist/restangular.min.js',
-            'app/vendor/restangular/dist/underscore-min.map',
 
             'app/vendor/angular-mocks/angular-mocks.js',
             'app/vendor/angular-touch/angular-touch.min.js',

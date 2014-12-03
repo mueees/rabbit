@@ -34,6 +34,8 @@
         "karma-coverage": "^0.2.1",
         "karma-chrome-launcher": "^0.1.2",
         "karma-firefox-launcher": "^0.1.3",
-        "karma-ng-html2js-preprocessor": "*"
+        "karma-ng-html2js-preprocessor": "*",
+        "karma-phantomjs-launcher": "0.1.4",
+        "phantomjs": "1.9.12"
     }
 }
