@@ -1,0 +1,23 @@
+@import 'core/mixins.styl'
+@import 'grid.styl'
+
+body
+  background primary-main
+  color primary-light
+  font-family 'Open Sans', sans-serif
+
+.sidebar
+  position fixed
+  background primary-dark
+  top 0
+  left 0
+  bottom 0
+  transform translateX(0)
+  transition transform 0.5s ease-in
+  width 400px
+
+.content
+  padding-left 400px
+@media (max-width: 768px)
+  .sidebar
+    transform translateX(-241px)

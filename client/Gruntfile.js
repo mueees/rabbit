@@ -118,8 +118,8 @@ module.exports = function ( grunt ) {
                     compress: false
                 },
                 files: {
-                    'app/assets/css/default-<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.stylus.default %>',
-                    'app/assets/css/dark-<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.stylus.dark %>'
+                    'app/assets/css/default-<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.stylus.default %>'/*,
+                    'app/assets/css/dark-<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.stylus.dark %>'*/
                 }
             },
             compile: {
@@ -213,10 +213,6 @@ module.exports = function ( grunt ) {
                     '<%= concat.compile_app.dest %>'
                 ],
                 dest: '<%= compile_dir %>/scripts/<%= pkg.name %>-<%= pkg.version %>.js'
-            },
-            //css files
-            compile_css: {
-
             }
         },
         htmlbuild: {
@@ -299,7 +295,7 @@ module.exports = function ( grunt ) {
                 tasks: [ 'html2js:app' ]
             },
             stylus: {
-                files: [ 'src/**/*.styl' ],
+                files: [ 'app/**/*.styl' ],
                 tasks: [ 'stylus:dev', 'copy:app_assets' ]
             }
         },

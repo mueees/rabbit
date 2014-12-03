@@ -1,3 +1,35 @@
 .common {
   color: #f00;
 }
+body {
+  background: #37474f;
+  color: #cfd8dc;
+  font-family: 'Open Sans', sans-serif;
+}
+.sidebar {
+  position: fixed;
+  background: #263238;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transition: transform 0.5s ease-in;
+  -moz-transition: transform 0.5s ease-in;
+  -o-transition: transform 0.5s ease-in;
+  transition: transform 0.5s ease-in;
+  width: 400px;
+}
+.content {
+  padding-left: 400px;
+}
+@media (max-width: 768px) {
+  .sidebar {
+    -webkit-transform: translateX(-241px);
+    -moz-transform: translateX(-241px);
+    -o-transform: translateX(-241px);
+    transform: translateX(-241px);
+  }
+}
