@@ -53,7 +53,7 @@ module.exports = function ( grunt ) {
             app: {
                 options: {},
                 src: [ '<%= app_files.js.templates %>' ],
-                dest: 'app/scripts/templates-app.js'
+                dest: 'app/scripts/rss.templates.js'
             }
         },
         copy: {
@@ -94,7 +94,7 @@ module.exports = function ( grunt ) {
                 files: [
                     {
                         src: [ '<%= vendor_files.css %>' ],
-                        dest: '<%= build_dir %>/app/assets/css',
+                        dest: '<%= build_dir %>/app/assets/css/vendor',
                         cwd: '.',
                         expand: true,
                         flatten: true
@@ -132,10 +132,13 @@ module.exports = function ( grunt ) {
                 }
             }
         },
-        clean: [
-            '<%= build_dir %>',
-            '<%= compile_dir %>'
-        ],
+        clean: {
+            build: [
+                '<%= build_dir %>'
+            ],
+            compile: '<%= compile_dir %>',
+            compile_script_temp: '<%= compile_dir_scripts_temp %>'
+        },
         karma: {
             unit: {
                 configFile: 'karma.conf.js',
@@ -144,10 +147,10 @@ module.exports = function ( grunt ) {
         },
         jshint: {
             src: [
-                '<%= app_files.js %>'
+                '<%= app_files.js.app %>'
             ],
             test: [
-                '<%= app_files.jsunit %>'
+                '<%= app_files.js.jsunit %>'
             ],
             gruntfile: [
                 'Gruntfile.js'
@@ -173,24 +176,48 @@ module.exports = function ( grunt ) {
             },
             targetName: {
                 files: {
-                    src: ['<%=app_files.js%>']
+                    src: ['<%=app_files.js.app%>']
                 }
             }
         },
         concat: {
+            //javascript files
+            compile_vendor: {
+                src:[
+                    '<%= vendor_files.js %>'
+                ],
+                dest: '<%= compile_dir %>/scripts/temp/vendor_templates.js'
+            },
+            compile_main: {
+                src:[
+                    'module.prefix',
+                    '<%= app_files.js.main %>',
+                    'module.suffix'
+                ],
+                dest: '<%= compile_dir %>/scripts/temp/main.js'
+            },
+            compile_app: {
+                options: {},
+                src: [
+                    'module.prefix',
+                    '<%= app_files.js.app %>',
+                    'module.suffix'
+                ],
+                dest: '<%= compile_dir %>/scripts/temp/app.js'
+            },
             compile_js: {
                 options: {},
                 src: [
-                    /*'<%= vendor_files.js %>',*/
-                    'module.prefix',
-                    '<%= html2js.app.dest %>',
-                    '<%= app_files.js.main %>',
-                    /*'<%= app_files.js.app %>',*/
-                    'module.suffix'
+                    '<%= concat.compile_vendor.dest %>',
+                    '<%= concat.compile_main.dest %>',
+                    '<%= concat.compile_app.dest %>'
                 ],
                 dest: '<%= compile_dir %>/scripts/<%= pkg.name %>-<%= pkg.version %>.js'
-            }
+            },
+            //css files
+            compile_css: {
 
+            }
         },
         htmlbuild: {
             dev: {
@@ -202,16 +229,22 @@ module.exports = function ( grunt ) {
                     relative: true,
                     scripts: {
                         templates: [
-                            '<%= build_dir %>/app/scripts/templates-app.js'
+                            '<%= build_dir %>/app/scripts/rss.templates.js'
                         ],
                         libs: changeRootFolder(userConfig.vendor_files.js, 'app/vendor', '<%= build_dir %>/app/vendor'),
                         main: changeRootFolder(userConfig.app_files.js.main, 'app/scripts', '<%= build_dir %>/app/scripts'),
                         app: changeRootFolder(userConfig.app_files.js.app, 'app/scripts', '<%= build_dir %>/app/scripts')
                     },
                     styles: {
-                        libs: [],
+                        start: [
+                            '<%= build_dir %>/app/assets/css/start.css'
+                        ],
+                        vendor: [
+                            '<%= build_dir %>/app/assets/css/vendor/*.css'
+                        ],
                         app: [
-                            '<%= build_dir %>/app/assets/**/*.css'
+                            '<%= build_dir %>/app/assets/css/*.css',
+                            '!<%= build_dir %>/app/assets/css/start.css'
                         ]
                     }
                 }
@@ -232,9 +265,8 @@ module.exports = function ( grunt ) {
                         ]
                     },
                     styles: {
-                        libs: [
-
-                        ],
+                        start: [],
+                        vendor: [],
                         app: [
                             '<%= build_dir %>/app/assets/**/*.css'
                         ]
@@ -245,7 +277,7 @@ module.exports = function ( grunt ) {
         watch: {
             jssrc: {
                 files: [
-                    '<%= app_files.js %>'
+                    '<%= app_files.js.app %>'
                 ],
                 tasks: [ 'jshint:src', 'copy:app_js' ]
             },
@@ -258,11 +290,11 @@ module.exports = function ( grunt ) {
             },
             html: {
                 files: [ '<%= app_files.html %>' ],
-                tasks: [ 'htmlbuild' ]
+                tasks: [ 'htmlbuild:dev' ]
             },
             tpls: {
                 files: [
-                    '<%= app_files.templates %>'
+                    '<%= app_files.js.templates %>'
                 ],
                 tasks: [ 'html2js:app' ]
             },
@@ -285,30 +317,33 @@ module.exports = function ( grunt ) {
 
     grunt.registerTask("development", [
         /*'karma',*/
-        'clean',
-        /*'jsvalidate',
-        'jshint',
-        'clean',
+        'clean:build',
         'stylus:dev',
-        'copy:app_assets',*/
+        'jsvalidate',
+         'jshint',
+        'copy:app_assets',
         'copy:app_js',
         'copy:vendor_js',
+        'copy:vendor_css',
         'html2js:app',
-        /*
-        'copy:vendor_css'*/
         'htmlbuild:dev'
     ]);
 
     grunt.registerTask( 'compile', [
-        'clean',
-        /*'jsvalidate',
-        'jshint',
-        'stylus:compile',
-        'copy:compile_assets',*/
+        'clean:compile',
+        /*
+         'jsvalidate',
+         'jshint',
+         'stylus:compile',
+         'copy:compile_assets',*/
         'html2js:app',
+        'concat:compile_vendor',
+        'concat:compile_main',
+        'concat:compile_app',
         'concat:compile_js',
-        /*'uglify',*/
-        'htmlbuild:compile'
+        'uglify',
+        'htmlbuild:compile',
+        'clean:compile_script_temp'
     ]);
 
     grunt.registerTask('debug', 'Main task for development', function () {

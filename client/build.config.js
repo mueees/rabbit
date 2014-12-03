@@ -1,6 +1,7 @@
 module.exports = {
     build_dir: 'build',
     compile_dir: 'bin',
+    compile_dir_scripts_temp: 'bin/scripts/temp',
 
     app_files: {
         js: {
@@ -13,13 +14,15 @@ module.exports = {
             // main module (rss)
             main: [
                 'app/scripts/rss.module.js',
-                'app/scripts/rss.*.js'
+                'app/scripts/rss.*.js',
+                '!app/scripts/*.spec.js'
             ],
 
             // all js application file without main, unit test
             app: [
                 'app/scripts/**/*.js',
                 '!app/scripts/**/*.spec.js',
+                '!app/scripts/rss.module.js',
                 '!app/scripts/rss.*.js'
             ],
 
