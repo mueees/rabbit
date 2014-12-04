@@ -1,75 +1,206 @@
 <!DOCTYPE html>
 <html ng-app="rss">
-    <head>
+<head>
 
-        <!-- build:style start -->
-        <link type="text/css" rel="stylesheet" href=""/>
-        <!-- /build -->
+    <!-- build:style start -->
+    <link type="text/css" rel="stylesheet" href=""/>
+    <!-- /build -->
 
-        <!-- build:style vendor -->
-        <link type="text/css" rel="stylesheet" href=""/>
-        <!-- /build -->
+    <!-- build:style vendor -->
+    <link type="text/css" rel="stylesheet" href=""/>
+    <!-- /build -->
 
-        <!-- build:style app -->
-        <link type="text/css" rel="stylesheet" href=""/>
-        <!-- /build -->
+    <!-- build:style app -->
+    <link type="text/css" rel="stylesheet" href=""/>
+    <!-- /build -->
 
-    </head>
-    <body>
-        <div id="main">
-            <div class="sidebar">
-                <nav>
+</head>
+<body>
+<div id="main">
+    <div class="sidebar">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <nav class="links">
                     <ul>
                         <li>
-                            <a href="#">Home</a>
+                            <a href="#" class="active">
+                                <span class="icon-home"></span>
+                                Home
+                            </a>
                         </li>
                         <li>
-                            <a href="#">Index</a>
-                        </li>
-                        <li>
-                            <a href="#">Saved</a>
+                            <a href="#">
+                                <span class="icon-bookmark"></span>
+                                Saved
+                            </a>
                         </li>
                     </ul>
                 </nav>
             </div>
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            Recently Firefox prompted me to donate to Mozilla. The ad appeared on the Firefox Start Page, but you might not always see it – sometimes there’s a message that reads “Let the world know you #ChooseIndependent with Firefox.” I switch between browsers for testing quite a lot, so I’m not particularly tied to one browser. However, that day I’d been using the latest Firefox and the Firefox Developer Edition, so I was in a good mood about Mozilla and decided to donate a few dollars.
-
-                            I happen to think that you should donate as well, and here’s why. The Mozilla Foundation has been involved with some projects that have been immensely useful and powerful: Firefox, PDF.js (Mozilla Labs), asm.js, and Rust spring to mind. Take a look at the Mozilla Research Projects list for more.
-
-                            Something that JavaScript developers can’t live without is the Mozilla Developer Network documentation. I almost felt like I was donating to support that site alone!
-
-                            Like you I also use Chrome, and I actually like Google’s email indexing and Google Now – the way it shows delivery information for recent purchases is awesome. So I’m not pro-Firefox due to any privacy issues. And Safari is totally gorgeous on Yosemite. It definitely feels like Firefox’s competition is strong, and the mainstream technology press is down on Firefox. The last few releases have felt as fast as Chrome though, and the UI is evolving to something clean and minimalist that I like.
-
-                        </div>
-                    </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="categories">
+                    <ul class="list-group rss-list-group rss-links open">
+                        <li class="list-group-item">
+                            <a class="categoryName" href="#">
+                        <span class="corner">
+                            <span class="icon-angle-right"></span>
+                        </span>
+                                Web
+                            </a>
+                            <ul class="list-group rss-list-group rss-links feeds">
+                                <li class="list-group-item">
+                                    <a href="#">Habrahabr</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">Other tab</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="open list-group-item">
+                            <a class="categoryName" href="#">
+                        <span class="corner">
+                            <span class="icon-angle-right"></span>
+                        </span>
+                                Social
+                            </a>
+                            <ul class="list-group rss-list-group rss-links feeds">
+                                <li class="animated fadeInUp list-group-item">
+                                    <a href="#">Dirty.ru</a>
+                                </li>
+                                <li class="animated fadeInUp list-group-item">
+                                    <a href="#">Some other site</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="tags">
+                    <ul class="list-group rss-list-group rss-links">
+                        <li class="list-group-item">
+                            <a href="#">
+                                <span class="icon-tag"></span>
+                                Some tag
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <span class="icon-tag"></span>
+                                Some tag
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default without-icon">
+            <div class="panel-body">
+                <ul class="list-group rss-list-group rss-links open">
+                    <li class="list-group-item">
+                        <a href="#">
+                            Recently read
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">
+                            Organize
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">
+                            Themes
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">
+                            Preferences
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">
+                            Organize
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="feed">
+                        <div class="header">
+                            <h1>Habrahabr feed</h1>
+                            <div class="feed-meta">
+                                <span>17 unread article</span>
+                                <span>-</span>
+                                <span>125 readers</span>
+                            </div>
+                            <div class="feed-action">
+                                <a href="#">
+                                    <span class="icon-ok"></span>
+                                </a>
+                                <a href="#">
+                                    <span class="icon-arrows-cw"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header-small">
+                            <span class="feedTitle">Habrahabr feed</span>
+                            <div class="feed-meta">
+                                <span>17 unread article</span>
+                                <span>-</span>
+                                <span>125 readers</span>
+                            </div>
+                            <div class="feed-action">
+                                <a href="#">
+                                    <span class="icon-ok"></span>
+                                </a>
+                                <a href="#">
+                                    <span class="icon-arrows-cw"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    Recently Firefox prompted me to donate to Mozilla. The ad appeared on the Firefox Start Page, but you might not always see it – sometimes there’s a message that reads “Let the world know you #ChooseIndependent with Firefox.” I switch between browsers for testing quite a lot, so I’m not particularly tied to one browser. However, that day I’d been using the latest Firefox and the Firefox Developer Edition, so I was in a good mood about Mozilla and decided to donate a few dollars.
+
+                    I happen to think that you should donate as well, and here’s why. The Mozilla Foundation has been involved with some projects that have been immensely useful and powerful: Firefox, PDF.js (Mozilla Labs), asm.js, and Rust spring to mind. Take a look at the Mozilla Research Projects list for more.
+
+                    Something that JavaScript developers can’t live without is the Mozilla Developer Network documentation. I almost felt like I was donating to support that site alone!
+
+                    Like you I also use Chrome, and I actually like Google’s email indexing and Google Now – the way it shows delivery information for recent purchases is awesome. So I’m not pro-Firefox due to any privacy issues. And Safari is totally gorgeous on Yosemite. It definitely feels like Firefox’s competition is strong, and the mainstream technology press is down on Firefox. The last few releases have felt as fast as Chrome though, and the UI is evolving to something clean and minimalist that I like.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-        <!-- DO NOT MODIFY THIS FILE IT IS AUTO GENERATED BY THE BUILD -->
+<!-- DO NOT MODIFY THIS FILE IT IS AUTO GENERATED BY THE BUILD -->
 
-        <!-- build:script libs -->
-        <script type="text/javascript" src=""></script>
-        <!-- /build -->
+<!-- build:script libs -->
+<script type="text/javascript" src=""></script>
+<!-- /build -->
 
-        <!-- build:script main -->
-        <script type="text/javascript" src=""></script>
-        <!-- /build -->
+<!-- build:script main -->
+<script type="text/javascript" src=""></script>
+<!-- /build -->
 
-        <!-- build:script templates -->
-        <script type="text/javascript" src=""></script>
-        <!-- /build -->
+<!-- build:script templates -->
+<script type="text/javascript" src=""></script>
+<!-- /build -->
 
-        <!-- build:script app -->
-        <script type="text/javascript" src=""></script>
-        <!-- /build -->
+<!-- build:script app -->
+<script type="text/javascript" src=""></script>
+<!-- /build -->
 
-        <!-- @endif -->
+<!-- @endif -->
 
-    </body>
+</body>
 </html>

@@ -1,3 +1,4 @@
+@import 'core/reset.styl'
 @import 'core/mixins.styl'
 @import 'grid.styl'
 
@@ -5,19 +6,80 @@ body
   background primary-main
   color primary-light
   font-family 'Open Sans', sans-serif
+  font-size 14px
+  line-height 16px
+
+
+a
+  color accent-main
+  &:hover
+    color second-main
 
 .sidebar
+  overflow hidden
   position fixed
   background primary-dark
   top 0
   left 0
+  padding 15px
   bottom 0
   transform translateX(0)
   transition transform 0.5s ease-in
   width 400px
 
+  a
+    color primary-light
+    &:hover
+      text-decoration none
+      color second-main
+
+  .links
+    li
+      margin 0 0 10px
+    .active
+      color second-main
+.rss-list-group
+  .list-group-item
+    background none
+    border none
+    border-radius 0
+    padding 0
+    margin 0 0 10px
+&.rss-links
+  a
+    display block
+.corner
+  transition transform 0.2s ease-in
+  display inline-block
+  transform: rotate(0)
+  &.open
+    transform: rotate(90deg)
+.categories
+  .categoryName
+    margin 0 0 10px
+  .feeds
+    padding-left 22px
+    display none
+  .open
+    .corner
+      transform: rotate(90deg)
+    .feeds
+      display block
+  .animated
+    animation-duration 0.5s
+
+.panel
+  background none
+  border-radius 0
+  border none
+  box-shadow none
+  .panel-body
+    padding 0
+  &.without-icon
+    margin-left 22px
 .content
-  padding-left 400px
+  marign-left 400px
+  padding-top 15px
 @media (max-width: 768px)
   .sidebar
     transform translateX(-241px)
