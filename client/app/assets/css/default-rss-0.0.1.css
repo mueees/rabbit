@@ -124,7 +124,7 @@ table {
 }
 body {
   background: #37474f;
-  color: #cfd8dc;
+  color: #fff;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   line-height: 16px;
@@ -134,6 +134,14 @@ a {
 }
 a:hover {
   color: #fff;
+}
+.content {
+  margin-left: 300px;
+  padding-top: 15px;
+  -webkit-transition: margin 0.5s ease-in;
+  -moz-transition: margin 0.5s ease-in;
+  -o-transition: margin 0.5s ease-in;
+  transition: margin 0.5s ease-in;
 }
 .sidebar {
   overflow: hidden;
@@ -151,7 +159,7 @@ a:hover {
   -moz-transition: transform 0.5s ease-in;
   -o-transition: transform 0.5s ease-in;
   transition: transform 0.5s ease-in;
-  width: 400px;
+  width: 300px;
 }
 .sidebar a {
   color: #cfd8dc;
@@ -165,6 +173,10 @@ a:hover {
 }
 .sidebar .links .active {
   color: #fff;
+}
+.col-centered {
+  float: none;
+  margin: 0 auto;
 }
 .rss-list-group .list-group-item {
   background: none;
@@ -235,15 +247,33 @@ a:hover {
 .panel.without-icon {
   margin-left: 22px;
 }
-.content {
-  marign-left: 400px;
-  padding-top: 15px;
-}
 @media (max-width: 768px) {
   .sidebar {
-    -webkit-transform: translateX(-241px);
-    -moz-transform: translateX(-241px);
-    -o-transform: translateX(-241px);
-    transform: translateX(-241px);
+    -webkit-transform: translateX(-300px);
+    -moz-transform: translateX(-300px);
+    -o-transform: translateX(-300px);
+    transform: translateX(-300px);
   }
+  .content {
+    margin-left: 15px;
+  }
+}
+.feed .feed-meta {
+  color: #cfd8dc;
+}
+.feed .header {
+  position: relative;
+  margin-bottom: 10px;
+}
+.feed .header .feedTitle {
+  margin-bottom: 3px;
+}
+.feed .header .feed-action {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+}
+.feed .header .feed-action a {
+  display: inline-block;
 }
