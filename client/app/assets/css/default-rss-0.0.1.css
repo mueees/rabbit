@@ -129,14 +129,29 @@ body {
   font-size: 14px;
   line-height: 16px;
 }
+.btn {
+  color: #ff9800;
+  -webkit-transition: color 0.2s ease-in;
+  -moz-transition: color 0.2s ease-in;
+  -o-transition: color 0.2s ease-in;
+  transition: color 0.2s ease-in;
+}
+.btn:hover {
+  color: #fff;
+}
 a {
   color: #ff9800;
+  -webkit-transition: color 0.2s ease-in;
+  -moz-transition: color 0.2s ease-in;
+  -o-transition: color 0.2s ease-in;
+  transition: color 0.2s ease-in;
 }
 a:hover {
   color: #fff;
 }
-.content {
-  margin-left: 300px;
+.content-wrapper {
+  margin-left: 240px;
+  margin-right: 240px;
   padding-top: 15px;
   -webkit-transition: margin 0.5s ease-in;
   -moz-transition: margin 0.5s ease-in;
@@ -147,9 +162,6 @@ a:hover {
   overflow: hidden;
   position: fixed;
   background: #263238;
-  top: 0;
-  left: 0;
-  padding: 15px;
   bottom: 0;
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
@@ -159,7 +171,17 @@ a:hover {
   -moz-transition: transform 0.5s ease-in;
   -o-transition: transform 0.5s ease-in;
   transition: transform 0.5s ease-in;
-  width: 300px;
+  width: 240px;
+}
+.sidebar.sidebar-right {
+  top: 0;
+  right: 0;
+  padding: 15px;
+}
+.sidebar.sidebar-left {
+  top: 0;
+  left: 0;
+  padding: 15px;
 }
 .sidebar a {
   color: #cfd8dc;
@@ -177,6 +199,9 @@ a:hover {
 .col-centered {
   float: none;
   margin: 0 auto;
+}
+.no-padding {
+  padding: 0;
 }
 .rss-list-group .list-group-item {
   background: none;
@@ -248,14 +273,25 @@ a:hover {
   margin-left: 22px;
 }
 @media (max-width: 768px) {
-  .sidebar {
-    -webkit-transform: translateX(-300px);
-    -moz-transform: translateX(-300px);
-    -o-transform: translateX(-300px);
-    transform: translateX(-300px);
+  .sidebar-left {
+    -webkit-transform: translateX(-240px);
+    -moz-transform: translateX(-240px);
+    -o-transform: translateX(-240px);
+    transform: translateX(-240px);
+  }
+  .sidebar-right {
+    -webkit-transform: translateX(240px);
+    -moz-transform: translateX(240px);
+    -o-transform: translateX(240px);
+    transform: translateX(240px);
+  }
+  .content-wrapper {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
   }
   .content {
-    margin-left: 15px;
+    padding: 0;
   }
 }
 .feed .feed-meta {
@@ -264,6 +300,15 @@ a:hover {
 .feed .header {
   position: relative;
   margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+  .feed .header {
+    background: #263238;
+    padding: 10px;
+  }
+  .feed .header .feedTitle {
+    font-size: 16px;
+  }
 }
 .feed .header .feedTitle {
   margin-bottom: 3px;
@@ -274,6 +319,76 @@ a:hover {
   top: 0;
   font-size: 20px;
 }
+.feed .header .feed-action button {
+  display: inline-block;
+  font-size: 16px;
+}
 .feed .header .feed-action a {
   display: inline-block;
+}
+.post.post-line {
+  position: relative;
+  padding: 10px 0 10px;
+  border-bottom: 1px solid #c0c0c0;
+  -webkit-transition: background 0.1s ease-in;
+  -moz-transition: background 0.1s ease-in;
+  -o-transition: background 0.1s ease-in;
+  transition: background 0.1s ease-in;
+}
+.post.post-line .content {
+  width: 100%;
+  padding-right: 70px;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+}
+.post.post-line .time {
+  position: absolute;
+  right: 7px;
+  top: 10px;
+}
+.post.post-line .action-bar {
+  -webkit-transition: transform 0.1s ease-in;
+  -moz-transition: transform 0.1s ease-in;
+  -o-transition: transform 0.1s ease-in;
+  transition: transform 0.1s ease-in;
+  -webkit-transform: translateX(-3px);
+  -moz-transform: translateX(-3px);
+  -o-transform: translateX(-3px);
+  transform: translateX(-3px);
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+.post.post-line .readLater:hover {
+  color: #ff9800;
+}
+.post.post-line.post-saved .readLater {
+  color: #ff9800;
+}
+.post.post-line.unread .title {
+  font-weight: bold;
+}
+.post.post-line:hover {
+  cursor: pointer;
+  background: rgba(207,216,220,0.5);
+}
+.post.post-line:hover .action-bar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  background: #fff;
+  height: 37px;
+  color: #263238;
+  padding: 8px 3px 10px 10px;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+}
+.post.post-line:hover .action-bar .btn:hover {
+  color: #263238;
 }

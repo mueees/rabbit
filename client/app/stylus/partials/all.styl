@@ -6,29 +6,43 @@ body
   background primary-main
   color second-main
   font-family 'Open Sans', sans-serif
-  font-size 14px
-  line-height 16px
+  font-size font-main
+  line-height line-height-main
 
+.btn
+  color accent-main
+  transition color  0.2s ease-in
+  &:hover
+    color second-main
 a
   color accent-main
+  transition color  0.2s ease-in
   &:hover
     color second-main
 
-.content
-  margin-left 300px
+.content-wrapper
+  margin-left sidebar-width
+  margin-right sidebar-width
   padding-top 15px
   transition margin 0.5s ease-in
 .sidebar
   overflow hidden
   position fixed
   background primary-dark
-  top 0
-  left 0
-  padding 15px
   bottom 0
   transform translateX(0)
   transition transform 0.5s ease-in
-  width 300px
+  width sidebar-width
+
+  &.sidebar-right
+    top 0
+    right 0
+    padding 15px
+
+  &.sidebar-left
+    top 0
+    left 0
+    padding 15px
 
   a
     color primary-light
@@ -44,6 +58,8 @@ a
 .col-centered
   float: none
   margin: 0 auto
+.no-padding
+  padding 0
 
 .rss-list-group
   .list-group-item
@@ -85,16 +101,31 @@ a
   &.without-icon
     margin-left 22px
 @media (max-width: 768px)
-  .sidebar
-    transform translateX(-300px)
+  .sidebar-left
+    transform translateX(- sidebar-width)
+  .sidebar-right
+    transform translateX(sidebar-width)
+  .content-wrapper
+    margin-left 0
+    margin-right 0
+    padding 0
   .content
-    margin-left 15px
+    padding 0
+
 .feed
   .feed-meta
     color primary-light
   .header
     position relative
     margin-bottom 10px
+
+    @media (max-width: 768px)
+      background primary-dark
+      padding 10px
+
+      .feedTitle
+        font-size 16px
+
     .feedTitle
       margin-bottom 3px
     .feed-action
@@ -102,5 +133,64 @@ a
       right 0
       top 0
       font-size 20px
+
+      button
+        display inline-block
+        font-size 16px
       a
         display inline-block
+.post
+  &.post-line
+    position relative
+    padding 10px 0 10px
+    border-bottom 1px solid silver
+    transition background 0.1s ease-in
+
+    .content
+      width: 100%
+      padding-right: 70px
+      white-space: nowrap
+      overflow: hidden
+      box-sizing: border-box
+      text-overflow: ellipsis
+    .time
+      position absolute
+      right 7px
+      top 10px
+
+    .action-bar
+      transition transform  0.1s ease-in
+      transform translateX(-3px)
+      opacity 0
+      height 0
+      overflow hidden
+
+    .readLater
+      &:hover
+        color accent-main
+
+    &.post-saved
+      .readLater
+        color accent-main
+
+    &.unread
+      .title
+        font-weight bold
+    &:hover
+      cursor pointer
+      background primary-light-50
+      .action-bar
+        position: absolute
+        right: 0
+        top: 0
+        display: block
+        background: second-main
+        height: 37px
+        color primary-dark
+        padding 8px 3px 10px 10px
+        transform translateX(0)
+        opacity 1
+
+        .btn
+          &:hover
+            color primary-dark
