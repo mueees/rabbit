@@ -9,13 +9,40 @@ body
   font-size font-main
   line-height line-height-main
 
+
 .btn
   color accent-main
-  transition color  0.2s ease-in
+  outline none
+  transition all  0.1s ease-in
+  .success-state
+    display none
+  &:focus
+    color inherit
+    outline none
+  &:active
+    color inherit
+    outline none
   &:hover
     color second-main
+  &.btn-accent
+    background accent-main
+    color second-main
+    &:hover
+      background second-main
+      color accent-main
+  &.success
+    border-radius 50%
+    background green
+    width 35px
+    height 35px
+    padding 0
+    .default-state
+      display none
+    .success-state
+      display block
 a
   color accent-main
+  outline: 0
   transition color  0.2s ease-in
   &:hover
     color second-main
@@ -112,33 +139,36 @@ a
   .content
     padding 0
 
-.feed
-  .feed-meta
-    color primary-light
-  .header
+.meta
+  color primary-light
+  font-size font-second
+
+.action-group
+  font-size 20px
+
+  button
+    display inline-block
+    font-size 16px
+  a
+    display inline-block
+.panel-default
+  .panel-header
     position relative
     margin-bottom 10px
+    .title
+      margin-bottom 3px
 
     @media (max-width: 768px)
       background primary-dark
       padding 10px
 
-      .feedTitle
+      .title
         font-size 16px
-
-    .feedTitle
-      margin-bottom 3px
-    .feed-action
+.feed
+    .action-group
       position absolute
       right 0
       top 0
-      font-size 20px
-
-      button
-        display inline-block
-        font-size 16px
-      a
-        display inline-block
 .post
   &.post-line
     position relative
@@ -194,3 +224,101 @@ a
         .btn
           &:hover
             color primary-dark
+
+.search-field
+  position: relative
+  color primary-dark
+  input
+    padding-left 30px
+    padding-right 40px
+  .search-icon
+    position absolute
+    top 8px
+    left 5px
+  .cancel-icon
+    position absolute
+    top 0
+    right 0
+    &:hover
+      color primary-dark
+
+.effect
+  &.hover-effect
+    li
+      transition background 0.1s ease-in
+      &:hover
+        background primary-light-50
+
+.result-block
+  .icon-list
+    width 30px
+  .content
+    overflow hidden
+  .title-result
+    margin-bottom 10px
+
+.float
+  transition width 0.2s ease-in
+  position: fixed
+  top 0
+  right 0
+  bottom 0
+  background primary-main
+  width float-width
+  overflow overlay
+  margin 0
+  padding 0
+  z-index 20
+
+  .navigation
+    position fixed
+    width float-width
+    top: 50%
+
+    .right, .left
+      height 150px
+      margin-top -75px
+      position absolute
+      top 0
+    .right
+      right 20px
+    .left
+      left 20px
+
+  .panel-header
+    padding-left 100px
+
+  .panel-body
+    padding 0 100px
+
+  .title
+    margin-bottom 3px
+
+  &.float-right
+    right 0
+
+  @media (max-width: 768px)
+    width 100%
+
+    .navigation
+      display none
+    .close-btn
+      position absolute
+      left 0
+      top 5px
+      z-index 10
+
+    .panel-header
+      padding-left 60px
+
+    .panel-body
+      padding 0 10px
+
+.overlay
+  position fixed
+  top 0
+  bottom 0
+  left 0
+  right 0
+  background rgba(0, 0, 0, 0.51)
+  z-index 10

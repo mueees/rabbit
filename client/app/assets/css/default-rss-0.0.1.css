@@ -131,16 +131,53 @@ body {
 }
 .btn {
   color: #ff9800;
-  -webkit-transition: color 0.2s ease-in;
-  -moz-transition: color 0.2s ease-in;
-  -o-transition: color 0.2s ease-in;
-  transition: color 0.2s ease-in;
+  outline: none;
+  -webkit-transition: all 0.1s ease-in;
+  -moz-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+}
+.btn .success-state {
+  display: none;
+}
+.btn:focus {
+  color: inherit;
+  outline: none;
+}
+.btn:active {
+  color: inherit;
+  outline: none;
 }
 .btn:hover {
   color: #fff;
 }
+.btn.btn-accent {
+  background: #ff9800;
+  color: #fff;
+}
+.btn.btn-accent:hover {
+  background: #fff;
+  color: #ff9800;
+}
+.btn.success {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background: #008000;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+}
+.btn.success .default-state {
+  display: none;
+}
+.btn.success .success-state {
+  display: block;
+}
 a {
   color: #ff9800;
+  outline: 0;
   -webkit-transition: color 0.2s ease-in;
   -moz-transition: color 0.2s ease-in;
   -o-transition: color 0.2s ease-in;
@@ -294,37 +331,40 @@ a:hover {
     padding: 0;
   }
 }
-.feed .feed-meta {
+.meta {
   color: #cfd8dc;
+  font-size: 12px;
 }
-.feed .header {
-  position: relative;
-  margin-bottom: 10px;
-}
-@media (max-width: 768px) {
-  .feed .header {
-    background: #263238;
-    padding: 10px;
-  }
-  .feed .header .feedTitle {
-    font-size: 16px;
-  }
-}
-.feed .header .feedTitle {
-  margin-bottom: 3px;
-}
-.feed .header .feed-action {
-  position: absolute;
-  right: 0;
-  top: 0;
+.action-group {
   font-size: 20px;
 }
-.feed .header .feed-action button {
+.action-group button {
   display: inline-block;
   font-size: 16px;
 }
-.feed .header .feed-action a {
+.action-group a {
   display: inline-block;
+}
+.panel-default .panel-header {
+  position: relative;
+  margin-bottom: 10px;
+}
+.panel-default .panel-header .title {
+  margin-bottom: 3px;
+}
+@media (max-width: 768px) {
+  .panel-default .panel-header {
+    background: #263238;
+    padding: 10px;
+  }
+  .panel-default .panel-header .title {
+    font-size: 16px;
+  }
+}
+.feed .action-group {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 .post.post-line {
   position: relative;
@@ -391,4 +431,118 @@ a:hover {
 }
 .post.post-line:hover .action-bar .btn:hover {
   color: #263238;
+}
+.search-field {
+  position: relative;
+  color: #263238;
+}
+.search-field input {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+.search-field .search-icon {
+  position: absolute;
+  top: 8px;
+  left: 5px;
+}
+.search-field .cancel-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.search-field .cancel-icon:hover {
+  color: #263238;
+}
+.effect.hover-effect li {
+  -webkit-transition: background 0.1s ease-in;
+  -moz-transition: background 0.1s ease-in;
+  -o-transition: background 0.1s ease-in;
+  transition: background 0.1s ease-in;
+}
+.effect.hover-effect li:hover {
+  background: rgba(207,216,220,0.5);
+}
+.result-block .icon-list {
+  width: 30px;
+}
+.result-block .content {
+  overflow: hidden;
+}
+.result-block .title-result {
+  margin-bottom: 10px;
+}
+.float {
+  -webkit-transition: width 0.2s ease-in;
+  -moz-transition: width 0.2s ease-in;
+  -o-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #37474f;
+  width: 80%;
+  overflow: overlay;
+  margin: 0;
+  padding: 0;
+  z-index: 20;
+}
+.float .navigation {
+  position: fixed;
+  width: 80%;
+  top: 50%;
+}
+.float .navigation .right,
+.float .navigation .left {
+  height: 150px;
+  margin-top: -75px;
+  position: absolute;
+  top: 0;
+}
+.float .navigation .right {
+  right: 20px;
+}
+.float .navigation .left {
+  left: 20px;
+}
+.float .panel-header {
+  padding-left: 100px;
+}
+.float .panel-body {
+  padding: 0 100px;
+}
+.float .title {
+  margin-bottom: 3px;
+}
+.float.float-right {
+  right: 0;
+}
+@media (max-width: 768px) {
+  .float {
+    width: 100%;
+  }
+  .float .navigation {
+    display: none;
+  }
+  .float .close-btn {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    z-index: 10;
+  }
+  .float .panel-header {
+    padding-left: 60px;
+  }
+  .float .panel-body {
+    padding: 0 10px;
+  }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.51);
+  z-index: 10;
 }

@@ -131,39 +131,89 @@
         </div>
     </div>
     <div class="sidebar sidebar-right">
+        <div class="panel panel-default search">
+            <div class="panel-body">
 
+                <div class="form-group search-field">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="icon-search search-icon"></span>
+                    <button title="Clear" class="cancel-icon btn btn-link">
+                        <span class="icon-cancel"></span>
+                    </button>
+                </div>
+
+                <div class="results">
+                    <div class="result-block">
+                        <div class="title-result">Feeds</div>
+                        <ul class="list-group rss-list-group">
+                            <li class="list-group-item">
+                                <div class="icon-list pull-left">
+                                    <span class="icon-folder"></span>
+                                </div>
+                                <div class="content">
+                                    <a href="">Habrahabr.ru</a>
+                                    <div class="meta">
+                                        <div>452 people</div>
+                                        <div>3 post/week</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="icon-list pull-left">
+                                    <span class="icon-folder"></span>
+                                </div>
+                                <div class="content">
+                                    <a href="#">Habrahabr.ru</a>
+                                    <div class="meta">
+                                        <span>452 people</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="icon-list pull-left">
+                                    <span class="icon-folder"></span>
+                                </div>
+                                <div class="content">
+                                    <a href="">Habrahabr.ru</a>
+                                    <div class="meta">
+                                        <span>452 people</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="content-wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-10 col-centered content">
-                    <div class="feed">
-                        <div class="panel panel-default header">
-                            <div class="panel-body">
-                                <h1 class="feedTitle">Habrahabr feed</h1>
-                                <div class="feed-meta">
-                                    <span>17 unread article</span>
-                                    <span>-</span>
-                                    <span>125 readers</span>
-                                </div>
-                                <div class="feed-action">
-                                    <button class="btn btn-link">
-                                        <span class="icon-ok"></span>
-                                    </button>
-                                    <button class="btn btn-link">
-                                        <span class="icon-bookmark-empty"></span>
-                                    </button>
-                                    <button class="btn btn-link">
-                                        <span class="icon-arrows-cw"></span>
-                                    </button>
-                                </div>
+                    <div class="panel panel-default feed">
+                        <div class="panel-header">
+                            <h1 class="title">
+                                <button class="btn btn-accent success">add feed</button>
+                                Habrahabr feed</h1>
+                            <div class="meta">
+                                <span>17 unread article</span>
+                                <span>-</span>
+                                <span>125 readers</span>
+                            </div>
+                            <div class="action-group">
+                                <button class="btn btn-link">
+                                    <span class="icon-ok"></span>
+                                </button>
+                                <button class="btn btn-link">
+                                    <span class="icon-bookmark-empty"></span>
+                                </button>
+                                <button class="btn btn-link">
+                                    <span class="icon-arrows-cw"></span>
+                                </button>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel panel-default feed-content">
                         <div class="panel-body">
-
-                            <div class="post-list">
+                            <div class="">
                                 <div class="post post-line unread">
                                     <div class="content">
                                         <span class="readLater"><i class="icon-bookmark"></i></span>
@@ -216,13 +266,46 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-10 col-centered">
-                    123
-                </div>
             </div>
         </div>
     </div>
 </div>
+<!--<div class="float-container">
+    <div class="panel panel-default panel-post float float-right">
+        <div>
+            <button class="close-btn btn btn-link btn-lg">
+                <span class="icon-cancel"></span>
+            </button>
+        </div>
+        <div class="panel-header">
+            <h2 class="title">Define.js, Combokeys</h2>
+            <div class="meta">
+                <span>17 unread article</span>
+                <span>-</span>
+                <span>125 readers</span>
+            </div>
+        </div>
+        <div class="panel-body">
+                DefineJS (GitHub: fixjs/define.js, License: MIT, npm: definejs) by Mehran Hatami is a new module loader. It implements the AMD pattern and also supports Promised Modules, and other new nonstandard related module techniques.
+                You can specify the module’s global name by including a global attribute on the script tag:
+                <script global="definejs" src="define.js"></script>
+                Now you can declare a module with definejs.define() and load dependencies with definejs.require. Promised modules are implemented by returning new Promise when declaring a dependency.
+                The author has included tests written with the Karma test runner, so you can run the tests against a real browser.
+                Combokeys
+                Shahar Or sent in a keyboard shortcut library called Combokeys (GitHub: mightyiam/combokeys, License: Apache 2.0), a fork of the popular Mousetrap project.
+                It has some cool changes: it’s been refactored to use CommonJS, and it doesn’t automatically listen on document. You can now specify which element it listens on for keyboard shortcuts. That was actually one thing that prevented me from using Mousetrap in a project.
+        </div>
+        <div class="navigation">
+            <button class="btn btn-link right btn-lg">
+                <span class="icon-angle-right"></span>
+            </button>
+            <button class="btn btn-link left btn-lg">
+                <span class="icon-angle-left"></span>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="overlay"></div>-->
 
 <!-- DO NOT MODIFY THIS FILE IT IS AUTO GENERATED BY THE BUILD -->
 
