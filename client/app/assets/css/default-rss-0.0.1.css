@@ -131,11 +131,17 @@ body {
 }
 .btn {
   color: #ff9800;
-  outline: none;
+  outline: none !important;
   -webkit-transition: all 0.1s ease-in;
   -moz-transition: all 0.1s ease-in;
   -o-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  border: 0;
+  overflow: hidden;
 }
 .btn .success-state {
   display: none;
@@ -159,21 +165,55 @@ body {
   background: #fff;
   color: #ff9800;
 }
-.btn.success {
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  background: #008000;
-  width: 35px;
-  height: 35px;
-  padding: 0;
+.btn-icon-line:after {
+  width: 70px;
+  height: 70px;
+  background: #fff;
+  z-index: 1;
+  left: -40px;
+  top: 0;
+  content: '';
+  position: absolute;
+  transform-origin: 0 0;
+  -webkit-transform: rotate(-20deg);
+  -moz-transform: rotate(-20deg);
+  -o-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
-.btn.success .default-state {
-  display: none;
+.btn-icon-line:hover:after {
+  left: -35px;
 }
-.btn.success .success-state {
-  display: block;
+.btn-icon {
+  position: relative;
+  padding-left: 60px;
+  background: #ff9800;
+  color: #fff;
+}
+.btn-icon:active .container-icon {
+  opacity: 0.1;
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  -o-transform: scale(2);
+  transform: scale(2);
+}
+.btn-icon:hover {
+  background: #263238;
+  color: #ff9800;
+}
+.btn-icon .container-icon {
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -o-transition: all 0.1s;
+  transition: all 0.1s;
+  position: absolute;
+  left: 11px;
+  top: 6px;
+  color: #ff9800;
+  z-index: 3;
 }
 a {
   color: #cfd8dc;
@@ -369,9 +409,43 @@ a.accent:focus {
   right: 0;
   top: 0;
 }
+.switchColor.switchOff {
+  color: #fff;
+}
+.switchColor.switchOff:hover {
+  color: #ff9800;
+}
+.switchColor.switchOn {
+  color: #ff9800;
+}
+.switchColor.switchOn:hover {
+  color: #fff;
+}
+.post {
+  position: relative;
+}
+.post.post-card {
+  cursor: pointer;
+}
+.post.post-card .img {
+  background-size: cover;
+  width: 240px;
+  height: 130px;
+  margin-right: 20px;
+}
+.post.post-card .img:hover {
+  opacity: 0.8;
+}
+.post.post-card .content {
+  overflow: hidden;
+}
+.post.post-card .title {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
 .post.post-line {
   position: relative;
-  padding: 10px 0 10px;
+  padding: 3px 0 3px;
   border-bottom: 1px solid #c0c0c0;
   -webkit-transition: background 0.1s ease-in;
   -moz-transition: background 0.1s ease-in;
@@ -404,12 +478,6 @@ a.accent:focus {
   height: 0;
   overflow: hidden;
 }
-.post.post-line .readLater:hover {
-  color: #ff9800;
-}
-.post.post-line.post-saved .readLater {
-  color: #ff9800;
-}
 .post.post-line.unread .title {
   font-weight: bold;
 }
@@ -423,7 +491,7 @@ a.accent:focus {
   top: 0;
   display: block;
   background: #fff;
-  height: 37px;
+  height: 100%;
   color: #263238;
   padding: 8px 3px 10px 10px;
   -webkit-transform: translateX(0);

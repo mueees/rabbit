@@ -188,10 +188,13 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-10 col-centered content">
-                    <div class="panel panel-default feed">
+                    <div class="panel panel-default">
                         <div class="panel-header">
                             <h1 class="title">
-                                <button class="btn btn-accent btn-sm">add feed</button>
+                                <button class="btn btn-icon btn-icon-line">
+                                    <span class="icon-plus container-icon"></span>
+                                    <span class="text">add</span>
+                                </button>
                                 Habrahabr feed</h1>
                             <div class="meta">
                                 <span>17 unread article</span>
@@ -214,7 +217,9 @@
                             <div class="">
                                 <div class="post post-line unread">
                                     <div class="content">
-                                        <span class="readLater"><i class="icon-bookmark"></i></span>
+                                        <button class="btn btn-link switchColor switchOff" title="Read later">
+                                            <i class="icon-bookmark"></i>
+                                        </button>
                                         <span class="title">This is title post</span>
                                     </div>
                                     <span class="time">3 minutes</span>
@@ -230,7 +235,9 @@
                                 </div>
                                 <div class="post post-line">
                                     <div class="content">
-                                        <span class="readLater"><i class="icon-bookmark"></i></span>
+                                        <button class="btn btn-link switchColor switchOff" title="Read later">
+                                            <i class="icon-bookmark"></i>
+                                        </button>
                                         <span class="title">This is title post</span>
                                     </div>
                                     <span class="time">3 minutes</span>
@@ -244,9 +251,11 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="post post-line post-saved">
+                                <div class="post post-line">
                                     <div class="content">
-                                        <span class="readLater"><i class="icon-bookmark"></i></span>
+                                        <button class="btn btn-link switchColor switchOn" title="Read later">
+                                            <i class="icon-bookmark"></i>
+                                        </button>
                                         <span class="title">This is title post</span>
                                     </div>
                                     <span class="time">3 minutes</span>
@@ -258,6 +267,31 @@
                                         <button class="btn btn-link btn-xs" title="Mark as readed">
                                             <span class="icon-cancel"></span>
                                         </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="post post-card">
+                                    <div class="img pull-left" style="background-image: url('http://c.tadst.com/gfx/600x400/world-post-day.jpg')">
+                                    </div>
+                                    <div class="content">
+                                        <div class="title">This is title post</div>
+                                        <div class="description meta">
+                                            В первоначальной версии закона, который уже подписан президентом РФ Владимиром Путиным, стояла другая дата — 1 сентября 2016 года.
+                                        </div>
+                                        <div class="meta">
+                                            <span>21 minutes</span>
+                                            <span>-</span>
+                                            <span>-</span>
+                                        </div>
+                                        <div class="action-group">
+                                            <button class="btn btn-link switchColor switchOff" title="Read later">
+                                                <span class="icon-bookmark"></span>
+                                            </button>
+                                            <button class="btn btn-link" title="Mark as read">
+                                                <span class="icon-folder-open"></span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

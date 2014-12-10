@@ -12,8 +12,11 @@ body
 
 .btn
   color accent-main
-  outline none
+  outline none !important
   transition all  0.1s ease-in
+  border-radius 0
+  border 0
+  overflow hidden
   .success-state
     display none
   &:focus
@@ -30,16 +33,48 @@ body
     &:hover
       background second-main
       color accent-main
-  &.success
-    border-radius 50%
-    background green
-    width 35px
-    height 35px
-    padding 0
-    .default-state
-      display none
-    .success-state
-      display block
+
+.btn-icon-line
+  &:after
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    z-index: 1;
+    left: -40px;
+    top: 0;
+    content: '';
+    position: absolute;
+    transform-origin: 0 0;
+    transform: rotate(-20deg);
+    transition all  0.2s ease-in
+  &:hover
+    &:after
+      left -35px
+
+
+.btn-icon
+  position relative
+  padding-left 60px
+  background accent-main
+  color second-main
+
+  &:active
+    .container-icon
+      opacity .1
+      transform scale(2)
+
+  &:hover
+    background primary-dark
+    color accent-main
+
+  .container-icon
+    transition all 0.1s
+    position absolute
+    left 11px
+    top 6px
+    color accent-main
+    z-index 3
+
 a
   color primary-light
   transition color 0.2s ease-in
@@ -170,10 +205,40 @@ a
     position absolute
     right 0
     top 0
+.switchColor
+  &.switchOff
+    color second-main
+    &:hover
+      color accent-main
+  &.switchOn
+    color accent-main
+    &:hover
+      color second-main
+
 .post
+  position relative
+  &.post-card
+    cursor pointer
+
+    .img
+      background-size cover
+      width 240px
+      height 130px
+      margin-right 20px
+
+      &:hover
+        opacity .8
+
+    .content
+      overflow hidden
+
+    .title
+      margin-bottom 10px
+      font-size font-third
+
   &.post-line
     position relative
-    padding 10px 0 10px
+    padding 3px 0 3px
     border-bottom 1px solid silver
     transition background 0.1s ease-in
 
@@ -196,14 +261,6 @@ a
       height 0
       overflow hidden
 
-    .readLater
-      &:hover
-        color accent-main
-
-    &.post-saved
-      .readLater
-        color accent-main
-
     &.unread
       .title
         font-weight bold
@@ -216,7 +273,7 @@ a
         top: 0
         display: block
         background: second-main
-        height: 37px
+        height: 100%
         color primary-dark
         padding 8px 3px 10px 10px
         transform translateX(0)
