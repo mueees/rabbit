@@ -176,14 +176,24 @@ body {
   display: block;
 }
 a {
-  color: #ff9800;
-  outline: 0;
+  color: #cfd8dc;
   -webkit-transition: color 0.2s ease-in;
   -moz-transition: color 0.2s ease-in;
   -o-transition: color 0.2s ease-in;
   transition: color 0.2s ease-in;
 }
-a:hover {
+a:hover,
+a:active,
+a:focus {
+  color: #fff;
+  text-decoration: none;
+}
+a.accent {
+  color: #ff9800;
+}
+a.accent:hover,
+a.accent:active,
+a.accent:focus {
   color: #fff;
 }
 .content-wrapper {
@@ -219,13 +229,6 @@ a:hover {
   top: 0;
   left: 0;
   padding: 15px;
-}
-.sidebar a {
-  color: #cfd8dc;
-}
-.sidebar a:hover {
-  text-decoration: none;
-  color: #fff;
 }
 .sidebar .links li {
   margin: 0 0 10px;

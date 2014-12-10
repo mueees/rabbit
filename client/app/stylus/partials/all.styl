@@ -41,11 +41,17 @@ body
     .success-state
       display block
 a
-  color accent-main
-  outline: 0
-  transition color  0.2s ease-in
-  &:hover
+  color primary-light
+  transition color 0.2s ease-in
+
+  &:hover, &:active, &:focus
     color second-main
+    text-decoration none
+
+  &.accent
+    color accent-main
+    &:hover, &:active, &:focus
+      color second-main
 
 .content-wrapper
   margin-left sidebar-width
@@ -71,17 +77,12 @@ a
     left 0
     padding 15px
 
-  a
-    color primary-light
-    &:hover
-      text-decoration none
-      color second-main
-
   .links
     li
       margin 0 0 10px
     .active
       color second-main
+
 .col-centered
   float: none
   margin: 0 auto
@@ -165,10 +166,10 @@ a
       .title
         font-size 16px
 .feed
-    .action-group
-      position absolute
-      right 0
-      top 0
+  .action-group
+    position absolute
+    right 0
+    top 0
 .post
   &.post-line
     position relative
