@@ -1,11 +1,11 @@
-var rx = rx || {};
+var rss = rss || {};
 
 (function () {
     'use strict';
 
-    // This usually occurs when running tests and do not use rx.util.isBoolean at this point as it may not be loaded yet
-    if (typeof rx.ENABLE_ASSERTS !== 'boolean') {
-        rx.ENABLE_ASSERTS = true;
+    // This usually occurs when running tests and do not use rss.util.isBoolean at this point as it may not be loaded yet
+    if (typeof rss.ENABLE_ASSERTS !== 'boolean') {
+        rss.ENABLE_ASSERTS = true;
     }
 
     /**
@@ -48,12 +48,12 @@ var rx = rx || {};
         messageArgs = messageArgs || [];
         messageArgs.unshift(message);
 
-        var error = new Error(rx.string.subs.apply(null, messageArgs));
+        var error = new Error(rss.string.subs.apply(null, messageArgs));
 
         // Call all registered handlers but make sure they can prevent the default handler
-        rx.util.forEach(errorHandlers, function (handler) {
+        rss.util.forEach(errorHandlers, function (handler) {
             try {
-                if (rx.util.isFunction(handler)) {
+                if (rss.util.isFunction(handler)) {
                     handler(error);
                 }
             } catch (e) {
@@ -73,7 +73,7 @@ var rx = rx || {};
      *        assertArray: assertArray, assertBoolean: assertBoolean, assertElement: assertElement,
      *        assertInstanceof: assertInstanceof}}
      */
-    rx.assert = {
+    rss.assert = {
         /**
          * Sets a custom error handler that can be used to customize the behavior of
          * assertion failures, for example by turning all assertion failures into log
@@ -81,21 +81,21 @@ var rx = rx || {};
          * @param {function(AssertionError)} errorHandler
          */
         addErrorHandler: function (errorHandlerFn) {
-            if (rx.ENABLE_ASSERTS && rx.util.isFunction(errorHandlerFn)) {
+            if (rss.ENABLE_ASSERTS && rss.util.isFunction(errorHandlerFn)) {
                 errorHandlers.push(errorHandlerFn);
             }
         },
 
 
         /**
-         * Checks if the condition evaluates to true if rx.ENABLE_ASSERTS is true.
+         * Checks if the condition evaluates to true if rss.ENABLE_ASSERTS is true.
          * @param {boolean} condition The condition to check.
          * @param {string=} opt_message Error message in case of failure.
          * @param {...*} var_args The items to substitute into the failure message.
          * @throws {AssertionError} When the condition evaluates to false.
          */
         assert: function (condition, opt_message, var_args) {
-            if (rx.ENABLE_ASSERTS && !condition) {
+            if (rss.ENABLE_ASSERTS && !condition) {
                 handleFailure('', null, opt_message, Array.prototype.slice.call(arguments, 2));
             }
         },
@@ -109,7 +109,7 @@ var rx = rx || {};
          * @throws {AssertionError} Failure.
          */
         fail: function (opt_message, var_args) {
-            if (rx.ENABLE_ASSERTS) {
+            if (rss.ENABLE_ASSERTS) {
                 handleFailure(
                     'Failure' + (opt_message ? ': ' + opt_message : ''),
                     Array.prototype.slice.call(arguments, 1)
@@ -118,16 +118,16 @@ var rx = rx || {};
         },
 
         /**
-         * Checks if the value is a number if rx.ENABLE_ASSERTS is true.
+         * Checks if the value is a number if rss.ENABLE_ASSERTS is true.
          * @param {*} value The value to check.
          * @param {string=} opt_message Error message in case of failure.
          * @param {...*} var_args The items to substitute into the failure message.
          * @throws {AssertionError} When the value is not a number.
          */
         assertNumber: function (value, opt_message, var_args) {
-            if (rx.ENABLE_ASSERTS && !rx.util.isNumber(value)) {
+            if (rss.ENABLE_ASSERTS && !rss.util.isNumber(value)) {
                 handleFailure('Expected number but got %s: %s.',
-                    [rx.util.typeOf(value), value], opt_message,
+                    [rss.util.typeOf(value), value], opt_message,
                     Array.prototype.slice.call(arguments, 2));
             }
         },
@@ -139,9 +139,9 @@ var rx = rx || {};
          * @param var_args
          */
         assertDefinedAndNotNull: function (value, opt_message, var_args) {
-            if (rx.ENABLE_ASSERTS && !rx.util.isDefinedAndNotNull(value)) {
+            if (rss.ENABLE_ASSERTS && !rss.util.isDefinedAndNotNull(value)) {
                 handleFailure('Expected a defined value but got %s.',
-                    [rx.util.typeOf(value)], opt_message,
+                    [rss.util.typeOf(value)], opt_message,
                     Array.prototype.slice.call(arguments, 2));
             }
         },
@@ -154,8 +154,8 @@ var rx = rx || {};
          * @throws {AssertionError} When the value is not an object.
          */
         assertHasLength: function (value, opt_message, var_args) {
-            if (rx.ENABLE_ASSERTS) {
-                rx.assert.assertNumber(value.length, 'Expected a length property');
+            if (rss.ENABLE_ASSERTS) {
+                rss.assert.assertNumber(value.length, 'Expected a length property');
 
                 if (value.length <= 0) {
                     handleFailure('Expected length greater than zero but got %s.',
@@ -166,31 +166,31 @@ var rx = rx || {};
         },
 
         /**
-         * Checks if the value is a string if rx.ENABLE_ASSERTS is true.
+         * Checks if the value is a string if rss.ENABLE_ASSERTS is true.
          * @param {*} value The value to check.
          * @param {string=} opt_message Error message in case of failure.
          * @param {...*} var_args The items to substitute into the failure message.
          * @throws {AssertionError} When the value is not a string.
          */
         assertString: function (value, opt_message, var_args) {
-            if (rx.ENABLE_ASSERTS && !rx.util.isString(value)) {
+            if (rss.ENABLE_ASSERTS && !rss.util.isString(value)) {
                 handleFailure('Expected string but got %s: %s.',
-                    [rx.util.typeOf(value), value], opt_message,
+                    [rss.util.typeOf(value), value], opt_message,
                     Array.prototype.slice.call(arguments, 2));
             }
         },
 
         /**
-         * Checks if the value is a string if rx.ENABLE_ASSERTS is true and that it is length.
+         * Checks if the value is a string if rss.ENABLE_ASSERTS is true and that it is length.
          * @param {*} value The value to check.
          * @param {string=} opt_message Error message in case of failure.
          * @param {...*} var_args The items to substitute into the failure message.
          * @throws {AssertionError} When the value is not a string.
          */
         assertStringWithLength: function (value, opt_message, var_args) {
-            if (rx.ENABLE_ASSERTS) {
-                rx.assert.assertString(value, opt_message, var_args);
-                rx.assert.assertHasLength(value, opt_message, var_args);
+            if (rss.ENABLE_ASSERTS) {
+                rss.assert.assertString(value, opt_message, var_args);
+                rss.assert.assertHasLength(value, opt_message, var_args);
             }
         },
 
@@ -202,88 +202,88 @@ var rx = rx || {};
          * @throws {AssertionError} When the value is not an object.
          */
         assertArrayWithLength: function (value, opt_message, var_args) {
-            rx.assert.assertArray(value, opt_message, var_args);
-            rx.assert.assertHasLength(value, opt_message, var_args);
+            rss.assert.assertArray(value, opt_message, var_args);
+            rss.assert.assertHasLength(value, opt_message, var_args);
         },
 
         /**
-         * Checks if the value is a function if rx.ENABLE_ASSERTS is true.
+         * Checks if the value is a function if rss.ENABLE_ASSERTS is true.
          * @param {*} value The value to check.
          * @param {string=} opt_message Error message in case of failure.
          * @param {...*} var_args The items to substitute into the failure message.
          * @throws {AssertionError} When the value is not a function.
          */
         assertFunction: function (value, opt_message, var_args) {
-            if (rx.ENABLE_ASSERTS && !rx.util.isFunction(value)) {
+            if (rss.ENABLE_ASSERTS && !rss.util.isFunction(value)) {
                 handleFailure('Expected function but got %s: %s.',
-                    [rx.util.typeOf(value), value], opt_message,
+                    [rss.util.typeOf(value), value], opt_message,
                     Array.prototype.slice.call(arguments, 2));
             }
         },
 
         /**
-         * Checks if the value is an Object if rx.ENABLE_ASSERTS is true.
+         * Checks if the value is an Object if rss.ENABLE_ASSERTS is true.
          * @param {*} value The value to check.
          * @param {string=} opt_message Error message in case of failure.
          * @param {...*} var_args The items to substitute into the failure message.
          * @throws {AssertionError} When the value is not an object.
          */
         assertObject: function (value, opt_message, var_args) {
-            if (rx.ENABLE_ASSERTS && !rx.util.isObject(value)) {
+            if (rss.ENABLE_ASSERTS && !rss.util.isObject(value)) {
                 handleFailure('Expected object but got %s: %s.',
-                    [rx.util.typeOf(value), value],
+                    [rss.util.typeOf(value), value],
                     opt_message, Array.prototype.slice.call(arguments, 2));
             }
         },
 
         /**
-         * Checks if the value is an Array if rx.ENABLE_ASSERTS is true.
+         * Checks if the value is an Array if rss.ENABLE_ASSERTS is true.
          * @param {*} value The value to check.
          * @param {string=} opt_message Error message in case of failure.
          * @param {...*} var_args The items to substitute into the failure message.
          * @throws {AssertionError} When the value is not an array.
          */
         assertArray: function (value, opt_message, var_args) {
-            if (rx.ENABLE_ASSERTS && !rx.util.isArray(value)) {
+            if (rss.ENABLE_ASSERTS && !rss.util.isArray(value)) {
                 handleFailure('Expected array but got %s: %s.',
-                    [rx.util.typeOf(value), value], opt_message,
+                    [rss.util.typeOf(value), value], opt_message,
                     Array.prototype.slice.call(arguments, 2));
             }
         },
 
         /**
-         * Checks if the value is a boolean if rx.ENABLE_ASSERTS is true.
+         * Checks if the value is a boolean if rss.ENABLE_ASSERTS is true.
          * @param {*} value The value to check.
          * @param {string=} opt_message Error message in case of failure.
          * @param {...*} var_args The items to substitute into the failure message.
          * @throws {AssertionError} When the value is not a boolean.
          */
         assertBoolean: function (value, opt_message, var_args) {
-            if (rx.ENABLE_ASSERTS && !rx.util.isBoolean(value)) {
+            if (rss.ENABLE_ASSERTS && !rss.util.isBoolean(value)) {
                 handleFailure('Expected boolean but got %s: %s.',
-                    [rx.util.typeOf(value), value], opt_message,
+                    [rss.util.typeOf(value), value], opt_message,
                     Array.prototype.slice.call(arguments, 2));
             }
         },
 
         /**
-         * Checks if the value is a DOM Element if rx.ENABLE_ASSERTS is true.
+         * Checks if the value is a DOM Element if rss.ENABLE_ASSERTS is true.
          * @param {*} value The value to check.
          * @param {string=} opt_message Error message in case of failure.
          * @param {...*} var_args The items to substitute into the failure message.
          * @throws {AssertionError} When the value is not a boolean.
          */
         assertElement: function (value, opt_message, var_args) {
-            if (rx.ENABLE_ASSERTS && (!rx.util.isObject(value) ||
-                value.nodeType != rx.util.dom.NodeType.ELEMENT)) {
+            if (rss.ENABLE_ASSERTS && (!rss.util.isObject(value) ||
+                value.nodeType != rss.util.dom.NodeType.ELEMENT)) {
                 handleFailure('Expected Element but got %s: %s.',
-                    [rx.util.typeOf(value), value], opt_message,
+                    [rss.util.typeOf(value), value], opt_message,
                     Array.prototype.slice.call(arguments, 2));
             }
         },
 
         /**
-         * Checks if the value is an instance of the user-defined type if rx.ENABLE_ASSERTS is true.
+         * Checks if the value is an instance of the user-defined type if rss.ENABLE_ASSERTS is true.
          *
          * The compiler may tighten the type returned by this function.
          *
@@ -294,23 +294,23 @@ var rx = rx || {};
          * @throws {AssertionError} When the value is not an instance of type.
          */
         assertInstanceof: function (value, type, opt_message, var_args) {
-            if (rx.ENABLE_ASSERTS && !(value instanceof type)) {
+            if (rss.ENABLE_ASSERTS && !(value instanceof type)) {
                 handleFailure('instanceof check failed.', null,
                     opt_message, Array.prototype.slice.call(arguments, 3));
             }
         },
 
         /**
-         * Checks if the value is a angular $scope if rx.ENABLE_ASSERTS is true.
+         * Checks if the value is a angular $scope if rss.ENABLE_ASSERTS is true.
          * @param {*} value The value to check.
          * @param {string=} opt_message Error message in case of failure.
          * @param {...*} var_args The items to substitute into the failure message.
          * @throws {AssertionError} When the value is not a $scope.
          */
         assertScope: function (value, opt_message, var_args) {
-            if (rx.ENABLE_ASSERTS && !rx.util.isScope(value)) {
+            if (rss.ENABLE_ASSERTS && !rss.util.isScope(value)) {
                 handleFailure('Expected a valid $scope but got %s: %s.',
-                    [rx.util.typeOf(value), value], opt_message,
+                    [rss.util.typeOf(value), value], opt_message,
                     Array.prototype.slice.call(arguments, 2));
             }
         },
@@ -323,9 +323,9 @@ var rx = rx || {};
          * @throws {AssertionError} When the value is not null or undefined.
          */
         assertNullOrUndefined: function (value, opt_message, var_args) {
-            if (rx.ENABLE_ASSERTS && !rx.util.isNullOrUndefined(value)) {
+            if (rss.ENABLE_ASSERTS && !rss.util.isNullOrUndefined(value)) {
                 handleFailure('Expected a value that is null or undefined but got %s: %s.',
-                    [rx.util.typeOf(value), value], opt_message,
+                    [rss.util.typeOf(value), value], opt_message,
                     Array.prototype.slice.call(arguments, 2));
             }
         }

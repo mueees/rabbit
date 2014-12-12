@@ -51,9 +51,11 @@ module.exports = function ( grunt ) {
         pkg: grunt.file.readJSON("package.json"),
         html2js: {
             app: {
-                options: {},
+                options: {
+                    base: '.'
+                },
                 src: [ '<%= app_files.js.templates %>' ],
-                dest: 'app/scripts/rss.templates.js'
+                dest: '<%= build_dir %>/app/scripts/rss.templates.js'
             }
         },
         copy: {
@@ -164,7 +166,8 @@ module.exports = function ( grunt ) {
                 boss: true,
                 eqnull: true,
                 debug: true,
-                validthis: true
+                validthis: true,
+                regexp: false
             },
             globals: {}
         },
@@ -229,6 +232,7 @@ module.exports = function ( grunt ) {
                         ],
                         libs: changeRootFolder(userConfig.vendor_files.js, 'app/vendor', '<%= build_dir %>/app/vendor'),
                         main: changeRootFolder(userConfig.app_files.js.main, 'app/scripts', '<%= build_dir %>/app/scripts'),
+                        core: changeRootFolder(userConfig.app_files.js.core, 'app/scripts', '<%= build_dir %>/app/scripts'),
                         app: changeRootFolder(userConfig.app_files.js.app, 'app/scripts', '<%= build_dir %>/app/scripts')
                     },
                     styles: {
@@ -286,7 +290,7 @@ module.exports = function ( grunt ) {
             },
             html: {
                 files: [ '<%= app_files.html %>' ],
-                tasks: [ 'htmlbuild:dev' ]
+                tasks: [ '' ]
             },
             tpls: {
                 files: [

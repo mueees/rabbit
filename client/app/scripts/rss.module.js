@@ -2,6 +2,12 @@
     'use strict';
     angular.module('rss', [
         'templates-app',
-        'rss.login'
+        'ui.router',
+
+        'rss.core.error-handling',
+
+        //pages
+        'rss.promo',
+        'rss.app'
     ]);
 })();

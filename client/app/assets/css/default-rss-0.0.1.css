@@ -147,7 +147,7 @@ body {
   display: none;
 }
 .btn:focus {
-  color: inherit;
+  color: #ff9800;
   outline: none;
 }
 .btn:active {

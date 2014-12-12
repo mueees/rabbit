@@ -6,7 +6,7 @@ module.exports = {
     app_files: {
         js: {
             //angular templates
-            templates: ['app/scripts/**/*.tpl.html'],
+            templates: ['app/scripts/**/*.view.html'],
 
             //all js unit tests
             jsunit: [ 'app/scripts/**/*.spec.js' ],
@@ -20,14 +20,32 @@ module.exports = {
 
             // all js application file without main, unit test
             app: [
-                'app/scripts/**/*.js',
+                'app/scripts/**/*.module.js',
+                'app/scripts/**/*.config.js',
+                'app/scripts/**/*.route.js',
+                'app/scripts/**/*.constant.js',
+                'app/scripts/**/*.value.js',
+                'app/scripts/**/*.run.js',
+                'app/scripts/**/*.service.js',
+                'app/scripts/**/*.class.js',
+                'app/scripts/**/*.directive.js',
+                'app/scripts/**/*.controller.js',
+                'app/scripts/**/*.resource.js',
+                'app/scripts/**/*.filter.js',
                 '!app/scripts/**/*.spec.js',
                 '!app/scripts/rss.module.js',
                 '!app/scripts/rss.*.js'
             ],
 
+            core: [
+                'app/scripts/core/**/*.js'
+            ],
+
             all: [
                 'app/scripts/**/*.js'
+            ],
+            html: [
+                'app/index.html'
             ]
         },
 
