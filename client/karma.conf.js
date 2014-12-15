@@ -12,14 +12,13 @@ module.exports = function (config) {
     // Load all the required files
     var modulesJS = ['app/scripts/**/*.module*.js'];
     var sourceJS = ['app/scripts/**/*.js'];
-
     var userConfig = require( './build.config.js' );
-    var vendor_js = userConfig.vendor_files.js;
 
-    //var mocks = ["mocks/**/*.js"];
+    var testJS = userConfig.app_files.js.test;
+    var vendor_js = userConfig.vendor_files.js;
     var templates = ['app/**/*.html'];
 
-    var allFiles = vendor_js.concat(modulesJS, sourceJS, templates);
+    var allFiles = vendor_js.concat(testJS, modulesJS, sourceJS, templates);
 
     config.set({
         /**

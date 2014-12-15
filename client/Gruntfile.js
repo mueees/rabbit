@@ -281,6 +281,18 @@ module.exports = function ( grunt ) {
                 ],
                 tasks: [ 'jshint:src', 'copy:app_js' ]
             },
+            corejssrc: {
+                files: [
+                    '<%= app_files.js.core %>'
+                ],
+                tasks: [ 'jshint:src', 'copy:app_js' ]
+            },
+            jsunit: {
+                files: [
+                    '<%= app_files.js.jsunit %>'
+                ],
+                tasks: [ 'karma']
+            },
             gruntfile: {
                 files: 'Gruntfile.js',
                 tasks: [ 'jshint:gruntfile' ],
@@ -316,7 +328,7 @@ module.exports = function ( grunt ) {
     grunt.initConfig( grunt.util._.extend( taskConfig, userConfig ) );
 
     grunt.registerTask("development", [
-        /*'karma',*/
+        'karma',
         'clean:build',
         'stylus:dev',
         'jsvalidate',

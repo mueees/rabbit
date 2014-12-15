@@ -129,6 +129,12 @@ body {
   font-size: 14px;
   line-height: 16px;
 }
+.form-control {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+}
 .btn {
   color: #ff9800;
   outline: none !important;

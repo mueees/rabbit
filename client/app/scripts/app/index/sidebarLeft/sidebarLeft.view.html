@@ -1,0 +1,118 @@
+<div ng-switch on="user.token">
+    <div ng-switch-when="true">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <nav class="links">
+                    <ul>
+                        <li>
+                            <a href="#" class="active">
+                                <span class="icon-home"></span>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="icon-bookmark"></span>
+                                Saved
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="categories">
+                    <ul class="list-group rss-list-group rss-links open">
+                        <li class="list-group-item">
+                            <a class="categoryName" href="#">
+                        <span class="corner">
+                            <span class="icon-angle-right"></span>
+                        </span>
+                                Web
+                            </a>
+                            <ul class="list-group rss-list-group rss-links feeds">
+                                <li class="list-group-item">
+                                    <a href="#">Habrahabr</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">Other tab</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="open list-group-item">
+                            <a class="categoryName" href="#">
+                        <span class="corner">
+                            <span class="icon-angle-right"></span>
+                        </span>
+                                Social
+                            </a>
+                            <ul class="list-group rss-list-group rss-links feeds">
+                                <li class="animated fadeInUp list-group-item">
+                                    <a href="#">Dirty.ru</a>
+                                </li>
+                                <li class="animated fadeInUp list-group-item">
+                                    <a href="#">Some other site</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="tags">
+                    <ul class="list-group rss-list-group rss-links">
+                        <li class="list-group-item">
+                            <a href="#">
+                                <span class="icon-tag"></span>
+                                Some tag
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                <span class="icon-tag"></span>
+                                Some tag
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default without-icon">
+            <div class="panel-body">
+                <ul class="list-group rss-list-group rss-links open">
+                    <li class="list-group-item">
+                        <a href="#">
+                            Recently read
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">
+                            Organize
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">
+                            Themes
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">
+                            Preferences
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">
+                            Organize
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div ng-switch-default>
+        <sign-bar></sign-bar>
+    </div>
+</div>

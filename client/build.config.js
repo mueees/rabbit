@@ -9,16 +9,16 @@ module.exports = {
             templates: ['app/scripts/**/*.view.html'],
 
             //all js unit tests
-            jsunit: [ 'app/scripts/**/*.spec.js' ],
+            jsunit: [ 'app/scripts/**/*.test.js' ],
 
             // main module (rss)
             main: [
                 'app/scripts/rss.module.js',
                 'app/scripts/rss.*.js',
-                '!app/scripts/*.spec.js'
+                '!app/scripts/*.test.js'
             ],
 
-            // all js application file without main, unit test
+            // all js application file without main, core and unit test
             app: [
                 'app/scripts/**/*.module.js',
                 'app/scripts/**/*.config.js',
@@ -32,20 +32,40 @@ module.exports = {
                 'app/scripts/**/*.controller.js',
                 'app/scripts/**/*.resource.js',
                 'app/scripts/**/*.filter.js',
-                '!app/scripts/**/*.spec.js',
+                '!app/scripts/core/**/*.js',
+                '!app/scripts/**/*.test.js',
                 '!app/scripts/rss.module.js',
                 '!app/scripts/rss.*.js'
             ],
 
             core: [
-                'app/scripts/core/**/*.js'
+                'app/scripts/core/globals/*.js',
+                'app/scripts/core/**/*.module.js',
+                'app/scripts/core/**/*.config.js',
+                'app/scripts/core/**/*.route.js',
+                'app/scripts/core/**/*.constant.js',
+                'app/scripts/core/**/*.value.js',
+                'app/scripts/core/**/*.run.js',
+                'app/scripts/core/**/*.service.js',
+                'app/scripts/core/**/*.class.js',
+                'app/scripts/core/**/*.directive.js',
+                'app/scripts/core/**/*.controller.js',
+                'app/scripts/core/**/*.resource.js',
+                'app/scripts/core/**/*.filter.js'
             ],
 
             all: [
-                'app/scripts/**/*.js'
+                'app/scripts/**/*.js',
+                '!app/scripts/**/*.test.js'
             ],
+
             html: [
                 'app/index.html'
+            ],
+
+            test: [
+                'app/vendor/jquery/dist/jquery.js',
+                'app/vendor/jasmine-jquery/lib/jasmine-jquery.js'
             ]
         },
 

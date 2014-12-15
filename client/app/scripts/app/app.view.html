@@ -1,1 +1,15 @@
-<h1>This is main app</h1>
+<div id="main">
+    <div class="sidebar sidebar-left">
+        <div ui-view="sidebarLeft"></div>
+    </div>
+    <div class="sidebar sidebar-right">
+        <div ui-view="sidebarRight"></div>
+    </div>
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div ui-view="content"></div>
+            </div>
+        </div>
+    </div>
+</div>

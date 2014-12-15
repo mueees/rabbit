@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('rss.core.error-handling').factory('rssServerErrorHandler', function ($q, RSS_ERROR_MESSAGES) {
+    angular.module('rss.core.error-handling').factory('rssServerErrorHandler', function ($rootScope, $q, RSS_ERROR_MESSAGES) {
 
         function getServerResponseErrorDetails(response){
             var errorDetails = null;
@@ -50,10 +50,12 @@
             if (errors) {
                 angular.forEach(errors, function (error) {
                     message = _buildMessageFromErrorDetails(error);
+                    $rootScope.$broadcast('errorMessage', message);
                     alert(message);
                 });
             } else {
                 message = _buildMessageFromRawResponse(response);
+                $rootScope.$broadcast('errorMessage', message);
                 alert(message);
             }
         }
