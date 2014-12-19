@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('rss.core.resources').factory('rssResource', function (Restangular, RSS_RESOURCE_URLS) {
+    angular.module('rss.core.resources').factory('rssResource', function (Restangular, RSS_RESOURCE_URLS, rssSession) {
 
         /**
          * Creates a Restangular instance with the specified base url that is different from the one defined in
@@ -28,6 +28,10 @@
 
             // Decorate the Restangular instance with our own required methods
             newInstance.withUrlConfiguration = _.bind(withUrlConfigurationFunction, newInstance);
+
+            //Always send user token if it exist
+            newInstance.setDefaultRequestParams('get', {token: rssSession.getToken()});
+
             return newInstance;
         };
 

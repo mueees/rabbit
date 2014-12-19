@@ -55,7 +55,7 @@ module.exports = function ( grunt ) {
                     base: '.'
                 },
                 src: [ '<%= app_files.js.templates %>' ],
-                dest: '<%= build_dir %>/app/scripts/rss.templates.js'
+                dest: '<%= build_dir %>/app/scripts/rss/rss.templates.js'
             }
         },
         copy: {

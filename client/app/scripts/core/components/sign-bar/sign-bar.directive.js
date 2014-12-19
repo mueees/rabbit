@@ -7,15 +7,23 @@
             templateUrl: "app/scripts/core/components/sign-bar/sign-bar.directive.view.html",
             scope: {},
             link: function (scope) {
+
                 scope.user = {};
 
-                scope.signIn = function () {};
-                scope.signUp = function () {
-                    rssAuthentication.login({
-                        email: "test@email.com",
-                        password: "testpassword"
+                scope.signIn = function () {
+                    rssAuthentication.signin({
+                        email: scope.user.email,
+                        password: scope.user.password
                     });
                 };
+
+                scope.signUp = function () {
+                    rssAuthentication.signup({
+                        email: scope.user.email,
+                        password: scope.user.password
+                    });
+                };
+
             }
         }
     });

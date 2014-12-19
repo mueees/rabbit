@@ -5,7 +5,7 @@
         $stateProvider.state('main', {
             abstract: true,
             url: '/main',
-            templateUrl: 'app/scripts/viewport/viewport.view.html',
+            templateUrl: 'app/scripts/main/viewport/viewport.view.html',
             controller: 'ViewportController'
         });
     });

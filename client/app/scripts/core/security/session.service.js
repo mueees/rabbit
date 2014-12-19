@@ -27,6 +27,14 @@
             return _user;
         }
 
+        function _getToken(){
+            if(rss.util.isStringWithLength(_user.token)){
+                return _user.token
+            }else{
+                return false;
+            }
+        }
+
         function _isAuthenticated(){
             return !rss.util.isNull(_user) && rss.util.isStringWithLength(_user.token);
         }
@@ -39,6 +47,7 @@
 
         return {
             create: _create,
+            getToken: _getToken,
             destroy: _destroy,
             getUser: _getUser,
             isAuthenticated: _isAuthenticated

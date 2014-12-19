@@ -5,7 +5,7 @@
         $stateProvider
             .state('main.promo', {
                 url: '/promo',
-                templateUrl: 'app/scripts/promo/promo.view.html',
+                templateUrl: 'app/scripts/main/promo/promo.view.html',
                 controller: 'PromoController'
             });
     });

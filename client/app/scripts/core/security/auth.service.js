@@ -56,10 +56,20 @@
 
                 var afterLoginState = _appState;
 
-                function login(credentials){
-                    return rssAuthUserResource.login(credentials).then(function (token) {
+                function signup(credentials){
+                    return rssAuthUserResource.signup(credentials).then(function (data) {
                         rssSession.create({
-                            token: token
+                            token: data.token,
+                            email: credentials.email
+                        });
+                    });
+                }
+
+                function signin(credentials){
+                    return rssAuthUserResource.signin(credentials).then(function (data) {
+                        rssSession.create({
+                            token: data.token,
+                            email: credentials.email
                         });
                     });
                 }
@@ -116,7 +126,8 @@
                 });
 
                 return {
-                    login: login,
+                    signin: signin,
+                    signup: signup,
                     logout: logout
                 };
 

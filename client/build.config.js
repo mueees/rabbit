@@ -13,29 +13,26 @@ module.exports = {
 
             // main module (rss)
             main: [
-                'app/scripts/rss.module.js',
-                'app/scripts/rss.*.js',
-                '!app/scripts/*.test.js'
+                'app/scripts/rss/rss.module.js',
+                'app/scripts/rss/rss.*.js',
+                '!app/scripts/rss/*.test.js'
             ],
 
             // all js application file without main, core and unit test
             app: [
-                'app/scripts/**/*.module.js',
-                'app/scripts/**/*.config.js',
-                'app/scripts/**/*.route.js',
-                'app/scripts/**/*.constant.js',
-                'app/scripts/**/*.value.js',
-                'app/scripts/**/*.run.js',
-                'app/scripts/**/*.service.js',
-                'app/scripts/**/*.class.js',
-                'app/scripts/**/*.directive.js',
-                'app/scripts/**/*.controller.js',
-                'app/scripts/**/*.resource.js',
-                'app/scripts/**/*.filter.js',
-                '!app/scripts/core/**/*.js',
-                '!app/scripts/**/*.test.js',
-                '!app/scripts/rss.module.js',
-                '!app/scripts/rss.*.js'
+                'app/scripts/main/**/*.module.js',
+                'app/scripts/main/**/*.config.js',
+                'app/scripts/main/**/*.route.js',
+                'app/scripts/main/**/*.constant.js',
+                'app/scripts/main/**/*.value.js',
+                'app/scripts/main/**/*.run.js',
+                'app/scripts/main/**/*.service.js',
+                'app/scripts/main/**/*.class.js',
+                'app/scripts/main/**/*.directive.js',
+                'app/scripts/main/**/*.controller.js',
+                'app/scripts/main/**/*.resource.js',
+                'app/scripts/main/**/*.filter.js',
+                '!app/scripts/main/**/*.test.js'
             ],
 
             core: [
@@ -51,7 +48,8 @@ module.exports = {
                 'app/scripts/core/**/*.directive.js',
                 'app/scripts/core/**/*.controller.js',
                 'app/scripts/core/**/*.resource.js',
-                'app/scripts/core/**/*.filter.js'
+                'app/scripts/core/**/*.filter.js',
+                '!app/scripts/core/**/*.test.js'
             ],
 
             all: [
