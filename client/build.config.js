@@ -88,7 +88,8 @@ module.exports = {
             'app/vendor/angular-mocks/angular-mocks.js',
             'app/vendor/angular-touch/angular-touch.min.js',
             'app/vendor/angular-ui-router/release/angular-ui-router.min.js',
-            'app/vendor/angular-animate/angular-animate.min.js'
+            'app/vendor/angular-animate/angular-animate.min.js',
+            'app/vendor/ngstorage/ngStorage.js'
         ],
         css: [
             'app/vendor/bootstrap/dist/css/bootstrap.css'

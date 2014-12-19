@@ -1,3 +1,11 @@
+/**
+ * @ngdoc service
+ * @name rssAuthentication
+ *
+ * @description
+ * The rssAuthentication provide api for login and logout
+ * And handle each request, for checking access
+ */
 (function () {
     'use strict';
     angular.module('rss.core.security').provider( 'rssAuthentication', function () {
@@ -40,7 +48,7 @@
             loginState: loginState,
             appState: appState,
 
-            $get: function ($rootScope, $state, rssAuthUserResource, rssSession, RSS_AUTH_EVENTS) {
+            $get: function ($rootScope, $state, $localStorage, rssAuthUserResource, rssSession, RSS_AUTH_EVENTS) {
 
                 if (!_loginState || !_loginState.name || !_appState) {
                     throw new Error('rssAuthentication service has not been configured properly.');
@@ -49,17 +57,16 @@
                 var afterLoginState = _appState;
 
                 function login(credentials){
-                    return rssAuthUserResource.login(credentials).then(function () {
-                        rssSession.create(credentials);
+                    return rssAuthUserResource.login(credentials).then(function (token) {
+                        rssSession.create({
+                            token: token
+                        });
                     });
                 }
                 function logout(){
                     return rssAuthUserResource.logout().then(function () {
                         rssSession.destroy();
                     });
-                }
-                function isAuthenticated(){
-                    return rss.util.isStringWithLength(rssSession.getUsername());
                 }
 
                 function _redirectToTargetState(){
@@ -102,7 +109,7 @@
                         return;
                     }
 
-                    if (!isAuthenticated()) {
+                    if (!rssSession.isAuthenticated()) {
                         event.preventDefault();
                         $rootScope.$broadcast(RSS_AUTH_EVENTS.notAuthenticated, toState, toParams);
                     }
@@ -110,8 +117,7 @@
 
                 return {
                     login: login,
-                    logout: logout,
-                    isAuthenticated: isAuthenticated
+                    logout: logout
                 };
 
             }
