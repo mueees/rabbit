@@ -24,9 +24,14 @@
                     }
                 }
             })
+            .state('main.app.index.home', {
+                url: '/home',
+                templateUrl: "app/scripts/main/app/home/home.view.html"
+            })
             .state('main.app.index.feed', {
                 url: '/feed/:id',
-                templateUrl: "app/scripts/main/app/feed/app-feed.view.html"
+                templateUrl: "app/scripts/main/app/feed/app-feed.view.html",
+                controller: 'FeedController'
             });
     });
 })();
