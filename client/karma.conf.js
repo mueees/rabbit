@@ -41,7 +41,7 @@ module.exports = function (config) {
 
         ngHtml2JsPreprocessor: {
             cacheIdFromPath: function (filepath) {
-                return filepath.substring(4); // skip 'app/'
+                return filepath; // skip 'app/'
             },
 
             moduleName: 'templates'

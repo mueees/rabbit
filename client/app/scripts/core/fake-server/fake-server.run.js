@@ -46,5 +46,25 @@
                     }]
             }]);
 
+            //search
+            $httpBackend.whenPOST(baseUrl+'/search/find').respond({
+                feeds: [
+                    {
+                        name: 'Habrahabr.ru',
+                        _id: "234234"
+                    },
+                    {
+                        name: 'Boston.prospect',
+                        _id: "45456"
+                    }
+                ],
+                sites: [
+                    {
+                        name: 'Boston.prospect',
+                        url: "http://bla-bla.ua/feed"
+                    }
+                ]
+            });
+
         });
 })();
