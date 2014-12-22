@@ -6,7 +6,8 @@
         'rss.viewport',
         'rss.core.security',
 
-        'rss.core.components.sign-bar'
+        'rss.core.components.sign-bar',
+        'rss.core.components.categories-bar'
     ]);
 
 })();

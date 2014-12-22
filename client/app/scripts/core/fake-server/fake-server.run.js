@@ -31,5 +31,20 @@
                 token: "Fake token"
             });
 
+            //category
+            $httpBackend.whenGET(baseUrl+'/categories/getFullCategories?token=Fake+token').respond([{
+                _id: '2132134',
+                name: "Test category",
+                feeds: [
+                    {
+                        _id: '123',
+                        name: 'Habrahabr feed'
+                    },
+                    {
+                        _id: '234',
+                        name: 'Weekend'
+                    }]
+            }]);
+
         });
 })();

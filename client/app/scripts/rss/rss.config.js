@@ -6,7 +6,7 @@
         rssAuthenticationProvider.loginState('main.app.index.feed');
         rssAuthenticationProvider.appState('main.app.index.feed');
 
-        $urlRouterProvider.otherwise("/main/app/index/feed");
+        $urlRouterProvider.otherwise("/main/app/index/feed/123");
 
     });
 })();

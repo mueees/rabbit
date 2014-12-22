@@ -25,7 +25,7 @@
                 }
             })
             .state('main.app.index.feed', {
-                url: '/feed',
+                url: '/feed/:id',
                 templateUrl: "app/scripts/main/app/feed/app-feed.view.html"
             });
     });

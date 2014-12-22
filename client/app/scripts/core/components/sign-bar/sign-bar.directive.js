@@ -1,12 +1,17 @@
 (function(){
     'use strict';
 
-    angular.module('rss.core.components.sign-bar').directive('signBar', function (rssAuthentication) {
-        return {
+    angular.module('rss.core.components.sign-bar').directive('rssSignBar', function (rssAuthentication, rssWebComponent) {
+
+        return rssWebComponent.RssUiComponentClass({
             restrict: "E",
             templateUrl: "app/scripts/core/components/sign-bar/sign-bar.directive.view.html",
-            scope: {},
-            link: function (scope) {
+
+            scopeDecorators: [
+                'RssStateDecorator'
+            ],
+
+            link: function (scope, element, attrs, controllers) {
 
                 scope.user = {};
 
@@ -25,7 +30,7 @@
                 };
 
             }
-        }
+        });
     });
 
 })();

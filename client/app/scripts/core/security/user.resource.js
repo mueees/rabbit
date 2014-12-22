@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('rss.core.security').factory('rssAuthUserResource', function (rssResource) {
+    angular.module('rss.core.resources').factory('rssAuthUserResource', function (rssResource) {
         var UserResource = rssResource.withConfig(function(RestangularConfigurer){
             RestangularConfigurer.addElementTransformer('user', false, function (user) {
                 user.addRestangularMethod('signup', 'post', 'signup', undefined);

@@ -96,7 +96,7 @@
                     afterLoginState = _appState;
                 }
 
-                $rootScope.$on(RSS_AUTH_EVENTS.notAuthenticated, function (event, toState, toParams) {
+                /*$rootScope.$on(RSS_AUTH_EVENTS.notAuthenticated, function (event, toState, toParams) {
                     if (toState) {
                         afterLoginState = {
                             name: toState.name,
@@ -105,7 +105,7 @@
                     }
 
                     $state.go(_loginState.name, _loginState.params);
-                });
+                });*/
 
                 $rootScope.$on(RSS_AUTH_EVENTS.loginSuccess, _redirectToTargetState);
 
@@ -120,7 +120,7 @@
                     }
 
                     if (!rssSession.isAuthenticated()) {
-                        event.preventDefault();
+                        /*event.preventDefault();*/
                         $rootScope.$broadcast(RSS_AUTH_EVENTS.notAuthenticated, toState, toParams);
                     }
                 });

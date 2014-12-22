@@ -28,7 +28,7 @@
         }
 
         function _getToken(){
-            if(rss.util.isStringWithLength(_user.token)){
+            if(!rss.util.isUndefinedOrNull(_user) && rss.util.isStringWithLength(_user.token)){
                 return _user.token
             }else{
                 return false;
@@ -36,11 +36,12 @@
         }
 
         function _isAuthenticated(){
-            return !rss.util.isNull(_user) && rss.util.isStringWithLength(_user.token);
+            return !rss.util.isUndefinedOrNull(_user) && rss.util.isStringWithLength(_user.token);
         }
 
         function initUser(){
             _user = $localStorage.user;
+            $rootScope.user = _user;
         }
 
         initUser();

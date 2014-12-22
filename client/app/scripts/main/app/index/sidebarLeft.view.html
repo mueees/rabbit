@@ -22,40 +22,7 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="categories">
-                <ul class="list-group rss-list-group rss-links open">
-                    <li class="list-group-item">
-                        <a class="categoryName" href="#">
-                        <span class="corner">
-                            <span class="icon-angle-right"></span>
-                        </span>
-                            Web
-                        </a>
-                        <ul class="list-group rss-list-group rss-links feeds">
-                            <li class="list-group-item">
-                                <a href="#">Habrahabr</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="#">Other tab</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="open list-group-item">
-                        <a class="categoryName" href="#">
-                        <span class="corner">
-                            <span class="icon-angle-right"></span>
-                        </span>
-                            Social
-                        </a>
-                        <ul class="list-group rss-list-group rss-links feeds">
-                            <li class="animated fadeInUp list-group-item">
-                                <a href="#">Dirty.ru</a>
-                            </li>
-                            <li class="animated fadeInUp list-group-item">
-                                <a href="#">Some other site</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                <rss-categories-bar rss-configuration=""></rss-categories-bar>
             </div>
         </div>
     </div>
@@ -112,5 +79,5 @@
     </div>
 </div>
 <div ng-if="!user.token">
-    <sign-bar></sign-bar>
+    <rss-sign-bar  rss-configuration=""></rss-sign-bar>
 </div>
