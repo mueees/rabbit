@@ -1,0 +1,18 @@
+<div class="post post-line" ng-class='{"unread": !post.user.isRead}' ng-click="postClick()">
+    <div class="content">
+        <!--<button ng-if="user.token" class="btn btn-link switchColor switchOn" title="Read later">
+            <i class="icon-bookmark"></i>
+        </button>-->
+        <span class="title">{{post.title}}</span>
+    </div>
+    <!--<span class="time">3 minutes</span>-->
+    <div class="action-bar">
+        <!--<span>3 minutes</span>-->
+        <button class="btn btn-link btn-xs" title="Go to resource">
+            <span class="icon-link"></span>
+        </button>
+        <!--<button ng-if="user.token" class="btn btn-link btn-xs" title="Mark as readed">
+            <span class="icon-cancel"></span>
+        </button>-->
+    </div>
+</div>

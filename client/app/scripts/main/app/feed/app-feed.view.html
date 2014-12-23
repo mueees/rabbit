@@ -1,15 +1,16 @@
 <div class="panel panel-default">
     <div class="panel-header">
         <h1 class="title">
-            <!--<button class="btn btn-icon btn-icon-line">
+            <button ng-click="followFeed()" ng-if="user.token && !feed.isUserFollow" class="btn btn-icon btn-icon-line">
                 <span class="icon-plus container-icon"></span>
                 <span class="text">add</span>
-            </button>-->
-            Habrahabr feed</h1>
-        <div class="meta">
-            <span>17 unread article</span>
-            <span>-</span>
-            <span>125 readers</span>
+            </button>
+            {{feed.name}}
+        </h1>
+        <div ng-if="feed.inDatabase" class="meta">
+            <span ng-if="user.token">{{feed.meta.unread}} unread article</span>
+            <span ng-if="user.token">-</span>
+            <span>{{feed.meta.readers}} readers</span>
         </div>
         <!--<div class="action-group">
             <button class="btn btn-link">
@@ -24,9 +25,7 @@
         </div>-->
     </div>
     <div class="panel-body">
-        <div class="">
-        <rss-feeds-panel rss-configuration=""></rss-feeds-panel>
-        </div>
+        <rss-posts-panel rss-configuration="postsPanelConfiguration"></rss-posts-panel>
         <div>
             <!--<div class="post post-card">
                 <div class="img pull-left" style="background-image: url('http://c.tadst.com/gfx/600x400/world-post-day.jpg')">

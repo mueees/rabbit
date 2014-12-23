@@ -31,7 +31,15 @@
             .state('main.app.index.feed', {
                 url: '/feed/:id',
                 templateUrl: "app/scripts/main/app/feed/app-feed.view.html",
-                controller: 'FeedController'
+                controller: 'FeedController',
+                resolve: {
+                    feed: function ($stateParams, rssFeedResource) {
+                        return rssFeedResource.getById($stateParams.id);
+                    },
+                    user: function (rssSession) {
+                        return rssSession.getUser();
+                    }
+                }
             });
     });
 })();

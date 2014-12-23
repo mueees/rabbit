@@ -1,6 +1,6 @@
 (function(){
     'use strict';
-    angular.module('rss.core.components.feed.feeds-panel', [
+    angular.module('rss.core.components.float-panel', [
         'rss.core.web-components'
     ]);
 })();

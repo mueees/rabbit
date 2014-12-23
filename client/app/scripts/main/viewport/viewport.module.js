@@ -1,7 +1,8 @@
 (function () {
     'use strict';
     angular.module('rss.viewport', [
-        'ui.router'
+        'ui.router',
+        'rss.core.components.float-panel'
     ]);
 
 })();

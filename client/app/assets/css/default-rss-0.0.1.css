@@ -458,6 +458,9 @@ a.accent:focus {
   -o-transition: background 0.1s ease-in;
   transition: background 0.1s ease-in;
 }
+.post.post-line .title {
+  padding-left: 15px;
+}
 .post.post-line .content {
   width: 100%;
   padding-right: 70px;
@@ -465,6 +468,8 @@ a.accent:focus {
   overflow: hidden;
   box-sizing: border-box;
   text-overflow: ellipsis;
+  min-height: 30px;
+  padding-top: 7px;
 }
 .post.post-line .time {
   position: absolute;
@@ -549,10 +554,11 @@ a.accent:focus {
   margin-bottom: 10px;
 }
 .float {
-  -webkit-transition: width 0.2s ease-in;
-  -moz-transition: width 0.2s ease-in;
-  -o-transition: width 0.2s ease-in;
-  transition: width 0.2s ease-in;
+  opacity: 0;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
   position: fixed;
   top: 0;
   right: 0;
@@ -563,6 +569,17 @@ a.accent:focus {
   margin: 0;
   padding: 0;
   z-index: 20;
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+}
+.float.open {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
 }
 .float .navigation {
   position: fixed;
@@ -617,9 +634,17 @@ a.accent:focus {
 .overlay {
   position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
   background: rgba(0,0,0,0.51);
   z-index: 10;
+  opacity: 0;
+  -webkit-transition: 0.3s all ease-in;
+  -moz-transition: 0.3s all ease-in;
+  -o-transition: 0.3s all ease-in;
+  transition: 0.3s all ease-in;
+}
+.overlay.show {
+  opacity: 1;
+  bottom: 0;
 }
