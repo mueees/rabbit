@@ -1,0 +1,9 @@
+<div ng-class="{open: config.data.manage.open}" class="panel panel-default panel-post float float-{{config.panelConfig.side}}">
+    <div>
+        <button class="close-btn btn btn-link btn-lg" ng-click="close()">
+            <span class="icon-cancel"></span>
+        </button>
+    </div>
+    <div ng-include="config.data.include.url"></div>
+</div>
+<div class="overlay" ng-class="{show: config.data.manage.overlay}" ng-click="close()"></div>

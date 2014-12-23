@@ -46,6 +46,63 @@
                     }]
             }]);
 
+            //feed
+            $httpBackend.whenPOST(baseUrl+'/feed/getById').respond({
+
+                _id: '123123',
+
+                name: "Web Feed",
+
+                inDatabase: true,
+
+                isUserFollow: false,
+
+                meta: {
+                    readers: 12,
+                    unread: 213
+                },
+
+                posts: [
+                    {
+                        _id: '123',
+                        title: 'Some crazy post',
+                        body: "This is body",
+                        link: "http://google.com",
+                        guid: "Fake guid",
+                        image: "http://www.fresnostate.edu/csm/ees/images/earth.jpg",
+                        pubdate: new Date(),
+                        source: "http://google.com",
+                        feedId: "Fake feed id",
+                        dateCreate: new Date(),
+                        user: {
+                            isRead: false,
+                            readLater: false,
+                            tags: []
+                        }
+                    },
+                    {
+                        _id: '1223',
+                        title: 'Some crazy post',
+                        body: "This is body",
+                        link: "http://google.com",
+                        guid: "Fake guid",
+                        image: "http://www.fresnostate.edu/csm/ees/images/earth.jpg",
+                        pubdate: new Date(),
+                        source: "http://google.com",
+                        feedId: "Fake feed id",
+                        dateCreate: new Date(),
+                        user: {
+                            isRead: true,
+                            readLater: false,
+                            tags: []
+                        }
+                    }
+                ]
+            });
+
+
+            ///api/v1/rss/application/
+
             //search
             $httpBackend.whenPOST(baseUrl+'/search/find').respond({
                 feeds: [
