@@ -3,4 +3,4 @@ var config = require('config'),
     kue = require('kue');
 
 var tasks = kue.createQueue();
-tasks.process(config.get("queues:tasks:sendEmail"), 1, worker);
+tasks.process(config.get("queues:tasks:sendEmail"), worker);

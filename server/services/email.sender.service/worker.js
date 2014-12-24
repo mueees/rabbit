@@ -5,7 +5,11 @@ var logger = require('common/core/logs')(module),
     rootPath = "../..",
     jade = require('jade');
 
-function worker(emailSettings, done) {
+function worker(task, done) {
+
+    console.log("start work");
+
+    var emailSettings = task.data;
 
     /*todo: add validation for emailSettings*/
 
@@ -16,22 +20,16 @@ function worker(emailSettings, done) {
     }
 
     function send(){
-        var def = Q.defer();
-        var emailSender = new EmailSender( emailSettings );
-        emailSender.send(function(err){
-            if(err){
-                return def.reject(err);
-            }
-            def.resolve(err);
-        });
-        return def.promise;
+        return new EmailSender( emailSettings ).send();
     }
 
     function execute(){
         emailSettings.html = makeHtml();
         send().then(function () {
+            console.log("done");
             done();
         }, function (err) {
+            console.log("error");
             done(err);
         });
     }

@@ -203,3 +203,70 @@
 {"token":"","level":"error","message":"confirmUser: no token","label":"auth.service/api.js","timestamp":"2014-12-24T13:38:42.813Z"}
 {"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-24T13:38:42.815Z"}
 {"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T13:38:42.817Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:18:22.430Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:18:22.443Z"}
+{"token":null,"level":"error","message":"confirmUser: no token","label":"auth.service/api.js","timestamp":"2014-12-24T15:18:22.439Z"}
+{"level":"error","message":"Cannot save token","label":"auth.service/api.js","timestamp":"2014-12-24T15:18:22.512Z"}
+{"message":"Cannot save token","name":"VersionError","level":"error","label":"resource/user.model.js","timestamp":"2014-12-24T15:18:22.509Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-24T15:18:22.541Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:18:22.577Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:18:22.578Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-24T15:18:22.595Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:18:22.597Z"}
+{"level":"error","message":"500 c is not defined","label":"api.service/index.js","timestamp":"2014-12-24T15:18:51.087Z"}
+{"level":"error","message":"500 c is not defined","label":"api.service/index.js","timestamp":"2014-12-24T15:20:32.760Z"}
+{"email":"test","level":"error","message":"signup: invalid email","label":"auth.service/api.js","timestamp":"2014-12-24T15:24:18.328Z"}
+{"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:24:18.330Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:24:18.384Z"}
+{"token":null,"level":"error","message":"confirmUser: no token","label":"auth.service/api.js","timestamp":"2014-12-24T15:24:18.395Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:24:18.398Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-24T15:24:18.480Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:24:18.481Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-24T15:24:18.501Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:24:18.504Z"}
+{"email":"test","level":"error","message":"signup: invalid email","label":"auth.service/api.js","timestamp":"2014-12-24T15:25:48.152Z"}
+{"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:25:48.155Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:25:48.188Z"}
+{"token":null,"level":"error","message":"confirmUser: no token","label":"auth.service/api.js","timestamp":"2014-12-24T15:25:48.195Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:25:48.200Z"}
+{"message":"Cannot save token","name":"VersionError","level":"error","label":"resource/user.model.js","timestamp":"2014-12-24T15:25:48.224Z"}
+{"level":"error","message":"Cannot save token","label":"auth.service/api.js","timestamp":"2014-12-24T15:25:48.226Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:25:48.236Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-24T15:25:48.269Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:25:48.270Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-24T15:25:48.285Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:25:48.287Z"}
+{"email":"test","level":"error","message":"signup: invalid email","label":"auth.service/api.js","timestamp":"2014-12-24T15:26:02.703Z"}
+{"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:26:02.705Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:26:02.743Z"}
+{"token":null,"level":"error","message":"confirmUser: no token","label":"auth.service/api.js","timestamp":"2014-12-24T15:26:02.751Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:26:02.752Z"}
+{"message":"Cannot save token","name":"VersionError","level":"error","label":"resource/user.model.js","timestamp":"2014-12-24T15:26:02.777Z"}
+{"level":"error","message":"Cannot save token","label":"auth.service/api.js","timestamp":"2014-12-24T15:26:02.778Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:26:02.786Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-24T15:26:02.816Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:26:02.817Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-24T15:26:02.839Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:26:02.839Z"}
+{"email":"test","level":"error","message":"signup: invalid email","label":"auth.service/api.js","timestamp":"2014-12-24T15:28:37.409Z"}
+{"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:28:37.415Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:28:37.451Z"}
+{"token":null,"level":"error","message":"confirmUser: no token","label":"auth.service/api.js","timestamp":"2014-12-24T15:28:37.457Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:28:37.460Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-24T15:28:37.531Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:28:37.532Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-24T15:28:37.547Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:28:37.549Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:28:47.180Z"}
+{"email":"test","level":"error","message":"signup: invalid email","label":"auth.service/api.js","timestamp":"2014-12-24T15:28:58.243Z"}
+{"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:28:58.245Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:28:58.287Z"}
+{"token":null,"level":"error","message":"confirmUser: no token","label":"auth.service/api.js","timestamp":"2014-12-24T15:28:58.293Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:28:58.295Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-24T15:28:58.354Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:28:58.355Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-24T15:28:58.372Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:28:58.374Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:39:42.136Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-24T15:40:30.049Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2014-12-24T15:41:30.393Z"}
