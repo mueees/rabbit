@@ -4,6 +4,23 @@
         return rssWebComponent.RssUiComponentClass({
             link: function (scope) {
                 var config = scope.rssConfiguration.getConfiguration();
+
+                scope.addCategory = function () {
+                    if(!scope.name) return false;
+
+                    rssCategoryResource.add({
+                        name: name
+                    }).then(function (data) {
+                        config.newCategory({
+                            name: scope.name,
+                            _id: data._id
+                        });
+                    }, function () {
+                        alert("Cannot add category");
+                    }).finally(function () {
+                        scope.name = '';
+                    });
+                }
             },
 
             restrict: "E",

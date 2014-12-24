@@ -76,3 +76,130 @@
 {"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-11-27T18:59:52.080Z"}
 {"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-11-27T18:59:52.081Z"}
 {"level":"error","message":"Cannot find feed by id","label":"rss/feed.js","timestamp":"2014-11-27T18:59:52.431Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:39.266Z"}
+{"level":"error","message":"","label":"mongooseDb/index.js","timestamp":"2014-12-24T04:34:39.272Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:40.275Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:41.278Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:42.282Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:43.286Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:44.289Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:45.292Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:46.295Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:34:47.102Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:47.302Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:34:47.648Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:48.306Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:49.311Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:50.319Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:51.322Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:52.325Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:53.330Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:54.334Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:55.337Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:56.340Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:57.346Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:58.354Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:34:59.358Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:00.366Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:01.368Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:02.372Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:03.376Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:04.380Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:05.384Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:06.388Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:07.391Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:08.398Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:09.401Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:10.405Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:11.409Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:12.413Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:13.417Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:14.421Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:15.425Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:16.429Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:17.431Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:18.436Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:19.443Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:20.447Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:21.450Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:22.454Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:23.458Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:24.461Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:25.464Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:26.468Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:27.471Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:28.476Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:29.480Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:30.485Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:31.489Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:32.492Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:33.495Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:34.498Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:35.502Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:36.506Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:37.509Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:38.512Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:39.519Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:40.524Z"}
+{"level":"error","message":"Remote service get error on callback.","label":"client/index.js","timestamp":"2014-12-24T04:35:41.528Z"}
+{"level":"error","message":"","label":"mongooseDb/index.js","timestamp":"2014-12-24T04:36:22.311Z"}
+{"level":"error","message":"","label":"mongooseDb/index.js","timestamp":"2014-12-24T04:37:59.734Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:39:30.809Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:39:31.152Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:43:18.632Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:43:19.089Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:43:19.979Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:43:20.293Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:43:20.324Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:43:20.569Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:43:20.712Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:43:20.908Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:45:36.127Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:45:36.452Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:03.492Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:03.902Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:04.505Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:04.788Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:08.274Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:08.563Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:08.697Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:09.021Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:09.042Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:09.331Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:09.345Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:09.638Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:09.700Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:09.733Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:09.786Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:09.833Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:09.899Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:10.133Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:10.283Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:10.302Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:10.319Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:10.357Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:10.385Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:10.399Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:10.606Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:10.791Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:11.052Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:44.987Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:48:45.227Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:57:00.294Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:57:00.658Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:57:01.167Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:57:01.455Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:57:02.710Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:57:03.010Z"}
+{"level":"error","message":"500 res is not defined","label":"api.service/index.js","timestamp":"2014-12-24T04:57:28.743Z"}
+{"level":"error","message":"500 res is not defined","label":"api.service/index.js","timestamp":"2014-12-24T04:57:32.402Z"}
+{"level":"error","message":"500 undefined","label":"api.service/index.js","timestamp":"2014-12-24T04:59:00.701Z"}
+{"email":"","level":"error","message":"signup: invalid email","label":"auth.service/api.js","timestamp":"2014-12-24T05:00:15.663Z"}
+{"token":"","level":"error","message":"confirmUser: no token","label":"auth.service/api.js","timestamp":"2014-12-24T05:00:16.006Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-24T05:00:16.101Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-24T05:00:16.182Z"}
+{"email":"","level":"error","message":"signup: invalid email","label":"auth.service/api.js","timestamp":"2014-12-24T05:00:50.707Z"}
+{"token":"","level":"error","message":"confirmUser: no token","label":"auth.service/api.js","timestamp":"2014-12-24T05:00:50.807Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-24T05:00:50.909Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-24T05:00:50.991Z"}
+{"level":"error","message":"500 Failed to lookup view \"index\" in views directory \"../client/build/app\"","label":"api.service/index.js","timestamp":"2014-12-24T05:02:20.547Z"}

@@ -2,8 +2,9 @@
     'use strict';
     angular.module('rss.core.resources').factory('rssFeedResource', function (rssResource) {
         var FeedResource = rssResource.withConfig(function(RestangularConfigurer){
-            RestangularConfigurer.addElementTransformer('feed', false, function (feed) {
+            RestangularConfigurer.addElementTransformer('feed', function (feed) {
                 feed.addRestangularMethod('getById', 'post', 'getById', undefined);
+                feed.addRestangularMethod('add', 'post', 'add', undefined);
                 return feed;
             });
         });

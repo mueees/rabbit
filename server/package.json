@@ -8,6 +8,9 @@
         "validator": "latest",
         "body-parser": "latest",
 
+
+        "jade": "latest",
+        "express-session": "latest",
         "q": "1.1.2",
         "kue": "0.8.9",
         "nconf": "0.6.9",

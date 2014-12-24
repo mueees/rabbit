@@ -46,7 +46,30 @@
                     }]
             }]);
 
+            $httpBackend.whenPOST(baseUrl+'/categories/add').respond({
+                _id: '2132134'
+            });
+
+            $httpBackend.whenGET(baseUrl+'/categories/list?token=Fake+token').respond([
+                {
+                    _id: '21321345',
+                    name: "category 1"
+                },
+                {
+                    _id: '21321344',
+                    name: "category 2"
+                },
+                {
+                    _id: '21321343',
+                    name: "category 3"
+                }
+            ]);
+
+
             //feed
+            $httpBackend.whenPOST(baseUrl+'/feed/add').respond({
+            });
+
             $httpBackend.whenPOST(baseUrl+'/feed/getById').respond({
 
                 _id: '123123',
