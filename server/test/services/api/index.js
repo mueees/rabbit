@@ -1,4 +1,4 @@
-/*require('./user');
-require('./category');
-require('./feed');*/
-require('./post');
+require('./user');
+/*require('./category');
+require('./feed');
+require('./post');*/
