@@ -26,12 +26,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 if( process.env.NODE_ENV == "live" ){
     app.use(express.static(__dirname + '/public/'));
 }else{
-    app.use(express.static('../client/build/app'));
-
-    app.set('views', "../client/build/app");
-    app.set('views', __dirname + '/views');
-    app.set('view engine', 'jade');
-    //app.engine('html', require('ejs').renderFile);
+    app.use(express.static('../../../client/build/app'));
 }
 
 //link database

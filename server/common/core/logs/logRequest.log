@@ -203,3 +203,14 @@
 {"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-24T05:00:50.909Z"}
 {"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-24T05:00:50.991Z"}
 {"level":"error","message":"500 Failed to lookup view \"index\" in views directory \"../client/build/app\"","label":"api.service/index.js","timestamp":"2014-12-24T05:02:20.547Z"}
+{"level":"error","message":"500 Cannot find module 'html'","label":"api.service/index.js","timestamp":"2014-12-24T09:10:20.805Z"}
+{"level":"error","message":"500 Cannot find module 'html'","label":"api.service/index.js","timestamp":"2014-12-24T09:10:27.607Z"}
+{"level":"error","message":"500 No default engine was specified and no extension was provided.","label":"api.service/index.js","timestamp":"2014-12-24T09:14:53.872Z"}
+{"level":"error","message":"500 No default engine was specified and no extension was provided.","label":"api.service/index.js","timestamp":"2014-12-24T09:14:55.196Z"}
+{"level":"error","message":"500 No default engine was specified and no extension was provided.","label":"api.service/index.js","timestamp":"2014-12-24T09:16:06.439Z"}
+{"level":"error","message":"500 No default engine was specified and no extension was provided.","label":"api.service/index.js","timestamp":"2014-12-24T09:16:07.527Z"}
+{"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-24T09:16:54.483Z"}
+{"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-24T09:18:21.902Z"}
+{"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-24T09:22:09.958Z"}
+{"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-24T09:22:14.919Z"}
+{"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-24T09:24:23.096Z"}

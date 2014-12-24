@@ -3,7 +3,9 @@ var Controller = require('common/core/controller/base'),
 
 _.extend(Controller.prototype, {
     home: function (req, res, next) {
-        res.render('index', {});
+        res.sendFile('index.html', {
+            root: '../../../client/build/app'
+        });
     }
 });
 
