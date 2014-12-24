@@ -32,7 +32,7 @@ Service.prototype = {
         });
 
         this.connection.on('end', function (remote) {
-            logger.error("Remote service disconect.");
+            logger.error("Remote service disconnect.");
             _this.remote = null;
             _this._reconnect();
         });

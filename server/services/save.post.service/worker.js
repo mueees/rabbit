@@ -1,5 +1,4 @@
 var request = require('request'),
-    Q = require('q'),
     logger = require('common/core/logs')(module),
     configService = require('./config'),
     PostModel = require('common/resource/post.model'),

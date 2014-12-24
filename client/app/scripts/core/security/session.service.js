@@ -28,15 +28,15 @@
         }
 
         function _getToken(){
-            if(!rss.util.isUndefinedOrNull(_user) && rss.util.isStringWithLength(_user.token)){
-                return _user.token
+            if(!rss.util.isUndefinedOrNull(_user) && rss.util.isStringWithLength(_user.token.token)){
+                return _user.token.token
             }else{
                 return false;
             }
         }
 
         function _isAuthenticated(){
-            return !rss.util.isUndefinedOrNull(_user) && rss.util.isStringWithLength(_user.token);
+            return !rss.util.isUndefinedOrNull(_user) && rss.util.isStringWithLength(_user.token.token);
         }
 
         function initUser(){

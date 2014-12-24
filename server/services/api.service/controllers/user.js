@@ -3,22 +3,44 @@ var Controller = require('common/core/controller/base'),
     logger = require('common/core/logs')(module),
     HttpError = require('../errors/HttpError').HttpError,
     Q = require('q'),
+    config = require('config'),
+    kue = require('kue'),
     authService = require("../modules/authServiceRemote"),
     util = require('util');
+
+var tasks = kue.createQueue();
 
 _.extend(Controller.prototype, {
     signup: function (req, res, next) {
         var body = req.body;
-        authService.execute('signup', body.email, body.password, function (err, user) {
+        authService.execute('signup', c, body.password, function (err, user) {
+
             if(err){
                 logger.error('Sign in error', err);
                 res.finish.resolve(err);
-                return next(err);
+                return next(new HttpError(400, err));
             }
 
             var data = {data: user};
+
             res.status(200);
-            res.send(data);
+            res.send({
+                _id: user._id
+            });
+
+            //send email for notification
+            tasks.create( config.get("queues:tasks:sendEmail"), {
+                to: body.email,
+                subject: "Confirm email",
+                template: "/views/email/confirmEmail.jade",
+                data: {
+                    confirmationId: user.confirmationId
+                }
+            }).removeOnComplete(true).save(function (err) {
+                if(err) {
+                    logger.error(err);
+                }
+            });
 
             //for testing
             res.finish.resolve(data);
@@ -63,13 +85,14 @@ _.extend(Controller.prototype, {
             if(err){
                 logger.error('signin error', err);
                 res.finish.resolve(err);
-                return next(err);
+                return next(new HttpError(400, err));
             }
 
             var data = {token: token};
             res.finish.resolve(data);
             res.status(200);
             res.send(data);
+
         });
     }
 });
