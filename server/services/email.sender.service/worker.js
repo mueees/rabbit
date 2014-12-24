@@ -7,8 +7,6 @@ var logger = require('common/core/logs')(module),
 
 function worker(task, done) {
 
-    console.log("start work");
-
     var emailSettings = task.data;
 
     /*todo: add validation for emailSettings*/
@@ -26,10 +24,8 @@ function worker(task, done) {
     function execute(){
         emailSettings.html = makeHtml();
         send().then(function () {
-            console.log("done");
             done();
         }, function (err) {
-            console.log("error");
             done(err);
         });
     }
