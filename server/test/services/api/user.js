@@ -42,8 +42,6 @@ describe('POST /user/signup', function(){
             UserModel.findById(responseData.data._id, function (err, user) {
                 assert.ok(user);
                 assert.ok(user._id);
-                assert.ok(user.confirmationId);
-                assert.equal(400, user.status);
                 done();
             });
         });

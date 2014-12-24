@@ -6,7 +6,6 @@ var UserModel = require('common/resource/user.model'),
     async = require('async'),
     logger = require("common/core/logs")(module);
 
-
 var api = {
     db: {
         clearDb: function () {

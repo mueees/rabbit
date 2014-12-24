@@ -19,6 +19,10 @@
                     rssAuthentication.signin({
                         email: scope.user.email,
                         password: scope.user.password
+                    }).then(function (user) {
+                        alert("Please check you email.");
+                    }, function (request) {
+                        alert(request.data.message);
                     });
                 };
 
@@ -26,7 +30,11 @@
                     rssAuthentication.signup({
                         email: scope.user.email,
                         password: scope.user.password
-                    });
+                    }).then(function (user) {
+                        alert("Please check you email.");
+                    }, function (request) {
+                        alert(request.data.message);
+                    })
                 };
 
             }

@@ -1,7 +1,10 @@
 node_modules
 client/bin
 client/build
+client/target
 client/app/vendor
+
+server/config/secret.json
 
 .idea
 .vagrant

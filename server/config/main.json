@@ -3,7 +3,8 @@
         "tasks": {
             "updateFeed": "updateFeed",
             "prepareRowPost": "prepareRowPost",
-            "savePost": "savePost"
+            "savePost": "savePost",
+            "sendEmail": "sendEmail"
         }
     },
     "kue": {
