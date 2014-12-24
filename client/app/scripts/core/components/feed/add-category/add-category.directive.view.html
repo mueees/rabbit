@@ -1,4 +1,5 @@
-<div>
-    <input type="text" placeholder="Category name"/>
-    <button class="btn btn-link">Add category</button>
-</div>
+<form ng-submit="addCategory()">
+    <div class="form-group">
+        <input ng-model="name" type="text" class="form-control" placeholder="Category name"/>
+    </div>
+</form>

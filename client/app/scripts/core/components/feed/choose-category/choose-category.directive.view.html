@@ -1,0 +1,7 @@
+<ul>
+    <li ng-repeat="category in categories">
+        <label>
+            <input name="categories[]" ng-model="category.selected" type="checkbox" /> {{category.name}}
+        </label>
+    </li>
+</ul>

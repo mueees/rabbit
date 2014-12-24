@@ -3,12 +3,15 @@ var serviceConfig = require('../config'),
 var prefix = '/api/v' + serviceConfig.get('version');
 
 /*Controllers*/
+var main = require('../controllers/main');
 var userController = require('../controllers/user');
 var categoryController = require('../controllers/rss/category');
 var feedController = require('../controllers/rss/feed');
 var postController = require('../controllers/rss/post');
 
 module.exports = function (app) {
+
+    app.get('/', main.home);
 
     /*******
      * USER

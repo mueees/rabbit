@@ -5,9 +5,17 @@ var express = require('express'),
     ServiceError = require('common/core/errors/service.error').ServiceError,
     logger = require('common/core/logs')(module),
     bodyParser = require('body-parser'),
+    session = require('express-session'),
     config = require('config');
 
 var app = express();
+
+app.use(session({
+    cookie: {
+        maxAge: 2592000000
+    },
+    secret: 'keyboard cat'
+}));
 
 app.use(bodyParser.json({type: 'application/x-www-form-urlencoded'}));
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
@@ -15,15 +23,25 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
 
+if( process.env.NODE_ENV == "live" ){
+    app.use(express.static(__dirname + '/public/'));
+}else{
+    app.use(express.static('../client/build/app'));
+
+    app.set('views', "../client/build/app");
+    app.set('views', __dirname + '/views');
+    app.set('view engine', 'jade');
+    //app.engine('html', require('ejs').renderFile);
+}
+
 //link database
 require("common/mongooseDb");
 
 //add modules
 
 //add middlewares
-app.use(require("./middleware/defForTest"));
+//app.use(require("./middleware/defForTest"));
 app.use(require("./middleware/sendHttpError"));
-app.use(require("./middleware/sendServiceUnavailable"));
 
 //routing
 route(app);

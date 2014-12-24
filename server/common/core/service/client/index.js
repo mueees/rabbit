@@ -38,7 +38,7 @@ Service.prototype = {
         });
 
         this.connection.on('error', function (remote) {
-            logger.error("Remote service get error on callback.");
+            //logger.error("Remote service get error on callback.");
             _this.remote = null;
             _this._reconnect();
         });

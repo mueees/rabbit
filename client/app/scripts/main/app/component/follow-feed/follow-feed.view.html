@@ -4,7 +4,17 @@
     </div>
 
     <div class="panel-body">
-        <input type="text" placeholder="Feed name"/>
+        <form>
+            <div class="form-group">
+                <input type="text" ng-model="feed.name" placeholder="Feed name" value="{{feed.name}}"  class="form-control" />
+            </div>
+            <div class="form-group">
+                <button ng-click="followFeed()" class="btn btn-accent" ng-disabled="isDisabled || !feed.name">Follow</button>
+                <button class="btn btn-link" ng-click="close()">Cancel</button>
+            </div>
+        </form>
+
+        <rss-choose-category rss-configuration="chooseCategoryConfiguration"></rss-choose-category>
         <rss-add-category rss-configuration="addCategoryConfiguration"></rss-add-category>
     </div>
 </div>

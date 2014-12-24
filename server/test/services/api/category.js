@@ -13,6 +13,7 @@ describe('POST /rss/category/add', function(){
     describe("Success request", function () {
         var responseData,
             promise,
+            promise,
             def,
             req;
 
