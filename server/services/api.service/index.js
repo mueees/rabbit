@@ -10,12 +10,12 @@ var express = require('express'),
 
 var app = express();
 
-app.use(session({
+/*app.use(session({
     cookie: {
         maxAge: 2592000000
     },
     secret: 'keyboard cat'
-}));
+}));*/
 
 app.use(bodyParser.json({type: 'application/x-www-form-urlencoded'}));
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
@@ -23,11 +23,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
 
-if( process.env.NODE_ENV == "live" ){
-    app.use(express.static(__dirname + '/public/'));
-}else{
-    app.use(express.static('../../../client/build/app'));
-}
+
 
 //link database
 require("common/mongooseDb");
@@ -35,15 +31,25 @@ require("common/mongooseDb");
 //add modules
 
 //add middlewares
-//app.use(require("./middleware/defForTest"));
+app.use(require("./middleware/defForTest"));
 app.use(require("./middleware/sendHttpError"));
+
+if( process.env.NODE_ENV == "live" ){
+    app.use(express.static(__dirname + '/public/'));
+}else{
+    app.use(express.static('../../../client/build/app'));
+}
 
 //routing
 route(app);
 
 //404
 app.use(function(req, res, next){
-    logger.warn({ status: 404, url: req.url });
+    logger.warn({
+        status: 404,
+        url: req.url,
+        method: req.method
+    });
     res.status(404);
     res.send({});
 });

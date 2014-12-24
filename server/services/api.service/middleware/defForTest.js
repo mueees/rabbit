@@ -1,6 +1,6 @@
 module.exports = function(req, res, next){
-    var def = {
+    res.finish = {
         resolve: function () {}
     };
-    next(req, res, next, def);
+    next();
 };

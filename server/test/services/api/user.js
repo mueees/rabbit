@@ -28,12 +28,13 @@ describe('POST /user/signup', function(){
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers().then(function () {
-                userController.signup(req, response, next, def);
+                userController.signup(req, response, next);
                 promise.then(function (data) {
                     responseData = data;
                     done();
-                })
+                });
             })
         });
 
@@ -63,8 +64,9 @@ describe('POST /user/signup', function(){
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers().then(function () {
-                userController.signup(req, response, next, def);
+                userController.signup(req, response, next);
                 promise.then(function (data) {
                     responseData = data;
                     done();
@@ -95,11 +97,12 @@ describe('GET /user/confirmuser', function(){
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.user.registerUser)
                 .then(function (user) {
                     req.query.confirmationId = user.confirmationId;
-                    userController.confirmuser(req, response, next, def);
+                    userController.confirmuser(req, response, next);
                     promise.then(function (data) {
                         responseData = data;
                         done();
@@ -127,8 +130,9 @@ describe('GET /user/confirmuser', function(){
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers().then(function () {
-                userController.confirmuser(req, response, next, def);
+                userController.confirmuser(req, response, next);
                 promise.then(function (data) {
                     responseData = data;
                     done();
@@ -153,8 +157,9 @@ describe('GET /user/confirmuser', function(){
             req = {query: {}};
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers().then(function () {
-                userController.confirmuser(req, response, next, def);
+                userController.confirmuser(req, response, next);
                 promise.then(function (data) {
                     responseData = data;
                     done();
@@ -181,17 +186,18 @@ describe("GET /user/signin", function () {
 
         before(function (done) {
             req = {
-                query: {
+                body: {
                     email: "test@signup.com",
                     password: "12345678"
                 }
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.user.registerAndConfirmUser)
                 .then(function () {
-                    userController.signin(req, response, next, def);
+                    userController.signin(req, response, next);
                     promise.then(function (data) {
                         responseData = data;
                         done();
@@ -213,16 +219,17 @@ describe("GET /user/signin", function () {
 
         before(function (done) {
             req = {
-                query: {
+                body: {
                     password: "12345678"
                 }
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.user.registerAndConfirmUser)
                 .then(function () {
-                    userController.signin(req, response, next, def);
+                    userController.signin(req, response, next);
                     promise.then(function (data) {
                         responseData = data;
                         done();
@@ -245,16 +252,17 @@ describe("GET /user/signin", function () {
 
         before(function (done) {
             req = {
-                query: {
+                body: {
                     email: "test@signup.com"
                 }
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.user.registerAndConfirmUser)
-                .then(function () {
-                    userController.signin(req, response, next, def);
+                .then(function (){
+                    userController.signin(req, response, next);
                     promise.then(function (data) {
                         responseData = data;
                         done();
@@ -277,17 +285,18 @@ describe("GET /user/signin", function () {
 
         before(function (done) {
             req = {
-                query: {
+                body: {
                     email: "test@signup.com",
                     password: "fake password"
                 }
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.user.registerAndConfirmUser)
                 .then(function () {
-                    userController.signin(req, response, next, def);
+                    userController.signin(req, response, next);
                     promise.then(function (data) {
                         responseData = data;
                         done();
@@ -310,17 +319,18 @@ describe("GET /user/signin", function () {
 
         before(function (done) {
             req = {
-                query: {
+                body: {
                     email: "fakeemail@signup.com",
                     password: "12345678"
                 }
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.user.registerAndConfirmUser)
                 .then(function () {
-                    userController.signin(req, response, next, def);
+                    userController.signin(req, response, next);
                     promise.then(function (data) {
                         responseData = data;
                         done();

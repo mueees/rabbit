@@ -25,7 +25,6 @@
         .run(function ($timeout, $httpBackend, RSS_CONFIG) {
             var baseUrl = '/api/v'+RSS_CONFIG.api.version+'/rss/application';
 
-
             //user api
             $httpBackend.whenPOST(baseUrl+'/user/signup').respond({
                 token: "Fake token"
@@ -64,7 +63,6 @@
                     name: "category 3"
                 }
             ]);
-
 
             //feed
             $httpBackend.whenPOST(baseUrl+'/feed/add').respond({
@@ -122,9 +120,6 @@
                     }
                 ]
             });
-
-
-            ///api/v1/rss/application/
 
             //search
             $httpBackend.whenPOST(baseUrl+'/search/find').respond({

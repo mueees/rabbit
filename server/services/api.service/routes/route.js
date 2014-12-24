@@ -1,6 +1,6 @@
 var serviceConfig = require('../config'),
     checkAuth = require('../middleware/checkAuth');
-var prefix = '/api/v' + serviceConfig.get('version');
+var prefix = '/api/v' + serviceConfig.get('version') + '/rss/application';
 
 /*Controllers*/
 var main = require('../controllers/main');
@@ -22,7 +22,7 @@ module.exports = function (app) {
 
     //app.get(prefix + '/user/resendemail', userController.resendemail);
 
-    app.get(prefix + '/user/signin', userController.signin);
+    app.post(prefix + '/user/signin', userController.signin);
 
     /*******
     * RSS

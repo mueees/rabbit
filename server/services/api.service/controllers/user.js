@@ -7,12 +7,12 @@ var Controller = require('common/core/controller/base'),
     util = require('util');
 
 _.extend(Controller.prototype, {
-    signup: function (req, res, next, def) {
+    signup: function (req, res, next) {
         var body = req.body;
         authService.execute('signup', body.email, body.password, function (err, user) {
             if(err){
                 logger.error('Sign in error', err);
-                def.resolve(err);
+                res.finish.resolve(err);
                 return next(err);
             }
 
@@ -21,13 +21,13 @@ _.extend(Controller.prototype, {
             res.send(data);
 
             //for testing
-            def.resolve(data);
+            res.finish.resolve(data);
         });
     },
-    confirmuser: function (req, res, next, def) {
+    confirmuser: function (req, res, next) {
         var confirmationId = req.query.confirmationId;
         if(!confirmationId){
-            def.resolve({message: "Cannot find confirmationId"});
+            res.finish.resolve({message: "Cannot find confirmationId"});
             next(new HttpError(400, {
                 message: 'Cannot find confirmationId'
             }));
@@ -36,7 +36,7 @@ _.extend(Controller.prototype, {
         authService.execute('confirmUser', confirmationId, function (err) {
             if(err){
                 logger.error('Sign in error', err);
-                def.resolve(err);
+                res.finish.resolve(err);
                 return next(err);
             }
 
@@ -44,15 +44,16 @@ _.extend(Controller.prototype, {
             res.send({});
 
             //for testing
-            def.resolve();
+            res.finish.resolve();
         });
     },
-    signin: function (req, res, next, def   ) {
-        var email = req.query.email;
-        var password = req.query.password;
+    signin: function (req, res, next ) {
+        var body = req.body;
+        var email = body.email;
+        var password = body.password;
 
         if(!email || !password){
-            def.resolve({message: "Wrong login or password"});
+            res.finish.resolve({message: "Wrong login or password"});
             return next(new HttpError(400, {
                 message: "Wrong login or password"
             }));
@@ -61,12 +62,12 @@ _.extend(Controller.prototype, {
         authService.execute('signin', email, password, function (err, token) {
             if(err){
                 logger.error('signin error', err);
-                def.resolve(err);
+                res.finish.resolve(err);
                 return next(err);
             }
 
             var data = {token: token};
-            def.resolve(data);
+            res.finish.resolve(data);
             res.status(200);
             res.send(data);
         });
