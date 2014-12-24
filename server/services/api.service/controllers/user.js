@@ -13,7 +13,7 @@ var tasks = kue.createQueue();
 _.extend(Controller.prototype, {
     signup: function (req, res, next) {
         var body = req.body;
-        authService.execute('signup', c, body.password, function (err, user) {
+        authService.execute('signup', body.email, body.password, function (err, user) {
 
             if(err){
                 logger.error('Sign in error', err);
@@ -29,7 +29,23 @@ _.extend(Controller.prototype, {
             });
 
             //send email for notification
-            tasks.create( config.get("queues:tasks:sendEmail"), {
+
+            /*
+            * todo: need create task entity with default options:
+            * Example: ConfirmationEmailTask.execute({
+            *   to: body.email,
+            *   data: {
+            *       confirmationId: user.confirmationId
+            *   }
+            * });
+            *
+            * In this case User Controller doesn't need inject kue
+            * We will have ConfirmationEmail in one place
+            * Simple refactoring and reusing current task
+            * Task have the simmilar interface
+            * */
+
+             tasks.create( config.get("queues:tasks:sendEmail"), {
                 to: body.email,
                 subject: "Confirm email",
                 template: "/views/email/confirmEmail.jade",
