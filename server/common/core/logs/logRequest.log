@@ -62,3 +62,9 @@
 {"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-25T20:32:24.440Z"}
 {"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-25T20:42:28.863Z"}
 {"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-25T20:42:35.383Z"}
+{"level":"error","message":"Please confirm account. Check your email","label":"auth.service/api.js","timestamp":"2014-12-25T21:21:11.017Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-25T21:21:11.019Z"}
+{"level":"error","message":"Please confirm account. Check your email","label":"auth.service/api.js","timestamp":"2014-12-25T21:21:14.342Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-25T21:21:14.343Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-25T21:21:36.537Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2014-12-25T21:21:36.539Z"}

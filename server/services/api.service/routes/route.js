@@ -62,9 +62,7 @@ module.exports = function (app) {
     app.post(prefix + '/rss/feed/remove', checkAuth, feedController.remove);
 
     /*Get feed information*/
-    app.get(prefix + '/rss/feed/:id', getUser, feedController.getFeedById);
-
-
+    app.get(prefix + '/feed/:id', getUser, feedController.getFeedById);
 
 
     /*Mark all post as read*/
@@ -74,6 +72,9 @@ module.exports = function (app) {
     //app.post(prefix + '/rss/feed/mark/unread', rssController.feed.unread);
 
     //post
+
+    /*Get post by some filters*/
+    app.post(prefix + '/post/get', getUser, postController.gets);
 
     /*Mark post as readed*/
     app.post(prefix + '/rss/post/mark/read', checkAuth, postController.read);
