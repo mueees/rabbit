@@ -12,14 +12,14 @@ function Controller(){}
 _.extend(Controller.prototype, {
 
     /*
-    * Check post like as read
-    * @param {String} _id This is id post
-    * */
-    read: function (req, res, next, def) {
+     * Check post like as read
+     * @param {String} _id This is id post
+     * */
+    read: function (req, res, next) {
         var data = req.body;
 
         if( !data._id ){
-            def.resolve({message: "Doesn't have post id"});
+            res.finish.resolve({message: "Doesn't have post id"});
             return next(new HttpError(400, {
                 message: "Doesn't have post id"
             }));
@@ -27,12 +27,12 @@ _.extend(Controller.prototype, {
 
         PostModel.readUnread( req.user._id, data._id, true, function (err) {
             if(err){
-                def.resolve({message: "Cannot check post read"});
+                res.finish.resolve({message: "Cannot check post read"});
                 return next(new HttpError(400, {
                     message: "Cannot check post read"
                 }));
             }
-            def.resolve({});
+            res.finish.resolve({});
             res.status(200);
             res.status({});
         });
@@ -42,11 +42,11 @@ _.extend(Controller.prototype, {
      * Check post like as unread
      * @param {String} _id This is id post
      * */
-    unread: function (req, res, next, def) {
+    unread: function (req, res, next) {
         var data = req.body;
 
         if( !data._id ){
-            def.resolve({message: "Doesn't have post id"});
+            res.finish.resolve({message: "Doesn't have post id"});
             return next(new HttpError(400, {
                 message: "Doesn't have post id"
             }));
@@ -54,12 +54,12 @@ _.extend(Controller.prototype, {
 
         PostModel.readUnread( req.user._id, data._id, false, function (err) {
             if(err){
-                def.resolve({message: "Cannot check post read"});
+                res.finish.resolve({message: "Cannot check post read"});
                 return next(new HttpError(400, {
                     message: "Cannot check post read"
                 }));
             }
-            def.resolve({});
+            res.finish.resolve({});
             res.status(200);
             res.status({});
         });
@@ -69,11 +69,11 @@ _.extend(Controller.prototype, {
      * Check post reading later
      * @param {String} _id This is id post
      * */
-    check: function (req, res, next, def) {
+    check: function (req, res, next) {
         var data = req.body;
 
         if( !data._id ){
-            def.resolve({message: "Doesn't have post id"});
+            res.finish.resolve({message: "Doesn't have post id"});
             return next(new HttpError(400, {
                 message: "Doesn't have post id"
             }));
@@ -81,12 +81,12 @@ _.extend(Controller.prototype, {
 
         PostModel.checkUncheck( req.user._id, data._id, true, function (err) {
             if(err){
-                def.resolve({message: "Cannot check post read"});
+                res.finish.resolve({message: "Cannot check post read"});
                 return next(new HttpError(400, {
                     message: "Cannot check post read"
                 }));
             }
-            def.resolve({});
+            res.finish.resolve({});
             res.status(200);
             res.status({});
         });
@@ -96,11 +96,11 @@ _.extend(Controller.prototype, {
      * Uncheck post reading later
      * @param {String} _id This is id post
      * */
-    uncheck: function (req, res, next, def) {
+    uncheck: function (req, res, next) {
         var data = req.body;
 
         if( !data._id ){
-            def.resolve({message: "Doesn't have post id"});
+            res.finish.resolve({message: "Doesn't have post id"});
             return next(new HttpError(400, {
                 message: "Doesn't have post id"
             }));
@@ -108,15 +108,42 @@ _.extend(Controller.prototype, {
 
         PostModel.checkUncheck( req.user._id, data._id, false, function (err) {
             if(err){
-                def.resolve({message: "Cannot uncheck post read"});
+                res.finish.resolve({message: "Cannot uncheck post read"});
                 return next(new HttpError(400, {
                     message: "Cannot uncheck post read"
                 }));
             }
-            def.resolve({});
+            res.finish.resolve({});
             res.status(200);
             res.status({});
         });
+    },
+
+    /*
+     * Get posts by some filters
+     * @param {String} source Posible value feed || tag || category
+     * @param {String} from Start point ( skip for mongoose )
+     * @param {String} count End point
+     * @param {String} readLater Exclude or Include post that mark readLater
+     * */
+    gets: function (req, res, next) {
+        var defaultOptions = {
+            from: 0,
+            count: 20
+        };
+        var body = req.body;
+
+        if( !body.options.source ){
+            res.finish.resolve({message: "Cannot find resource"});
+            return next(new HttpError(400, {
+                message: "Cannot find resource"
+            }));
+        }
+
+        body.options = _.extend(defaultOptions, body.options);
+
+
+
     }
 
 });
