@@ -1,0 +1,29 @@
+Search feed service
+Поиск фид лент по разным критерия
+Никакого отношения к загрузке постов сервси не имеет
+
+Consumers
+api.service
+
+
+API
+
+getFeedsByStringQuery(query)
+---------------------------
+query - произвольная строка, но не url
+Поиск идет по уже сохраненным фидам в базе по Feed name и Feed url
+
+getFeedsByUrl(url)
+---------------------------
+url - валидный url
+Поиск ведется используя паралельно
+1. getFeedByFeedUrl()
+2. getFeedBySiteUrl()
+
+getFeedByFeedUrl(url)
+---------------------------
+Предполагается, что это прямая ссылка на фид
+
+getFeedBySiteUrl(url)
+---------------------------
+Это ссылка на сайт, на котором надо найти все Rss ленты

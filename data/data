@@ -28,8 +28,8 @@ pm2 monit
 //init feeds from last rss
 export NODE_ENV=development
 export NODE_PATH=/vagrant/server
-cd /vagrant/server/init/live
-node init.feeds.live.js
+cd /vagrant/server/init/startServer
+node index.js
 
 //start test
 export NODE_ENV=test
@@ -41,6 +41,8 @@ cd /vagrant/server
 export NODE_SITE=development
 export NODE_PATH=/vagrant/server
 node-inspector
+
+
 
 cd /vagrant/server/services/update.feed.service
 node --debug-brk index.js
