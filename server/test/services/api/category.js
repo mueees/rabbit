@@ -8,7 +8,7 @@ var response = {
     },
     next = function () {};
 
-/*describe('POST /rss/category/add', function(){
+describe('POST /rss/category/add', function(){
 
     describe("Success request", function () {
         var responseData,
@@ -299,7 +299,7 @@ describe('GET /rss/category/list/feed', function(){
             done();
         });
     })
-});*/
+});
 
 describe('GET /rss/category/list/listFeed' , function () {
 

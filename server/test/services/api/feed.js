@@ -14,7 +14,7 @@ var response = {
         return false;
     };
 
-describe("POST /rss/feed/add", function () {
+/*describe("POST /rss/feed/add", function () {
 
     describe("Success request", function () {
         var responseData,
@@ -32,6 +32,7 @@ describe("POST /rss/feed/add", function () {
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(function () {
                     return helpers.db.feed.addFakeFeed().then(function (feed) {
@@ -82,6 +83,7 @@ describe("POST /rss/feed/add", function () {
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.user.registerConfirmSignin)
                 .then(function (data) {
@@ -116,6 +118,7 @@ describe("POST /rss/feed/add", function () {
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.user.registerConfirmSignin)
                 .then(function (data) {
@@ -151,6 +154,7 @@ describe("POST /rss/feed/add", function () {
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.user.registerConfirmSignin)
                 .then(function (data) {
@@ -192,6 +196,7 @@ describe("POST /rss/feed/remove", function () {
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.feed.auth_addCategory_addFeed)
                 .then(function (data) {
@@ -238,6 +243,7 @@ describe("POST /rss/feed/remove", function () {
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.feed.auth_addCategory_addFeed)
                 .then(function (data) {
@@ -266,7 +272,6 @@ describe("POST /rss/feed/remove", function () {
 
 });
 
-
 describe("POST /rss/feed/change/category", function () {
 
     describe("Success request", function () {
@@ -285,6 +290,7 @@ describe("POST /rss/feed/change/category", function () {
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.feed.auth_addCategory_addFeed, errorHandler)
                 .then(function (data) {
@@ -340,6 +346,7 @@ describe("POST /rss/feed/edit", function () {
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.feed.auth_addCategory_addFeed, errorHandler)
                 .then(function (data) {
@@ -389,6 +396,7 @@ describe("POST /rss/feed/edit", function () {
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.feed.auth_addCategory_addFeed, errorHandler)
                 .then(function (data) {
@@ -422,4 +430,85 @@ describe("POST /rss/feed/edit", function () {
         });
     });
 
+});*/
+
+describe("POST /rss/feed/:id", function () {
+    describe("Success request", function () {
+        var responseData,
+            promise,
+            def,
+            req,
+            userData;
+
+        beforeEach(function (done) {
+            req = {
+                body: {}
+            };
+            def = Q.defer();
+            promise = def.promise;
+            response.finish = def;
+            helpers.db.user.clearUsers()
+                .then(helpers.db.feed.auth_addCategory_addFeed, errorHandler)
+                .then(function (data) {
+                    userData = data.user;
+
+                    //req.user._id = data.user._id;
+                    req.params = {
+                        id: data.feed._id
+                    };
+
+                    feedController.getFeedById(req, response, next);
+                    promise.then(function (data) {
+                        responseData = data;
+                        done();
+                    });
+                }, errorHandler);
+        });
+
+        it("should exist feed but not followed", function (done) {
+            assert.ok(responseData);
+            assert.notOk(responseData.isFollowed);
+            done();
+        });
+    });
+
+    describe("Success request", function () {
+        var responseData,
+            promise,
+            def,
+            req,
+            userData;
+
+        beforeEach(function (done) {
+            req = {
+                body: {},
+                user: {}
+            };
+            def = Q.defer();
+            promise = def.promise;
+            response.finish = def;
+            helpers.db.user.clearUsers()
+                .then(helpers.db.feed.auth_addCategory_addFeed, errorHandler)
+                .then(function (data) {
+                    userData = data.user;
+
+                    req.user._id = data.user._id;
+                    req.params = {
+                        id: data.feed._id
+                    };
+
+                    feedController.getFeedById(req, response, next);
+                    promise.then(function (data) {
+                        responseData = data;
+                        done();
+                    });
+                }, errorHandler);
+        });
+
+        it("feed should be followed", function (done) {
+            assert.ok(responseData);
+            assert.ok(responseData.isFollowed);
+            done();
+        });
+    });
 });

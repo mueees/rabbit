@@ -31,3 +31,34 @@
 {"level":"error","message":"","label":"mongooseDb/index.js","timestamp":"2014-12-25T15:30:41.061Z"}
 {"level":"error","message":"","label":"mongooseDb/index.js","timestamp":"2014-12-25T15:30:42.022Z"}
 {"level":"error","message":"","label":"mongooseDb/index.js","timestamp":"2014-12-25T15:30:42.064Z"}
+{"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-25T19:48:14.696Z"}
+{"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-25T19:48:29.223Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-25T19:49:49.407Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-25T19:49:49.415Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-25T19:50:24.625Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2014-12-25T19:50:24.633Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2014-12-25T20:02:01.380Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2014-12-25T20:02:12.675Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2014-12-25T20:03:28.962Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2014-12-25T20:05:19.606Z"}
+{"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-25T20:12:44.212Z"}
+{"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-25T20:15:30.082Z"}
+{"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-25T20:18:07.241Z"}
+{"level":"error","message":"Cannot find feed by id","label":"rss/feed.js","timestamp":"2014-12-25T20:23:59.394Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-25T20:31:40.148Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2014-12-25T20:31:40.147Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-25T20:31:52.784Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2014-12-25T20:31:52.787Z"}
+{"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-25T20:31:57.064Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-25T20:32:10.179Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-25T20:32:10.181Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-25T20:32:12.230Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-25T20:32:12.228Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-25T20:32:14.805Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-25T20:32:14.807Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-25T20:32:20.429Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-25T20:32:20.430Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-25T20:32:24.439Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-25T20:32:24.440Z"}
+{"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-25T20:42:28.863Z"}
+{"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-25T20:42:35.383Z"}
