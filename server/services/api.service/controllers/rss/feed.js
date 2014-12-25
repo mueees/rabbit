@@ -18,11 +18,11 @@ _.extend(Controller.prototype, {
     * @param {String} name Feed name. Or if doesn't exist, get default feed name.
     * @param {String} categoryId
     * */
-    add: function (req, res, next, def) {
+    add: function (req, res, next) {
         var body = req.body;
 
         if(!body.feedId || !body.categoryId){
-            def.resolve({message: "Doesn't have category or feed id"});
+            res.finish.resolve({message: "Doesn't have category or feed id"});
             return next(new HttpError(400, {
                 message: "Doesn't have category or feed id"
             }));
@@ -52,7 +52,7 @@ _.extend(Controller.prototype, {
         ], function (err, results) {
             if(err){
                 logger.error(err);
-                def.resolve({message: err});
+                res.finish.resolve({message: err});
                 return next(new HttpError(400, err))
             }
 
@@ -65,11 +65,11 @@ _.extend(Controller.prototype, {
             userData.user.save(function (err) {
                 if(err){
                     logger.error(err);
-                    def.resolve({message: err});
+                    res.finish.resolve({message: err});
                     return next(new HttpError(400, "Cannot add feed to category"))
                 }
 
-                def.resolve({});
+                res.finish.resolve({});
                 res.status(200);
                 res.status({});
             })
@@ -81,11 +81,11 @@ _.extend(Controller.prototype, {
     * @param {String} name New name for feed
     * @param {String} _id feed id
     * */
-    edit: function (req, res, next, def) {
+    edit: function (req, res, next) {
         var body = req.body;
 
         if(!body.name || !body._id){
-            def.resolve({message: "Doesn't have name or feed id"});
+            res.finish.resolve({message: "Doesn't have name or feed id"});
             return next(new HttpError(400, {
                 message: "Doesn't have name or feed id"
             }));
@@ -94,12 +94,12 @@ _.extend(Controller.prototype, {
         UserModel.editName(req.user._id, body.name, body._id, function (err) {
             if(err){
                 logger.error(err);
-                def.resolve({message: "Cannot edit feed"});
+                res.finish.resolve({message: "Cannot edit feed"});
                 return next(new HttpError(400, "Cannot edit feed"))
             }
 
             var data = {};
-            def.resolve(data);
+            res.finish.resolve(data);
             res.status(200);
             res.status(data);
         });
@@ -110,11 +110,11 @@ _.extend(Controller.prototype, {
     * @description Required only feedId, category, that store this feed, we should find automatically
     * @param {String} feedId
     * */
-    remove: function (req, res, next, def) {
+    remove: function (req, res, next) {
         var body = req.body;
 
         if(!body.feedId){
-            def.resolve({message: "Doesn't have feed id"});
+            res.finish.resolve({message: "Doesn't have feed id"});
             return next(new HttpError(400, {
                 message: "Doesn't have feed id"
             }));
@@ -123,12 +123,12 @@ _.extend(Controller.prototype, {
         UserModel.removeFeed(req.user._id, body.feedId, function (err) {
             if(err){
                 logger.error(err);
-                def.resolve({message: "Cannot remove feed"});
+                res.finish.resolve({message: "Cannot remove feed"});
                 return next(new HttpError(400, "Cannot remove feed"))
             }
 
             var data = {};
-            def.resolve(data);
+            res.finish.resolve(data);
             res.status(200);
             res.status(data);
         });
@@ -145,11 +145,11 @@ _.extend(Controller.prototype, {
     * @param {String} categoryId This is new category id
     * @param {String} feedId
     * */
-    changeCategory: function (req, res, next, def) {
+    changeCategory: function (req, res, next) {
         var body = req.body;
 
         if(!body.feedId || !body.categoryId){
-            def.resolve({message: "Doesn't have feed or category id"});
+            res.finish.resolve({message: "Doesn't have feed or category id"});
             return next(new HttpError(400, {
                 message: "Doesn't have feed or category id"
             }));
@@ -158,15 +158,68 @@ _.extend(Controller.prototype, {
         UserModel.changeCategoryForFeed(req.user._id, body.categoryId, body.feedId, function (err, user) {
             if(err){
                 logger.error(err);
-                def.resolve({message: "Cannot change category for feed"});
+                res.finish.resolve({message: "Cannot change category for feed"});
                 return next(new HttpError(400, "Cannot change category for feed"))
             }
 
             var data = {};
-            def.resolve(data);
+            res.finish.resolve(data);
             res.status(200);
             res.status(data);
         });
+    },
+
+    /*
+    * Get information about feed
+    * @param {String} id This is feed id
+    * */
+    getFeedById: function (req, res, next) {
+
+        FeedModel.findById(req.params.id, function (err, feed) {
+            if(err){
+                logger.error(err);
+                res.finish.resolve(err);
+                return next(new HttpError(400, {
+                    message: "Doesn't have feed"
+                }));
+            }
+
+            if(!feed){
+                logger.error(err);
+                res.finish.resolve(err);
+                return next(new HttpError(400, {
+                    message: "Cannot find feed"
+                }));
+            }
+            feed = feed.toObject();
+
+            if( !req.user ){
+                feed.isFollowed = false;
+                res.finish.resolve(feed);
+                res.status(200);
+                res.send(feed);
+                return false;
+            }else{
+                UserModel.isHaveFeed(req.user._id, req.params.id, function (err, userFeed) {
+                    if(err){
+                        logger.error(err);
+                        res.finish.resolve(err);
+                        return next(new HttpError(400, {
+                            message: err
+                        }));
+                    }
+                    if(userFeed) {
+                        feed.isFollowed = true;
+                    }else{
+                        feed.isFollowed = false;
+                    }
+
+                    res.finish.resolve(feed);
+                    res.status(200);
+                    res.send(feed);
+                });
+            }
+        })
     }
 });
 

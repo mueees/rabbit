@@ -15,7 +15,6 @@ _.extend(Controller.prototype, {
             }
 
             res.status(200);
-            /*todo add limit to 15 feeds*/
             res.send(result);
             res.finish.resolve(result);
         });

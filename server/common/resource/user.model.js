@@ -245,6 +245,32 @@ userSchema.statics.isExistCategory = function (userId, categoryId, cb) {
     })
 };
 
+userSchema.statics.isHaveFeed = function (userId, feedId, cb) {
+    this.findById(userId, function (err, user) {
+        if(err || !user){
+            return cb("Cannot find user by id");
+        }
+
+        var feed = null;
+
+        user.categories.forEach(function (category) {
+
+            if(feed) return false;
+
+            category.feeds.forEach(function (currentFeed) {
+                if(String(currentFeed.feedId) == String(feedId)){
+                    feed = currentFeed;
+                    return false;
+                }
+            });
+
+        });
+
+
+        cb(null, feed);
+    })
+};
+
 userSchema.statics.removeCategory = function (userId, categoryId, cb) {
     this.findById(userId, function (err, user) {
         if(err){

@@ -62,6 +62,14 @@ var api = {
                 logger.error(err);
                 return defer.reject(err);
             }
+            feeds = feeds.map(function (d) {
+                var plainD = d.toObject();
+                return {
+                    _id: plainD._id,
+                    name: plainD.name,
+                    url: plainD.url
+                }
+            });
             defer.resolve(feeds);
         });
 

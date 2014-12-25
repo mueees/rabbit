@@ -1,5 +1,6 @@
 var serviceConfig = require('../config'),
-    checkAuth = require('../middleware/checkAuth');
+    checkAuth = require('../middleware/checkAuth'),
+    getUser = require('../middleware/getUser');
 var prefix = '/api/v' + serviceConfig.get('version') + '/rss/application';
 
 /*Controllers*/
@@ -59,6 +60,12 @@ module.exports = function (app) {
 
     /*Remove feed*/
     app.post(prefix + '/rss/feed/remove', checkAuth, feedController.remove);
+
+    /*Get feed information*/
+    app.get(prefix + '/rss/feed/:id', getUser, feedController.getFeedById);
+
+
+
 
     /*Mark all post as read*/
     //app.post(prefix + '/rss/feed/mark/read', rssController.feed.read);
