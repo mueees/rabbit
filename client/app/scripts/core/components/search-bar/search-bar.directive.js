@@ -15,10 +15,7 @@
                 scope.$watch('searchRequest', function (searchRequest) {
 
                     if(rss.util.isStringWithLength(searchRequest)){
-
-                        console.log("change;");
-
-                        rssSearchResource.find({request: searchRequest}).then(function (data) {
+                        rssSearchResource.find({search: searchRequest}).then(function (data) {
                             scope.response = data;
                         }, function () {
                             scope.response = {};

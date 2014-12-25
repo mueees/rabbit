@@ -10,13 +10,13 @@ function Controller(){}
 
 _.extend(Controller.prototype, {
 
-    add: function (req, res, next, def) {
+    add: function (req, res, next) {
         var body = req.body;
 
         var name = body.name;
 
         if(!body.name){
-            def.resolve({message: "Doesn't have category name"});
+            res.finish.resolve({message: "Doesn't have category name"});
             return next(new HttpError(400, {
                 message: "Doesn't have category name"
             }));
@@ -25,26 +25,26 @@ _.extend(Controller.prototype, {
         UserModel.addCategory(req.user._id, body.name, function (err, user, category) {
             if(err){
                 logger.error(err);
-                def.resolve({message: "Cannot add category"});
+                res.finish.resolve({message: "Cannot add category"});
                 return next(new HttpError(400, "Cannot add category"))
             }
 
             var data = {_id: category.id};
 
 
-            def.resolve(data);
+            res.finish.resolve(data);
             res.status(200);
             res.status(data);
         });
 
     },
 
-    edit: function (req, res, next, def) {
+    edit: function (req, res, next) {
         var body = req.body;
 
 
         if(!body.name || !body._id){
-            def.resolve({message: "Doesn't have name or id category"});
+            res.finish.resolve({message: "Doesn't have name or id category"});
             return next(new HttpError(400, {
                 message: "Doesn't have name or id category"
             }));
@@ -53,7 +53,7 @@ _.extend(Controller.prototype, {
         UserModel.editCategory(req.user._id, body.name, body._id, function (err, user, category) {
             if(err){
                 logger.error(err);
-                def.resolve({message: "Cannot edit category"});
+                res.finish.resolve({message: "Cannot edit category"});
                 return next(new HttpError(400, "Cannot edit category"))
             }
 
@@ -61,17 +61,17 @@ _.extend(Controller.prototype, {
                 _id: category.id,
                 name: body.name
             };
-            def.resolve(data);
+            res.finish.resolve(data);
             res.status(200);
             res.status(data);
         });
     },
 
-    remove: function (req, res, next, def) {
+    remove: function (req, res, next) {
         var body = req.body;
 
         if(!body._id){
-            def.resolve({message: "Doesn't have category id"});
+            res.finish.resolve({message: "Doesn't have category id"});
             return next(new HttpError(400, {
                 message: "Doesn't have category id"
             }));
@@ -80,12 +80,12 @@ _.extend(Controller.prototype, {
         UserModel.removeCategory(req.user._id, body._id, function (err) {
             if(err){
                 logger.error(err);
-                def.resolve({message: "Cannot remove category"});
+                res.finish.resolve({message: "Cannot remove category"});
                 return next(new HttpError(400, "Cannot remove category"))
             }
 
             var data = {};
-            def.resolve(data);
+            res.finish.resolve(data);
             res.status(200);
             res.status(data);
 
@@ -98,7 +98,7 @@ _.extend(Controller.prototype, {
 
     },
 
-    list: function (req, res, next, def) {
+    list: function (req, res, next) {
 
         UserModel.findById(req.user._id, {
             "categories.name": true,
@@ -107,14 +107,32 @@ _.extend(Controller.prototype, {
         }, function (err, result) {
             if(err){
                 logger.error(err);
-                def.resolve({message: "Cannot get category list"});
+                res.finish.resolve({message: "Cannot get category list"});
                 return next(new HttpError(400, "Cannot get category list"))
             }
             var data = {data: result.categories};
-            def.resolve(data);
+            res.finish.resolve(data);
             res.status(200);
             res.status(data);
+        });
+    },
 
+    listFeed: function (req, res, next) {
+        UserModel.findById(req.user._id, {
+            "categories.name": true,
+            _id: false,
+            "categories._id": true,
+            "categories.feeds": true
+        }, function (err, result) {
+            if(err){
+                logger.error(err);
+                res.finish.resolve({message: "Cannot get category list feed"});
+                return next(new HttpError(400, "Cannot get category list feed"))
+            }
+
+            res.finish.resolve(result.categories);
+            res.status(200);
+            res.send(result.categories);
         });
     }
 

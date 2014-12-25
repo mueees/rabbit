@@ -11,6 +11,12 @@ pm2 start index.js --name auth.service
 cd /vagrant/server/services/kue.ui
 pm2 start index.js --name kueui
 
+cd /vagrant/server/services/email.sender.service
+pm2 start index.js --name email.sender.service
+
+cd /vagrant/server/services/search.feed.service
+pm2 start index.js --name search.feed.service
+
 cd /vagrant/server/services/deliver.feed.service
 pm2 start index.js --name deliver.feed.service
 

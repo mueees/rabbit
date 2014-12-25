@@ -8,6 +8,7 @@ var userController = require('../controllers/user');
 var categoryController = require('../controllers/rss/category');
 var feedController = require('../controllers/rss/feed');
 var postController = require('../controllers/rss/post');
+var searchController = require('../controllers/rss/search');
 
 module.exports = function (app) {
 
@@ -34,8 +35,7 @@ module.exports = function (app) {
     app.get(prefix + '/rss/category/list', categoryController.list);
 
     /* List of categories with all feeds*/
-    //todo: after api feed.add
-    //app.get(prefix + '/rss/category/list/feed', categoryController.listFeed);
+    app.get(prefix + '/category/list/feed', checkAuth, categoryController.listFeed);
 
     /*Add new category*/
     app.post(prefix + '/rss/category/add', checkAuth, categoryController.add);
@@ -85,5 +85,8 @@ module.exports = function (app) {
 
     /*Get posts by some filter*/
     //app.post(prefix + '/rss/post/filter', rssController.post.filter);
+
+    //search
+    app.post(prefix + '/search/find', searchController.find);
 
 };

@@ -78,8 +78,7 @@ _.extend(Controller.prototype, {
                 return next(err);
             }
 
-            res.status(200);
-            res.send({});
+            res.redirect('/');
 
             //for testing
             res.finish.resolve();

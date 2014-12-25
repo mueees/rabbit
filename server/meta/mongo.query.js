@@ -16,9 +16,7 @@ db.posts.aggregate([
     }
 ]);
 
-db.users.findOne();
 db.posts.remove();
-db.posts.findOne();
 
 db.users.find({
     tokens: {
@@ -26,4 +24,12 @@ db.users.find({
             token: '123123'
         }
     }
-}).count()
+}).count();
+
+//find feed by query req
+db.feeds.find({
+    name: {
+        $regex: 'oto',
+        $options: 'i'
+    }
+}).pretty();
