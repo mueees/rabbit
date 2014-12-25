@@ -2,11 +2,11 @@
     'use strict';
     angular.module('rss.core.resources').factory('rssCategoryResource', function (rssResource) {
         var CategoryResource = rssResource.withConfig(function(RestangularConfigurer){
-            RestangularConfigurer.addElementTransformer('categories', function (categories) {
-                categories.addRestangularMethod('getFullCategories', 'get', 'getFullCategories', undefined);
-                categories.addRestangularMethod('add', 'post', 'add', undefined);
-                categories.addRestangularMethod('list', 'get', 'list', undefined);
-                return categories;
+            RestangularConfigurer.addElementTransformer('category', function (category) {
+                category.addRestangularMethod('listFeed', 'get', 'list/feed', undefined);
+                category.addRestangularMethod('add', 'post', 'add', undefined);
+                category.addRestangularMethod('list', 'get', 'list', undefined);
+                return category;
             });
 
             /*RestangularConfigurer.addElementTransformer('categories', false, function (categories) {
@@ -14,6 +14,6 @@
                 return categories;
             });*/
         });
-        return CategoryResource.all('categories');
+        return CategoryResource.all('category');
     });
 })();

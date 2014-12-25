@@ -8,11 +8,10 @@ var response = {
     },
     next = function () {};
 
-describe('POST /rss/category/add', function(){
+/*describe('POST /rss/category/add', function(){
 
     describe("Success request", function () {
         var responseData,
-            promise,
             promise,
             def,
             req;
@@ -26,6 +25,7 @@ describe('POST /rss/category/add', function(){
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
 
             helpers.db.user.clearUsers()
                 .then(helpers.db.user.registerConfirmSignin)
@@ -60,6 +60,7 @@ describe('POST /rss/category/add', function(){
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.user.registerConfirmSignin)
                 .then(function (data) {
@@ -100,6 +101,7 @@ describe('POST /rss/category/edit', function(){
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.user.registerConfirmSignin)
                 .then(function (data) {
@@ -146,6 +148,7 @@ describe('POST /rss/category/edit', function(){
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.user.registerConfirmSignin)
                 .then(function (data) {
@@ -192,6 +195,7 @@ describe('POST /rss/category/remove', function(){
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.category.userAuthCreateCategory)
                 .then(function (data) {
@@ -231,6 +235,7 @@ describe('GET /rss/category/list', function(){
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.category.userAuthCreateCategory)
                 .then(function (data) {
@@ -261,8 +266,7 @@ describe('GET /rss/category/list/feed', function(){
         var responseData,
             promise,
             def,
-            req,
-            user;
+            req;
 
         beforeEach(function (done) {
             req = {
@@ -272,6 +276,7 @@ describe('GET /rss/category/list/feed', function(){
             };
             def = Q.defer();
             promise = def.promise;
+            response.finish = def;
             helpers.db.user.clearUsers()
                 .then(helpers.db.category.userAuthCreateCategory)
                 .then(function (data) {
@@ -294,4 +299,45 @@ describe('GET /rss/category/list/feed', function(){
             done();
         });
     })
+});*/
+
+describe('GET /rss/category/list/listFeed' , function () {
+
+    describe("Success request", function () {
+        var responseData,
+            promise,
+            def,
+            req,
+            createdData;
+
+        beforeEach(function (done) {
+            req = {
+                body: {},
+                user: {}
+            };
+            def = Q.defer();
+            promise = def.promise;
+            response.finish = def;
+            helpers.db.user.clearUsers()
+                .then(helpers.db.feed.auth_addCategory_addFeed)
+                .then(function (data) {
+                    createdData = data;
+                    req.user._id = data.user._id;
+                    categoryController.listFeed(req, response, next);
+                    promise.then(function (data) {
+                        responseData = data;
+                        done();
+                    });
+                })
+        });
+
+        it("should return category list with feeds", function (done) {
+            assert.equal(1, responseData.length);
+            assert.equal(1, responseData[0].feeds.length);
+
+            done();
+        });
+
+    })
+
 });

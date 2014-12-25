@@ -1,4 +1,6 @@
-require('./user');
-/*require('./category');
+/*require('./user');
+
 require('./feed');
 require('./post');*/
+
+require('./category');

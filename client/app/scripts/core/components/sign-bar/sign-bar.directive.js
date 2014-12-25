@@ -19,8 +19,7 @@
                     rssAuthentication.signin({
                         email: scope.user.email,
                         password: scope.user.password
-                    }).then(function (user) {
-                        alert("Please check you email.");
+                    }).then(function () {
                     }, function (request) {
                         alert(request.data.message);
                     });

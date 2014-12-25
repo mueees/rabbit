@@ -10,20 +10,11 @@ var express = require('express'),
 
 var app = express();
 
-/*app.use(session({
-    cookie: {
-        maxAge: 2592000000
-    },
-    secret: 'keyboard cat'
-}));*/
-
 app.use(bodyParser.json({type: 'application/x-www-form-urlencoded'}));
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
-
-
 
 //link database
 require("common/mongooseDb");
@@ -72,6 +63,7 @@ app.use(function(err, req, res, next){
     }else if( err instanceof HttpError ){
         res.sendError(err);
     }else{
+        console.log(err);
         logger.error("500", err.message);
         res.status(500);
         res.send(err);

@@ -15,7 +15,7 @@
 
                 scope.categories = [];
 
-                rssCategoryResource.getFullCategories().then(function (categories) {
+                rssCategoryResource.listFeed().then(function (categories) {
                     scope.categories = categories;
                 }, function () {
                 });
