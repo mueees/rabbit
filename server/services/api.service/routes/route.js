@@ -33,16 +33,16 @@ module.exports = function (app) {
     //category
 
     /* Just list of categories */
-    app.get(prefix + '/rss/category/list', categoryController.list);
+    app.get(prefix + '/category/list', checkAuth, categoryController.list);
 
     /* List of categories with all feeds*/
     app.get(prefix + '/category/list/feed', checkAuth, categoryController.listFeed);
 
     /*Add new category*/
-    app.post(prefix + '/rss/category/add', checkAuth, categoryController.add);
+    app.post(prefix + '/category/add', checkAuth, categoryController.add);
 
     /*Edit category*/
-    app.post(prefix + '/rss/category/remove', categoryController.edit);
+    app.post(prefix + '/rss/category/edit', categoryController.edit);
 
     /*Remove category*/
     app.post(prefix + '/rss/category/remove', categoryController.remove);
@@ -50,7 +50,7 @@ module.exports = function (app) {
     //feed
 
     /*Add new feed*/
-    app.post(prefix + '/rss/feed/add', checkAuth,  feedController.add);
+    app.post(prefix + '/feed/add', checkAuth,  feedController.add);
 
     /*Edit feed*/
     app.post(prefix + '/rss/feed/edit', checkAuth, feedController.edit);
@@ -74,7 +74,7 @@ module.exports = function (app) {
     //post
 
     /*Get post by some filters*/
-    app.post(prefix + '/post/get', getUser, postController.gets);
+    app.post(prefix + '/post/getPosts', getUser, postController.getPosts);
 
     /*Mark post as readed*/
     app.post(prefix + '/rss/post/mark/read', checkAuth, postController.read);

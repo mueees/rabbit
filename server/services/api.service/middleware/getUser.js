@@ -6,7 +6,7 @@ module.exports = function(req, res, next){
     var token = req.query.token;
 
     if( !token ){
-        next();
+        return next();
     }
     authService.execute('getUserByToken', token, function (err, user) {
             if(err){

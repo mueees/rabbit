@@ -9,7 +9,7 @@
                     if(!scope.name) return false;
 
                     rssCategoryResource.add({
-                        name: name
+                        name: scope.name
                     }).then(function (data) {
                         config.newCategory({
                             name: scope.name,
@@ -20,6 +20,7 @@
                     }).finally(function () {
                         scope.name = '';
                     });
+
                 }
             },
 

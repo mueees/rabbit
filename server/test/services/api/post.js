@@ -39,7 +39,7 @@ describe("Post api test", function () {
             })
     });
 
-    describe("POST /rss/post/mark/read", function () {
+    /*describe("POST /rss/post/mark/read", function () {
 
         describe("Success request", function () {
             var responseData,
@@ -55,6 +55,7 @@ describe("Post api test", function () {
                 };
                 def = Q.defer();
                 promise = def.promise;
+                response.finish = def;
 
                 helpers.db.post.clearPosts()
                     .then(function () {
@@ -67,7 +68,7 @@ describe("Post api test", function () {
                     .then(function () {
                         req.body._id = post._id;
                         req.user._id = global.user._id;
-                        postController.read(req, response, next, def);
+                        postController.read(req, response, next);
                         promise.then(function (data) {
                             responseData = data;
                             done();
@@ -101,7 +102,7 @@ describe("Post api test", function () {
                 };
                 def = Q.defer();
                 promise = def.promise;
-
+                response.finish = def;
                 helpers.db.post.clearPosts()
                     .then(function () {
                         return helpers.db.post.add({
@@ -112,7 +113,7 @@ describe("Post api test", function () {
                     }, errorHandler)
                     .then(function () {
                         req.user._id = global.user._id;
-                        postController.read(req, response, next, def);
+                        postController.read(req, response, next);
                         promise.then(function (data) {
                             responseData = data;
                             done();
@@ -151,7 +152,7 @@ describe("Post api test", function () {
                 };
                 def = Q.defer();
                 promise = def.promise;
-
+                response.finish = def;
                 helpers.db.post.clearPosts()
                     .then(function () {
                         return helpers.db.post.add({
@@ -163,7 +164,7 @@ describe("Post api test", function () {
                     .then(function () {
                         req.body._id = post._id;
                         req.user._id = global.user._id;
-                        postController.unread(req, response, next, def);
+                        postController.unread(req, response, next);
                         promise.then(function (data) {
                             responseData = data;
                             done();
@@ -201,7 +202,7 @@ describe("Post api test", function () {
                 };
                 def = Q.defer();
                 promise = def.promise;
-
+                response.finish = def;
                 helpers.db.post.clearPosts()
                     .then(function () {
                         return helpers.db.post.add({
@@ -213,7 +214,7 @@ describe("Post api test", function () {
                     .then(function () {
                         req.body._id = post._id;
                         req.user._id = global.user._id;
-                        postController.check(req, response, next, def);
+                        postController.check(req, response, next);
                         promise.then(function (data) {
                             responseData = data;
                             done();
@@ -251,7 +252,7 @@ describe("Post api test", function () {
                 };
                 def = Q.defer();
                 promise = def.promise;
-
+                response.finish = def;
                 helpers.db.post.clearPosts()
                     .then(function () {
                         return helpers.db.post.add({
@@ -263,7 +264,7 @@ describe("Post api test", function () {
                     .then(function () {
                         req.body._id = post._id;
                         req.user._id = global.user._id;
-                        postController.uncheck(req, response, next, def);
+                        postController.uncheck(req, response, next);
                         promise.then(function (data) {
                             responseData = data;
                             done();
@@ -283,6 +284,109 @@ describe("Post api test", function () {
             });
         });
 
-    });
+    });*/
 
+    describe("POST /rss/post/mark/read", function () {
+
+        /*describe("Success request", function () {
+            var responseData,
+                promise,
+                def,
+                post,
+                req;
+
+            beforeEach(function (done) {
+                req = {
+                    body: {},
+                    user: null
+                };
+                def = Q.defer();
+                promise = def.promise;
+                response.finish = def;
+                helpers.db.post.clearPosts()
+                    .then(function () {
+                        return helpers.db.post.add({
+                            feedId: global.feed._id
+                        }).then(function (data) {
+                            post = data.post;
+                        }, errorHandler)
+                    }, errorHandler)
+                    .then(function () {
+                        req.body = {
+                            options: {
+                                source: {
+                                    name: 'feed',
+                                    params: {
+                                        _id: global.feed._id
+                                    }
+                                }
+                            }
+                        };
+                        //req.user._id = global.user._id;
+
+                        postController.getPosts(req, response, next);
+                        promise.then(function (data) {
+                            responseData = data;
+                            done();
+                        });
+                    }, errorHandler);
+            });
+
+            it("should return one post, without user information", function (done) {
+                assert.ok(responseData.length);
+                done();
+            });
+        });*/
+
+        describe("Success request with user information", function () {
+            var responseData,
+                promise,
+                def,
+                post,
+                req;
+
+            beforeEach(function (done) {
+                req = {
+                    body: {},
+                    user: {}
+                };
+                def = Q.defer();
+                promise = def.promise;
+                response.finish = def;
+                helpers.db.post.clearPosts()
+                    .then(function () {
+                        return helpers.db.post.add({
+                            feedId: global.feed._id
+                        }).then(function (data) {
+                            post = data.post;
+                        }, errorHandler)
+                    }, errorHandler)
+                    .then(function () {
+                        req.body = {
+                            options: {
+                                source: {
+                                    name: 'feed',
+                                    params: {
+                                        _id: global.feed._id
+                                    }
+                                }
+                            }
+                        };
+                        req.user._id = global.user._id;
+
+                        postController.getPosts(req, response, next);
+                        promise.then(function (data) {
+                            responseData = data;
+                            done();
+                        });
+                    }, errorHandler);
+            });
+
+            it("should return one post, with user information", function (done) {
+                assert.ok(responseData.length);
+                done();
+            });
+        });
+
+    });
 });

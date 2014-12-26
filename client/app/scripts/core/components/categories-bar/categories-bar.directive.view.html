@@ -5,12 +5,12 @@
             <span class="corner">
                 <span class="icon-angle-right"></span>
             </span>
-            Web
+            {{category.name}}
         </a>
 
         <ul class="list-group rss-list-group rss-links feeds">
             <li class="list-group-item animated fadeInDown " ng-repeat="feed in category.feeds" >
-                <a href="#" ng-class="{active: isActive(feed._id)}" ui-sref="{id: feed._id}" >
+                <a href="#" ng-class="{active: isActive(feed.feedId)}" ui-sref="main.app.index.feed({id: feed.feedId})" >
                     {{feed.name}}
                 </a>
             </li>

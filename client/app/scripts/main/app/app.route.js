@@ -34,7 +34,7 @@
                 controller: 'FeedController',
                 resolve: {
                     feed: function ($stateParams, rssFeedResource) {
-                        return rssFeedResource.getById($stateParams.id);
+                        return rssFeedResource.one($stateParams.id).get();
                     },
                     user: function (rssSession) {
                         return rssSession.getUser();

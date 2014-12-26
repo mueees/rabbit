@@ -71,7 +71,7 @@ _.extend(Controller.prototype, {
 
                 res.finish.resolve({});
                 res.status(200);
-                res.status({});
+                res.send({});
             })
         });
     },
@@ -101,7 +101,7 @@ _.extend(Controller.prototype, {
             var data = {};
             res.finish.resolve(data);
             res.status(200);
-            res.status(data);
+            res.send(data);
         });
     },
 
@@ -130,7 +130,7 @@ _.extend(Controller.prototype, {
             var data = {};
             res.finish.resolve(data);
             res.status(200);
-            res.status(data);
+            res.send(data);
         });
 
         /*
@@ -165,7 +165,7 @@ _.extend(Controller.prototype, {
             var data = {};
             res.finish.resolve(data);
             res.status(200);
-            res.status(data);
+            res.send(data);
         });
     },
 

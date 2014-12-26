@@ -31,10 +31,9 @@ _.extend(Controller.prototype, {
 
             var data = {_id: category.id};
 
-
             res.finish.resolve(data);
             res.status(200);
-            res.status(data);
+            res.send(data);
         });
 
     },
@@ -63,7 +62,7 @@ _.extend(Controller.prototype, {
             };
             res.finish.resolve(data);
             res.status(200);
-            res.status(data);
+            res.send(data);
         });
     },
 
@@ -87,7 +86,7 @@ _.extend(Controller.prototype, {
             var data = {};
             res.finish.resolve(data);
             res.status(200);
-            res.status(data);
+            res.send(data);
 
             /*
             * todo: make task to remove userdata from all post, that belong to feed that belong to this category
@@ -110,10 +109,10 @@ _.extend(Controller.prototype, {
                 res.finish.resolve({message: "Cannot get category list"});
                 return next(new HttpError(400, "Cannot get category list"))
             }
-            var data = {data: result.categories};
-            res.finish.resolve(data);
+
+            res.finish.resolve(result.categories);
             res.status(200);
-            res.status(data);
+            res.send(result.categories);
         });
     },
 

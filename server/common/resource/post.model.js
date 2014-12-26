@@ -183,6 +183,35 @@ postSchema.statics.checkUncheck = function(userId, postId, state, cb){
     })
 };
 
+postSchema.statics.getPosts = function(options, cb){
+    var query = {},
+        params = {};
+
+    if( options.source.name == "feed" ){
+        query.feedId = options.source.params._id;
+    }
+
+    if( options.user ){
+        params["users.userId"] = options.user._id;
+    }else{
+        params.users = false;
+    }
+
+    this.find(query, params, {
+        skip: options.from,
+        limit: options.count,
+        sort: {
+            date: -1 //Sort by Date Added DESC
+        }
+    }, function (err, posts) {
+        if(err){
+            logger.error(err.message);
+            return cb("Cannot find posts");
+        }
+        cb(err, posts);
+    })
+};
+
 var Post = mongoose.model('posts', postSchema);
 
 module.exports = Post;

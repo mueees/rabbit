@@ -68,3 +68,91 @@
 {"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-25T21:21:14.343Z"}
 {"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-25T21:21:36.537Z"}
 {"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2014-12-25T21:21:36.539Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-26T13:25:05.017Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2014-12-26T13:25:05.075Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-26T13:25:20.462Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2014-12-26T13:25:20.466Z"}
+{"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-26T13:26:17.302Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-26T13:28:27.491Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2014-12-26T13:28:27.493Z"}
+{"level":"error","message":"500 invalid json","label":"api.service/index.js","timestamp":"2014-12-26T13:28:30.870Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-26T13:29:10.352Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2014-12-26T13:29:10.356Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-26T13:29:45.047Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2014-12-26T13:29:45.049Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-26T13:29:53.989Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2014-12-26T13:29:53.991Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-26T13:31:47.290Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2014-12-26T13:31:47.292Z"}
+{"level":"error","message":"500 Cannot read property 'name' of undefined","label":"api.service/index.js","timestamp":"2014-12-26T13:31:47.440Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:31:47.513Z"}
+{"level":"error","message":"Cannot find token","label":"middleware/getUser.js","timestamp":"2014-12-26T13:31:47.515Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-26T13:31:47.521Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2014-12-26T13:31:47.521Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-26T13:33:07.918Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2014-12-26T13:33:07.924Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:33:08.145Z"}
+{"level":"error","message":"500 Cannot read property 'name' of undefined","label":"api.service/index.js","timestamp":"2014-12-26T13:33:08.141Z"}
+{"level":"error","message":"Cannot find token","label":"middleware/getUser.js","timestamp":"2014-12-26T13:33:08.158Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-26T13:33:08.166Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2014-12-26T13:33:08.173Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-26T13:34:21.811Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2014-12-26T13:34:21.850Z"}
+{"level":"error","message":"500 Cannot read property 'name' of undefined","label":"api.service/index.js","timestamp":"2014-12-26T13:34:21.949Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:34:21.953Z"}
+{"level":"error","message":"Cannot find token","label":"middleware/getUser.js","timestamp":"2014-12-26T13:34:21.955Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-26T13:34:36.528Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-26T13:34:36.530Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-26T13:35:12.440Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-26T13:35:15.706Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-26T13:37:13.981Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2014-12-26T13:37:13.983Z"}
+{"level":"error","message":"500 Cannot read property 'name' of undefined","label":"api.service/index.js","timestamp":"2014-12-26T13:37:24.028Z"}
+{"level":"error","message":"Cannot find token","label":"middleware/getUser.js","timestamp":"2014-12-26T13:37:24.032Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:37:24.031Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:38:55.025Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:40:30.309Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:41:20.748Z"}
+{"level":"error","message":"Cannot find token","label":"middleware/getUser.js","timestamp":"2014-12-26T13:41:20.758Z"}
+{"level":"error","message":"500 Can't set headers after they are sent.","label":"api.service/index.js","timestamp":"2014-12-26T13:41:20.762Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:42:19.118Z"}
+{"level":"error","message":"Cannot find token","label":"middleware/getUser.js","timestamp":"2014-12-26T13:42:19.133Z"}
+{"level":"error","message":"500 Can't set headers after they are sent.","label":"api.service/index.js","timestamp":"2014-12-26T13:42:19.137Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:44:03.692Z"}
+{"level":"error","message":"Cannot find token","label":"middleware/getUser.js","timestamp":"2014-12-26T13:44:03.700Z"}
+{"level":"error","message":"500 Can't set headers after they are sent.","label":"api.service/index.js","timestamp":"2014-12-26T13:44:03.703Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:44:14.404Z"}
+{"level":"error","message":"Cannot find token","label":"middleware/getUser.js","timestamp":"2014-12-26T13:44:14.408Z"}
+{"level":"error","message":"500 Can't set headers after they are sent.","label":"api.service/index.js","timestamp":"2014-12-26T13:44:14.411Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:44:21.726Z"}
+{"level":"error","message":"Cannot find token","label":"middleware/getUser.js","timestamp":"2014-12-26T13:44:21.729Z"}
+{"level":"error","message":"500 Can't set headers after they are sent.","label":"api.service/index.js","timestamp":"2014-12-26T13:44:21.730Z"}
+{"message":"","name":"CastError","type":"ObjectId","value":"549d61f3ed346d0808be88a","path":"_id","level":"error","label":"rss/feed.js","timestamp":"2014-12-26T13:44:40.679Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:44:59.173Z"}
+{"level":"error","message":"Cannot find token","label":"middleware/getUser.js","timestamp":"2014-12-26T13:44:59.175Z"}
+{"level":"error","message":"500 Can't set headers after they are sent.","label":"api.service/index.js","timestamp":"2014-12-26T13:44:59.178Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:47:24.780Z"}
+{"level":"error","message":"Cannot find token","label":"middleware/getUser.js","timestamp":"2014-12-26T13:47:24.788Z"}
+{"level":"error","message":"500 Can't set headers after they are sent.","label":"api.service/index.js","timestamp":"2014-12-26T13:47:24.792Z"}
+{"level":"error","message":"Cannot find token","label":"middleware/getUser.js","timestamp":"2014-12-26T13:47:30.628Z"}
+{"level":"error","message":"500 Can't set headers after they are sent.","label":"api.service/index.js","timestamp":"2014-12-26T13:47:30.630Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:47:30.628Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:47:44.886Z"}
+{"level":"error","message":"Cannot find token","label":"middleware/getUser.js","timestamp":"2014-12-26T13:47:44.888Z"}
+{"level":"error","message":"500 Can't set headers after they are sent.","label":"api.service/index.js","timestamp":"2014-12-26T13:47:44.889Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:49:31.255Z"}
+{"level":"error","message":"500 Can't set headers after they are sent.","label":"api.service/index.js","timestamp":"2014-12-26T13:49:31.263Z"}
+{"level":"error","message":"Cannot find token","label":"auth.service/api.js","timestamp":"2014-12-26T13:49:34.650Z"}
+{"level":"error","message":"500 Can't set headers after they are sent.","label":"api.service/index.js","timestamp":"2014-12-26T13:49:34.654Z"}
+{"level":"error","message":"500 Cannot read property '_id' of undefined","label":"api.service/index.js","timestamp":"2014-12-26T13:55:16.675Z"}
+{"level":"error","message":"No token","label":"middleware/checkAuth.js","timestamp":"2014-12-26T13:59:31.728Z"}
+{"level":"error","message":"No token","label":"middleware/checkAuth.js","timestamp":"2014-12-26T13:59:44.375Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2014-12-26T14:08:25.039Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2014-12-26T14:09:27.885Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2014-12-26T14:09:31.576Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2014-12-26T14:09:44.553Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2014-12-26T14:10:06.858Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2014-12-26T14:10:08.093Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2014-12-26T14:10:22.640Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2014-12-26T14:10:24.006Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2014-12-26T14:10:24.894Z"}

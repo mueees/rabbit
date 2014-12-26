@@ -30,7 +30,7 @@
             newInstance.withUrlConfiguration = _.bind(withUrlConfigurationFunction, newInstance);
 
             //Always send user token if it exist
-            newInstance.setDefaultRequestParams('get', {token: rssSession.getToken()});
+            newInstance.setDefaultRequestParams(['get', 'post'], {token: rssSession.getToken()});
 
             return newInstance;
         };
