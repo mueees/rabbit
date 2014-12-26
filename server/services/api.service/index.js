@@ -63,7 +63,6 @@ app.use(function(err, req, res, next){
     }else if( err instanceof HttpError ){
         res.sendError(err);
     }else{
-        console.log(err);
         logger.error("500", err.message);
         res.status(500);
         res.send(err);

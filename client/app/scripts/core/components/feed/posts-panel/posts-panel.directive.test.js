@@ -72,24 +72,4 @@ describe('rssPostsPanel', function () {
         });
     };
 
-    it('should exist settings and posts', function () {
-        $compile(element)(scope);
-        scope.$digest();
-
-        var isolateScope = element.isolateScope();
-        isolateScope.$apply();
-
-        expect(isolateScope.settings).toBeDefined();
-        expect(isolateScope.posts).toBeDefined();
-    });
-
-    it('should display posts', function () {
-        $compile(element)(scope);
-        scope.$digest();
-
-
-        var $post = element.find('rss-post-line');
-        expect($post.length).toEqual(4);
-    });
-
 });

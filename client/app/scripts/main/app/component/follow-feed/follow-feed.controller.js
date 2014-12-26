@@ -14,7 +14,7 @@
 
         $scope.followFeed = function () {
             rssFeedResource.add({
-                categories: $scope.chooseCategoryConfiguration.categories,
+                categoryId: $scope.chooseCategoryConfiguration.categories[0],
                 name: $scope.feed.name,
                 feedId: $scope.feed._id
             }).then(function () {

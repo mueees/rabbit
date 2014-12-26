@@ -2,6 +2,7 @@ var _ = require('underscore'),
     logger = require('common/core/logs')(module),
     HttpError = require('../../errors/HttpError').HttpError,
     Q = require('q'),
+    validator = require('validator'),
     UserModel = require('common/resource/user.model'),
     PostModel = require('common/resource/post.model'),
     async = require('async'),
@@ -34,7 +35,7 @@ _.extend(Controller.prototype, {
             }
             res.finish.resolve({});
             res.status(200);
-            res.status({});
+            res.send({});
         });
     },
 
@@ -61,7 +62,7 @@ _.extend(Controller.prototype, {
             }
             res.finish.resolve({});
             res.status(200);
-            res.status({});
+            res.send({});
         });
     },
 
@@ -88,7 +89,7 @@ _.extend(Controller.prototype, {
             }
             res.finish.resolve({});
             res.status(200);
-            res.status({});
+            res.send({});
         });
     },
 
@@ -115,34 +116,66 @@ _.extend(Controller.prototype, {
             }
             res.finish.resolve({});
             res.status(200);
-            res.status({});
+            res.send({});
         });
     },
 
     /*
      * Get posts by some filters
-     * @param {String} source Posible value feed || tag || category
+     * @param {Object} source Source where search posts
+     * @param {Object} source.name Possible value feed || tag || category
+     * @param {Object} source.params Params for source
      * @param {String} from Start point ( skip for mongoose )
      * @param {String} count End point
      * @param {String} readLater Exclude or Include post that mark readLater
      * */
-    gets: function (req, res, next) {
+    getPosts: function (req, res, next) {
         var defaultOptions = {
             from: 0,
             count: 20
-        };
+        },
+            allowedSource = ['feed'];
         var body = req.body;
+        var errors = [];
 
-        if( !body.options.source ){
+        var options = _.extend(defaultOptions, body);
+
+        if( !options.source ||
+            !options.source.name ||
+            !options.source.params ||
+            !options.source.params._id){
+            errors.push('Cannot find resource');
+        }
+
+        if( !validator.isIn(options.source.name, allowedSource) ){
+            errors.push('Resource is not recognized');
+        }
+
+        if(errors.length){
             res.finish.resolve({message: "Cannot find resource"});
             return next(new HttpError(400, {
-                message: "Cannot find resource"
+                message: errors
             }));
         }
 
-        body.options = _.extend(defaultOptions, body.options);
+        if( req.user ){
+            options.user = {};
+            options.user._id = req.user._id;
+        }
 
+        PostModel.getPosts(options, function (err, posts) {
+            if(err){
+                logger.error(err.message);
+                res.finish.resolve({message: err.message});
+                return next(new HttpError(400, {
+                    message: err
+                }));
+            }
 
+            res.finish.resolve(posts);
+            res.status(200);
+            res.send(posts);
+        });
 
     }
 

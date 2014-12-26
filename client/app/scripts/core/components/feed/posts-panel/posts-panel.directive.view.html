@@ -1,5 +1,5 @@
 <div ng-switch on="settings.viewType">
     <div ng-switch-when="list">
-        <rss-post-line rss-configuration="{post: post, user: user}" ng-repeat="post in posts"></rss-post-line>
+        <rss-post-line rss-configuration="{post: post, user: settings.user}" ng-repeat="post in posts"></rss-post-line>
     </div>
 </div>
