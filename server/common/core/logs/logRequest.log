@@ -156,3 +156,9 @@
 {"level":"error","message":"","label":"rss/feed.js","timestamp":"2014-12-26T14:10:22.640Z"}
 {"level":"error","message":"","label":"rss/feed.js","timestamp":"2014-12-26T14:10:24.006Z"}
 {"level":"error","message":"","label":"rss/feed.js","timestamp":"2014-12-26T14:10:24.894Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-26T14:19:10.992Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2014-12-26T14:19:10.997Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-26T14:19:11.097Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2014-12-26T14:19:11.098Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-26T14:20:00.222Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2014-12-26T14:20:00.225Z"}

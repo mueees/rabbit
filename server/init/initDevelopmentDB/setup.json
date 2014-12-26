@@ -1,0 +1,56 @@
+{
+  "user": {
+    "email": "mue.miv@gmail.com",
+    "password": "123123",
+    "status": "200",
+    "categories": [
+      {
+        "name": "Fake category 1"
+      },
+      {
+        "name": "Fake category 5"
+      },
+      {
+        "name": "Fake category 4"
+      },
+      {
+        "name": "Fake category 3"
+      },
+      {
+        "name": "Fake category 2"
+      }
+    ]
+  },
+  "feeds": [
+    {
+      "name": "Feed 1",
+      "url": "http://Fake_category_1"
+    },
+    {
+      "name": "Feed 4",
+      "url": "http://Fake_category_4"
+    },
+    {
+      "name": "Feed 3",
+      "url": "http://Fake_category_3"
+    },
+    {
+      "name": "Feed 2",
+      "url": "http://Fake_category_2"
+    }
+  ],
+  "posts": [
+    {
+      "title": "Title 1",
+      "body": "Body one",
+      "link": "http://body.one",
+      "guid": "Guid 1"
+    },
+    {
+      "title": "Title 2",
+      "body": "Body two",
+      "link": "http://body.two",
+      "guid": "Guid 2"
+    }
+  ]
+}
