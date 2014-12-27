@@ -252,7 +252,7 @@ a.accent:focus {
   transition: margin 0.5s ease-in;
 }
 .sidebar {
-  overflow: hidden;
+  overflow: overlay;
   position: fixed;
   background: #263238;
   bottom: 0;

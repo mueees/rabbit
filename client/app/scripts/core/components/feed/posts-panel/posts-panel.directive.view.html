@@ -2,4 +2,5 @@
     <div ng-switch-when="list">
         <rss-post-line rss-configuration="{post: post, user: settings.user}" ng-repeat="post in posts"></rss-post-line>
     </div>
+    <button ng-if="isShowMoreBtn" class="btn btn-link" ng-click="getNextPosts()">more</button>
 </div>

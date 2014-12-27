@@ -26,7 +26,7 @@ app.use(require("./middleware/defForTest"));
 app.use(require("./middleware/sendHttpError"));
 
 if( process.env.NODE_ENV == "live" ){
-    app.use(express.static(__dirname + '/public/'));
+    app.use(express.static('../../../client/bin'));
 }else{
     app.use(express.static('../../../client/build/app'));
 }

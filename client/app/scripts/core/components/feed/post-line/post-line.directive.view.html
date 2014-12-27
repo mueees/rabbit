@@ -1,5 +1,5 @@
-<div class="post post-line" ng-class='{"unread": !post.user.isRead}' ng-click="postClick()">
-    <div class="content">
+<div class="post post-line" ng-class='{"unread": !post.user.isRead}' ng-click="open = !open">
+    <div class="content" ng-if="!open">
         <!--<button ng-if="user.token" class="btn btn-link switchColor switchOn" title="Read later">
             <i class="icon-bookmark"></i>
         </button>-->
@@ -14,5 +14,10 @@
         <!--<button ng-if="user.token" class="btn btn-link btn-xs" title="Mark as readed">
             <span class="icon-cancel"></span>
         </button>-->
+    </div>
+
+    <div class="" ng-if="open" >
+        <h4><a target="_blank" href="{{post.link}}">{{post.title}}</a></h4>
+        <div ng-bind-html="post.body"></div>
     </div>
 </div>

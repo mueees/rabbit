@@ -84,6 +84,7 @@ module.exports = {
             'app/vendor/restangular/dist/restangular.min.js',
 
             'app/vendor/angular-mocks/angular-mocks.js',
+            'app/vendor/angular-sanitize/angular-sanitize.js',
             'app/vendor/angular-touch/angular-touch.min.js',
             'app/vendor/angular-ui-router/release/angular-ui-router.min.js',
             'app/vendor/angular-animate/angular-animate.min.js',

@@ -1,12 +1,9 @@
-export NODE_ENV=development
+export NODE_ENV=live
 export NODE_PATH=/vagrant/server
 cd /vagrant/server/services
 
 cd /vagrant/server/services/auth.service
 pm2 start index.js --name auth.service
-
-cd /vagrant/server/services/kue.ui
-pm2 start index.js --name kueui
 
 cd /vagrant/server/services/email.sender.service
 pm2 start index.js --name email.sender.service
@@ -29,10 +26,13 @@ pm2 start index.js --name prepare.post.service
 cd /vagrant/server/services/save.post.service
 pm2 start index.js --name save.post.service
 
+cd /vagrant/server/services/kue.ui
+pm2 start index.js --name kueui
+
 pm2 monit
 
-//init feeds from last rss
-export NODE_ENV=development
+//init LIVE
+export NODE_ENV=live
 export NODE_PATH=/vagrant/server
 cd /vagrant/server/init/startServer
 node index.js

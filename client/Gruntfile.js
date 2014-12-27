@@ -52,10 +52,19 @@ module.exports = function ( grunt ) {
         html2js: {
             app: {
                 options: {
-                    base: '.'
+                    base: '.',
+                    module: 'templates-app'
                 },
                 src: [ '<%= app_files.js.templates %>' ],
                 dest: '<%= build_dir %>/app/scripts/rss/rss.templates.js'
+            },
+            compile: {
+                options: {
+                    base: '.',
+                    module: 'templates-app'
+                },
+                src: [ '<%= app_files.js.templates %>' ],
+                dest: '<%= compile_dir %>/scripts/temp/rss.templates.js'
             }
         },
         copy: {
@@ -126,11 +135,11 @@ module.exports = function ( grunt ) {
             },
             compile: {
                 options: {
-                    compress: true
+                    compress: false
                 },
                 files: {
-                    'app/assets/css/default-<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.stylus.default %>',
-                    'app/assets/css/dark-<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.stylus.dark %>'
+                    'app/assets/css/default-<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.stylus.default %>'/*,
+                    'app/assets/css/dark-<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.stylus.dark %>'*/
                 }
             }
         },
@@ -199,6 +208,14 @@ module.exports = function ( grunt ) {
                 ],
                 dest: '<%= compile_dir %>/scripts/temp/main.js'
             },
+            compile_core: {
+                src:[
+                    'module.prefix',
+                    '<%= app_files.js.core %>',
+                    'module.suffix'
+                ],
+                dest: '<%= compile_dir %>/scripts/temp/core.js'
+            },
             compile_app: {
                 options: {},
                 src: [
@@ -208,10 +225,13 @@ module.exports = function ( grunt ) {
                 ],
                 dest: '<%= compile_dir %>/scripts/temp/app.js'
             },
+
             compile_js: {
                 options: {},
                 src: [
                     '<%= concat.compile_vendor.dest %>',
+                    '<%= html2js.compile.dest %>',
+                    '<%= concat.compile_core.dest %>',
                     '<%= concat.compile_main.dest %>',
                     '<%= concat.compile_app.dest %>'
                 ],
@@ -259,16 +279,22 @@ module.exports = function ( grunt ) {
                     scripts: {
                         templates: [],
                         libs: [],
-                        app: [],
                         main: [
                             '<%= concat.compile_js.dest %>'
-                        ]
+                        ],
+                        core: [],
+                        app: []
                     },
                     styles: {
-                        start: [],
-                        vendor: [],
+                        start: [
+                            '<%= compile_dir %>/assets/css/start.css'
+                        ],
+                        vendor: [
+                            '<%= compile_dir %>/assets/css/vendor/*.css'
+                        ],
                         app: [
-                            '<%= build_dir %>/app/assets/**/*.css'
+                            '<%= compile_dir %>/assets/css/*.css',
+                            '!<%= compile_dir %>/assets/css/start.css'
                         ]
                     }
                 }
@@ -342,20 +368,21 @@ module.exports = function ( grunt ) {
     ]);
 
     grunt.registerTask( 'compile', [
+        'karma',
         'clean:compile',
-        /*
-         'jsvalidate',
-         'jshint',
-         'stylus:compile',
-         'copy:compile_assets',*/
-        'html2js:app',
+        'jsvalidate',
+        'jshint',
+        'stylus:compile',
+         'copy:compile_assets',
+        'html2js:compile',
         'concat:compile_vendor',
+        'concat:compile_core',
         'concat:compile_main',
         'concat:compile_app',
         'concat:compile_js',
-        'uglify',
-        'htmlbuild:compile',
-        'clean:compile_script_temp'
+        /*'uglify',*/
+        'htmlbuild:compile'
+        /*'clean:compile_script_temp'*/
     ]);
 
     grunt.registerTask('debug', 'Main task for development', function () {
