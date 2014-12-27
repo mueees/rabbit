@@ -9,21 +9,27 @@
                 var config = scope.rssConfiguration.getConfiguration();
                 var source = config.source;
                 var countPost = angular.copy(config.options.count);
+                scope.open = false;
 
                 scope.settings = config.settings;
                 scope.posts = [];
+                scope.isShowMoreBtn = true;
 
                 var options = config.options;
-                function getNextPosts(){
+                scope.getNextPosts = function(){
                     source.getPosts(options).then(function (posts) {
-                        scope.posts = posts;
+                        posts = posts.plain();
+                        if(!posts.length){
+                            scope.isShowMoreBtn = false;
+                        }
+                        scope.posts = scope.posts.concat(posts);
                         options.from += countPost;
                     }, function () {
                         alert('Cannot get posts');
                     });
                 }
 
-                getNextPosts();
+                scope.getNextPosts();
 
             },
 

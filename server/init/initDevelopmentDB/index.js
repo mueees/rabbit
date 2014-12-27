@@ -70,7 +70,8 @@ dbHelpers.db.clearDb().then(function () {
             for(var j = 0; j < user.categories.length; j++){
                 for(var i = 0; i < feeds.length; i++){
                     user.categories[j].feeds.push({
-                        feedId: feeds[i]._id
+                        feedId: feeds[i]._id,
+                        name: feeds[i].name
                     })
                 }
             }

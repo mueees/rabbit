@@ -1,0 +1,48 @@
+************************
+START LIVE SERVER
+************************
+
+cd /vagrant/server/init/startServer
+node index.js
+
+export NODE_ENV=live
+export NODE_PATH=/vagrant/server
+cd /vagrant/server/services
+
+cd /vagrant/server/services/kue.ui
+pm2 start index.js --name kueui
+
+cd /vagrant/server/services/auth.service
+pm2 start index.js --name auth.service
+
+cd /vagrant/server/services/email.sender.service
+pm2 start index.js --name email.sender.service
+
+cd /vagrant/server/services/search.feed.service
+pm2 start index.js --name search.feed.service
+
+cd /vagrant/server/services/update.feed.service
+pm2 start index.js --name update.feed.service
+
+cd /vagrant/server/services/prepare.post.service
+pm2 start index.js --name prepare.post.service
+
+cd /vagrant/server/services/save.post.service
+pm2 start index.js --name save.post.service
+
+cd /vagrant/server/services/deliver.feed.service
+pm2 start index.js --name deliver.feed.service
+
+cd /vagrant/server/services/api.service
+pm2 start index.js --name api.service
+
+************************
+USEFULL REDIS COMMANDS
+************************
+redis-cli
+
+//clear REDIS database
+FLUSHALL
+
+//show keys in Redis
+KEYS *

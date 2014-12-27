@@ -185,17 +185,18 @@ postSchema.statics.checkUncheck = function(userId, postId, state, cb){
 
 postSchema.statics.getPosts = function(options, cb){
     var query = {},
-        params = {};
+        params = {
+            users: false
+        };
 
     if( options.source.name == "feed" ){
         query.feedId = options.source.params._id;
     }
 
-    if( options.user ){
+    /*todo: we should return associated user data with post information*/
+    /*if( options.user ){
         params["users.userId"] = options.user._id;
-    }else{
-        params.users = false;
-    }
+    }*/
 
     this.find(query, params, {
         skip: options.from,

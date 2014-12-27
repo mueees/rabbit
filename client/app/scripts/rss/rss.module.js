@@ -5,6 +5,7 @@ var rss = rss || {};
     var inject = [
         'templates-app',
         'ui.router',
+        'ngSanitize',
         'ngAnimate',
         'rss.core.error-handling',
 
