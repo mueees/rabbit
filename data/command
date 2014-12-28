@@ -1,5 +1,42 @@
 ************************
-START LIVE SERVER
+START LIVE-REMOTE SERVER
+************************
+cd /home/mue/web/public/rabbit/server/init/startServer
+node index.js
+
+export NODE_ENV=live
+export NODE_PATH=/home/mue/web/public/rabbit/server
+cd /home/mue/web/public/rabbit/server
+
+cd /home/mue/web/public/rabbit/server/services/kue.ui
+pm2 start index.js --name kueui
+
+cd /home/mue/web/public/rabbit/server/services/auth.service
+pm2 start index.js --name auth.service
+
+cd /home/mue/web/public/rabbit/server/services/email.sender.service
+pm2 start index.js --name email.sender.service
+
+cd /home/mue/web/public/rabbit/server/services/search.feed.service
+pm2 start index.js --name search.feed.service
+
+cd /home/mue/web/public/rabbit/server/services/api.service
+pm2 start index.js --name api.service
+
+cd /home/mue/web/public/rabbit/server/services/update.feed.service
+pm2 start index.js --name update.feed.service
+
+cd /home/mue/web/public/rabbit/server/services/prepare.post.service
+pm2 start index.js --name prepare.post.service
+
+cd /home/mue/web/public/rabbit/server/services/save.post.service
+pm2 start index.js --name save.post.service
+
+cd /home/mue/web/public/rabbit/server/services/deliver.feed.service
+pm2 start index.js --name deliver.feed.service
+
+
+START LIVE-VAGRANT SERVER
 ************************
 
 cd /vagrant/server/init/startServer
