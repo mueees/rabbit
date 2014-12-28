@@ -15,8 +15,6 @@
                             name: scope.name,
                             _id: data._id
                         });
-                    }, function () {
-                        alert("Cannot add category");
                     }).finally(function () {
                         scope.name = '';
                     });

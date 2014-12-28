@@ -1,25 +1,26 @@
 (function () {
     'use strict';
-    angular.module('rss.core.error-handling').factory('rssServerErrorHandler', function ($rootScope, $q, RSS_ERROR_MESSAGES) {
+    angular.module('rss.core.error-handling').factory('rssServerErrorHandler', function ($rootScope, $q, RSS_ERROR_MESSAGES, growl) {
 
-        function getServerResponseErrorDetails(response){
+        function getServerResponseError(response){
             var errorDetails = null;
 
-            if (response && rss.util.isArrayWithLength(response.data) && rss.util.isStringWithLength(response.data[0].messageText)) {
-                errorDetails = response.data;
+            debugger;
+
+
+            if (response && response.data) {
+
+                if (rss.util.isStringWithLength(response.data.message)) {
+                    errorDetails = response.data.message;
+                }else if( rss.util.isArrayLike(response.data.messages) ){
+                    errorDetails = response.data.messages.join('</br >');
+                }
+
+            } else{
+                errorDetails = _buildMessageFromRawResponse(response);
             }
 
             return errorDetails;
-        }
-
-        function _buildMessageFromErrorDetails(errorDetails) {
-            var message = errorDetails.messageText;
-
-            if (errorDetails.messageAppendedText) {
-                message += ': ' + errorDetails.messageAppendedText;
-            }
-
-            return message;
         }
 
         function _buildMessageFromRawResponse(response) {
@@ -44,25 +45,14 @@
          * Handless server response errors by building the error message from response object and displaying it to the user
          * **/
         function handleServerResponseError(response){
-            var errors = getServerResponseErrorDetails(response),
-                message;
+            var error = getServerResponseError(response);
 
-            if (errors) {
-                angular.forEach(errors, function (error) {
-                    message = _buildMessageFromErrorDetails(error);
-                    $rootScope.$broadcast('errorMessage', message);
-                    alert(message);
-                });
-            } else {
-                message = _buildMessageFromRawResponse(response);
-                $rootScope.$broadcast('errorMessage', message);
-                alert(message);
-            }
+            growl.addErrorMessage(error);
+            $rootScope.$broadcast('errorMessage', error);
         }
 
         return {
-            handleServerResponseError: handleServerResponseError,
-            getServerResponseErrorDetails: getServerResponseErrorDetails
+            handleServerResponseError: handleServerResponseError
         };
     });
 })();
