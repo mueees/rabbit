@@ -6,6 +6,7 @@ var rss = rss || {};
         'templates-app',
         'ui.router',
         'ngSanitize',
+        'angular-growl',
         'ngAnimate',
         'rss.core.error-handling',
 

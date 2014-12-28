@@ -19,8 +19,6 @@
 
                 rssCategoryResource.list().then(function (categories) {
                     scope.categories = categories;
-                }, function () {
-                    alert('Cannot fetch category list');
                 });
 
                 scope.$watch('categories|filter:{selected:true}', function (categories) {
