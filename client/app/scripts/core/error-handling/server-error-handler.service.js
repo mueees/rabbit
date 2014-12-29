@@ -5,9 +5,6 @@
         function getServerResponseError(response){
             var errorDetails = null;
 
-            debugger;
-
-
             if (response && response.data) {
 
                 if (rss.util.isStringWithLength(response.data.message)) {

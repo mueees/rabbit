@@ -40,6 +40,16 @@
                         return rssSession.getUser();
                     }
                 }
+            })
+            .state('main.app.index.newfeed', {
+                params: {
+                    feed: {
+                        dynamic: true
+                    }
+                },
+                url: '/newfeed',
+                templateUrl: "app/scripts/main/app/feed/new/new-feed.view.html",
+                controller: 'NewFeedController'
             });
     });
 })();
