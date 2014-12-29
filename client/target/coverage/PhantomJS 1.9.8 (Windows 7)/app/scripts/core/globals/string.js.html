@@ -199,16 +199,16 @@
     <h1>Code coverage report for <span class="entity">./app/scripts/core/globals/string.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">26.91% <small>(109 / 405)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">23.46% <small>(95 / 405)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">3.91% <small>(9 / 230)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">1.74% <small>(4 / 230)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">5.26% <small>(4 / 76)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">1.32% <small>(1 / 76)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">26.91% <small>(109 / 405)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">23.46% <small>(95 / 405)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -3483,17 +3483,17 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -3518,27 +3518,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
-<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -3570,13 +3570,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
-<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -5222,20 +5222,20 @@
      * @param {...string|number} var_args Values formatString is to be filled with.
      * @return {string} Formatted string.
      */
-    goog.string.format = function(formatString, var_args) {
+    goog.string.format = <span class="fstat-no" title="function not covered" >function(formatString, var_args) {</span>
 &nbsp;
         // Convert the arguments to an array (MDC recommended way).
-        var args = Array.prototype.slice.call(arguments);
+<span class="cstat-no" title="statement not covered" >        var args = Array.prototype.slice.call(arguments);</span>
 &nbsp;
         // Try to get the template.
-        var template = args.shift();
+<span class="cstat-no" title="statement not covered" >        var template = args.shift();</span>
 &nbsp;
-        <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof template == 'undefined') {
+<span class="cstat-no" title="statement not covered" >        if (typeof template == 'undefined') {</span>
 <span class="cstat-no" title="statement not covered" >            throw new Error('[goog.string.format] Template required');</span>
         }
 &nbsp;
         // This re is used for matching, it also defines what is supported.
-        var formatRe = /%([0\-\ \+]*)(\d+)?(\.(\d+))?([%sfdiu])/g;
+<span class="cstat-no" title="statement not covered" >        var formatRe = /%([0\-\ \+]*)(\d+)?(\.(\d+))?([%sfdiu])/g;</span>
 &nbsp;
         /**
          * Chooses which conversion function to call based on type conversion
@@ -5250,7 +5250,7 @@
          * @param {string} wholeString Has the actualString being searched.
          * @return {string} Formatted parameter.
          */
-        function replacerDemuxer(match,
+<span class="fstat-no" title="function not covered" >        function replacerDemuxer(match,</span>
                                  flags,
                                  width,
                                  dotp,
@@ -5260,27 +5260,27 @@
                                  wholeString) {
 &nbsp;
             // The % is too simple and doesn't take an argument.
-            <span class="missing-if-branch" title="if path not taken" >I</span>if (type == '%') {
+<span class="cstat-no" title="statement not covered" >            if (type == '%') {</span>
 <span class="cstat-no" title="statement not covered" >                return '%';</span>
             }
 &nbsp;
             // Try to get the actual value from parent function.
-            var value = args.shift();
+<span class="cstat-no" title="statement not covered" >            var value = args.shift();</span>
 &nbsp;
             // If we didn't get any arguments, fail.
-            <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof value == 'undefined') {
+<span class="cstat-no" title="statement not covered" >            if (typeof value == 'undefined') {</span>
 <span class="cstat-no" title="statement not covered" >                throw new Error('[goog.string.format] Not enough arguments');</span>
             }
 &nbsp;
             // Patch the value argument to the beginning of our type specific call.
-            var passArgs = arguments;
-            passArgs[0] = value;
+<span class="cstat-no" title="statement not covered" >            var passArgs = arguments;</span>
+<span class="cstat-no" title="statement not covered" >            passArgs[0] = value;</span>
 &nbsp;
-            return goog.string.format.demuxes_[type].apply(null, passArgs);
+<span class="cstat-no" title="statement not covered" >            return goog.string.format.demuxes_[type].apply(null, passArgs);</span>
 &nbsp;
         }
 &nbsp;
-        return template.replace(formatRe, replacerDemuxer);
+<span class="cstat-no" title="statement not covered" >        return template.replace(formatRe, replacerDemuxer);</span>
     };
 &nbsp;
 &nbsp;
@@ -5304,7 +5304,7 @@
      * @param {string} wholeString Has the actualString being searched.
      * @return {string} Replacement string.
      */
-    goog.string.format.demuxes_.s = function(value,
+    goog.string.format.demuxes_.s = <span class="fstat-no" title="function not covered" >function(value,</span>
                                              flags,
                                              width,
                                              dotp,
@@ -5312,13 +5312,13 @@
                                              type,
                                              offset,
                                              wholeString) {
-        var replacement = value;
+<span class="cstat-no" title="statement not covered" >        var replacement = value;</span>
         // If no padding is necessary we're done.
         // The check for '' is necessary because Firefox incorrectly provides the
         // empty string instead of undefined for non-participating capture groups,
         // and isNaN('') == false.
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (isNaN(width) || (<span class="branch-1 cbranch-no" title="branch not covered" >rss.util.isString(width) </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >width === '')</span> || <span class="branch-3 cbranch-no" title="branch not covered" >replacement.length &gt;= width)</span> {
-            return replacement;
+<span class="cstat-no" title="statement not covered" >        if (isNaN(width) || (rss.util.isString(width) &amp;&amp; width === '') || replacement.length &gt;= width) {</span>
+<span class="cstat-no" title="statement not covered" >            return replacement;</span>
         }
 &nbsp;
         // Otherwise we should find out where to put spaces.
@@ -5447,7 +5447,7 @@
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Dec 26 2014 15:31:39 GMT+0200 (FLE Standard Time)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Dec 29 2014 14:13:29 GMT+0200 (FLE Standard Time)</div>
 </div>
 
 <script src="../prettify.js"></script>

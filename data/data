@@ -1,4 +1,4 @@
-export NODE_ENV=live
+export NODE_ENV=development
 export NODE_PATH=/vagrant/server
 cd /vagrant/server/services
 
@@ -53,8 +53,6 @@ cd /vagrant/server
 export NODE_SITE=development
 export NODE_PATH=/vagrant/server
 node-inspector
-
-
 
 cd /vagrant/server/services/update.feed.service
 node --debug-brk index.js

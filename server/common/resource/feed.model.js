@@ -20,11 +20,35 @@ var feedSchema = new Schema({
     },
 
     /*
+    * Feed description
+    * */
+    description: {
+        type: String,
+        default: ''
+    },
+
+    /*
+     * Feed language
+     * */
+    language: {
+        type: String,
+        default: 'en'
+    },
+
+    /*
      * Feed url
      * */
     url: {
         type: String,
         required: true
+    },
+
+    /*
+     * Link to site
+     * */
+    link: {
+        type: String,
+        default: ''
     },
 
     /*
@@ -68,11 +92,74 @@ var feedSchema = new Schema({
     }
 });
 
+feedSchema.statics.discoverFeed = function (options) {
+    var FeedModel = mongoose.model('feeds');
+    var def = Q.defer();
+    var posts = [];
+
+    var feed = new FeedModel();
+
+    request({
+        url: options.url,
+        timeout: options.timeout || 20000
+    }).on('error', function (error) {
+        var err = {
+            message: "Cannot make request",
+            type: 'error',
+            data: {
+                url: options.url
+            }
+        };
+        logger.error(err.message, err.data);
+        def.reject(err);
+    })
+        .pipe(new FeedParser())
+        .on('error', function (error) {
+            var err = {
+                message: "Not a feed",
+                type: 'error',
+                data: {
+                    url: options.url
+                }
+            };
+            logger.error(err.message, err.data);
+            def.reject(err);
+        }).on('readable', function() {
+            var post;
+            var stream = this;
+
+            feed.name = stream.meta.title;
+            feed.description = stream.meta.description;
+            feed.link = stream.meta.link;
+            feed.url = options.url;
+
+            if( stream.meta.language ){
+                feed.language = stream.meta.language;
+            }
+
+            while (post = stream.read()) {
+                posts.push({
+                    title: post.title || "",
+                    body: post.summary || "",
+                    link: post.link || "",
+                    pubdate: new Date(post.pubdate) || "",
+                    guid: post.guid || "",
+                    image: post.image || "",
+                    source: post.source || ""
+                });
+            }
+        })
+        .on('end', function() {
+            feed.posts = posts;
+            def.resolve(feed);
+        });
+
+    return def.promise;
+};
 feedSchema.statics.getPostsFromUrl = function(options){
     var posts = [];
     var def = Q.defer();
 
-    logger.debug('Fetching posts by url');
     request( {
         url: options.url,
         timeout: options.timeout || 20000
@@ -99,6 +186,7 @@ feedSchema.statics.getPostsFromUrl = function(options){
             def.reject(err);
         })
         .on('readable', function() {
+            debugger;
             var post;
             var stream = this;
             while (post = stream.read()) {
