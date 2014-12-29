@@ -41,8 +41,10 @@
 
                     if(configuration.scopeDecorators){
                         angular.forEach(configuration.scopeDecorators, function (Decorator) {
-                            var decorator = new RssDecoratorFactory[Decorator]();
-                            decorator.decorateScope(scope, element, attrs, controllers)
+                            if(RssDecoratorFactory[Decorator]){
+                                var decorator = new RssDecoratorFactory[Decorator]();
+                                decorator.decorateScope(scope, element, attrs, controllers)
+                            }
                         });
                     }
 

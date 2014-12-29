@@ -9,6 +9,15 @@
                 var config = scope.rssConfiguration.getConfiguration();
                 scope.post = config.post;
                 scope.user = config.user;
+                scope.data = {
+                    isOpen: false
+                };
+
+                scope.goToPost = function (event, post) {
+                    event.preventDefault();
+
+
+                }
 
                 scope.postClick = function () {
                     //mark as unread or read

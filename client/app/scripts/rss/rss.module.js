@@ -7,7 +7,7 @@ var rss = rss || {};
         'ui.router',
         'ngSanitize',
         'angular-growl',
-        'ngAnimate',
+        /*'ngAnimate',*/
         'rss.core.error-handling',
 
         //pages
