@@ -1,7 +1,7 @@
 <ul class="list-group rss-list-group rss-links ">
     <li ng-class="{open: isOpen, feedActive: isFeedActive(category)}" class="list-group-item" ng-repeat="category in categories" rss-categories-item>
 
-        <a class="categoryName" ui-sref="main.app.index.feed" ng-click="categoryClick()">
+        <a class="categoryName" ui-sref="main.app.index.feed" ng-click="categoryClick($event)">
             <span class="corner">
                 <span class="icon-angle-right"></span>
             </span>

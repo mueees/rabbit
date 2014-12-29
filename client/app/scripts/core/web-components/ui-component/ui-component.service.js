@@ -1,9 +1,17 @@
 (function () {
     'use strict';
     angular.module('rss.core.web-components')
-        .factory('RssUiComponentClass', function (RssDecoratorFactory) {
+        .factory('RssUiComponentClass', function (RssDecoratorFactory, rssUiComponentConfiguration, RssStateDecorator) {
 
             function CoreUIDirective(configuration){
+
+                /**
+                 * * All the core state options for the UI component
+                 * @type {Array.<Object>}
+                 */
+                var _stateOptions = (configuration.optStateOptions && configuration.optStateOptions.length) ? configuration.optStateOptions : [];
+                _stateOptions = _stateOptions.concat(rssUiComponentConfiguration.getState());
+                var _rssStateDecorator = new RssStateDecorator(_stateOptions);
 
                 this.scope = {};
 
@@ -39,6 +47,25 @@
                         }
                     };
 
+                    /**
+                     * Adds the specified class name to the bounding element
+                     * @param {!string} name
+                     */
+                    scope.rssAddClass = function (name) {
+                        rss.assert.assertStringWithLength(name);
+                        element.addClass(name);
+                    };
+
+                    /**
+                     * Removes the specified class name from the bounding element
+                     * @param {!string} name
+                     */
+                    scope.rssRemoveClass = function (name) {
+                        rss.assert.assertStringWithLength(name);
+                        element.removeClass(name);
+                    };
+
+                    /*Apply all decorators*/
                     if(configuration.scopeDecorators){
                         angular.forEach(configuration.scopeDecorators, function (Decorator) {
                             if(RssDecoratorFactory[Decorator]){
@@ -47,6 +74,8 @@
                             }
                         });
                     }
+
+                    _rssStateDecorator.decorateScope(scope, element, attrs, controllers);
 
                     ////////////////////////////////////////////////
                     // Call the developer defined link function/////

@@ -17,6 +17,8 @@
 
                 rssCategoryResource.listFeed().then(function (categories) {
                     scope.categories = categories;
+                    debugger;
+                    scope.rssStateEngine.transitionTo('visibility.hidden');
                 }, function () {
                 });
 

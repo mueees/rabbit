@@ -1172,3 +1172,22 @@
 {"level":"error","message":"","label":"mongooseDb/index.js","timestamp":"2014-12-29T14:14:16.144Z"}
 {"level":"error","message":"","label":"mongooseDb/index.js","timestamp":"2014-12-29T14:14:16.144Z"}
 {"level":"error","message":"","label":"mongooseDb/index.js","timestamp":"2014-12-29T14:14:16.258Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-29T16:35:17.173Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-29T16:35:17.246Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-29T16:35:18.286Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-29T16:35:18.288Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-29T16:35:18.605Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-29T16:35:18.608Z"}
+{"status":400,"message":"Sign in error","level":"error","label":"controllers/user.js","timestamp":"2014-12-29T16:35:19.393Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-29T16:35:32.527Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-29T16:35:32.530Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-29T16:35:35.202Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-29T16:35:35.207Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-29T16:35:35.356Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-29T16:35:35.368Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-29T16:35:35.535Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-29T16:35:35.538Z"}
+{"level":"error","message":"Wrong login or password","label":"auth.service/api.js","timestamp":"2014-12-29T16:35:35.714Z"}
+{"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-29T16:35:35.717Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-29T16:36:04.650Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2014-12-29T16:36:04.655Z"}
