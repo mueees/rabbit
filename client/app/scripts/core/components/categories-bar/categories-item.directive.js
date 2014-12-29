@@ -5,7 +5,8 @@
 
         function link(scope){
             scope.isOpen = false;
-            scope.categoryClick = function () {
+            scope.categoryClick = function (event) {
+                event.preventDefault();
                 scope.isOpen = !scope.isOpen;
             };
         }

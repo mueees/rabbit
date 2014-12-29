@@ -31,7 +31,12 @@
             });
 
             //category
-            $httpBackend.whenGET(baseUrl+'/categories/getFullCategories?token=Fake+token').respond([{
+
+            $httpBackend.whenPOST(baseUrl+'/categories/add').respond({
+                _id: '2132134'
+            });
+
+            $httpBackend.whenGET(new RegExp(baseUrl+'/category/list/feed?.*')).respond([{
                 _id: '2132134',
                 name: "Test category",
                 feeds: [
@@ -44,25 +49,6 @@
                         name: 'Weekend'
                     }]
             }]);
-
-            $httpBackend.whenPOST(baseUrl+'/categories/add').respond({
-                _id: '2132134'
-            });
-
-            $httpBackend.whenGET(baseUrl+'/categories/list?token=Fake+token').respond([
-                {
-                    _id: '21321345',
-                    name: "category 1"
-                },
-                {
-                    _id: '21321344',
-                    name: "category 2"
-                },
-                {
-                    _id: '21321343',
-                    name: "category 3"
-                }
-            ]);
 
             //feed
             $httpBackend.whenPOST(baseUrl+'/feed/add').respond({

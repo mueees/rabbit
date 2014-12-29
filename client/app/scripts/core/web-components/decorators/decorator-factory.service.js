@@ -1,9 +1,8 @@
 (function () {
     'use strict';
     angular.module('rss.core.web-components')
-        .factory('RssDecoratorFactory', function (RssStateDecorator) {
+        .factory('RssDecoratorFactory', function () {
             return {
-                RssStateDecorator: RssStateDecorator
             };
         });
 })();
