@@ -8,6 +8,22 @@
 </div>
 <div class="results">
 
+    <div ng-if="response.direct">
+        <div class="result-block">
+            <div class="title-result">Direct feed</div>
+            <div class="icon-list pull-left">
+                <span class="icon-folder"></span>
+            </div>
+            <div class="content">
+                <a class="accent" href="#" ui-sref="main.app.index.newfeed({feed: response.direct})">{{response.direct.name}}</a>
+                <div class="meta">
+                    <div>452 people</div>
+                    <div>3 post/week</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div ng-if="response.feeds">
         <div class="result-block">
             <div class="title-result">Feeds</div>

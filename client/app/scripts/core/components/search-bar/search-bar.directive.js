@@ -1,6 +1,6 @@
 (function(){
     'use strict';
-    angular.module('rss.core.components.search-bar').directive('rssSearchBar', function (rssWebComponent, rssSearchResource) {
+    angular.module('rss.core.components.search-bar').directive('rssSearchBar', function (rssWebComponent, rssSearchResource, $state) {
         return rssWebComponent.RssUiComponentClass({
 
             restrict: "E",
@@ -27,7 +27,7 @@
 
                 scope.clearSearchRequest = function () {
                     scope.searchRequest = '';
-                }
+                };
 
             }
 
