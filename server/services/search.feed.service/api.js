@@ -3,6 +3,7 @@ var validator = require('validator'),
     logger = require('common/core/logs')(module),
     FeedModel = require('common/resource/feed.model'),
     util = require('util'),
+    url = require('url'),
     Q = require('q'),
     ServiceError = require('common/core/errors/service.error').ServiceError;
 
@@ -17,20 +18,86 @@ var api = {
      *
      * */
     getFeeds: function (query, cb) {
-        api.getFeedsByStringQuery(query).then(function (feedsByQuery) {
-            cb(null, {
-                //existing feeds
-                feeds: feedsByQuery,
 
-                //search by direct link to feed
-                direct: [],
-
-                //feeds that belong to site
-                sites: []
-            })
-        }, function (err) {
-            cb(err);
+        var isUrl = validator.isURL(query, {
+            require_protocol: true
         });
+
+        console.log("THIS IS QUERY:");
+        console.log(query);
+        console.log(validator.isURL(query));
+
+        if(isUrl){
+            /*
+             * Parallel:
+             * 2. Try to download feed by direct link
+             * 3. Get domain and try to find feed by string query
+             * */
+            var getFeedsByDirectUrlPromise = FeedModel.discoverFeed({
+                url: query
+            });
+            var getFeedsByStringQueryPromise = api.getFeedsByStringQuery(api.getDomain(query));
+
+            async.parallel([
+                function (cb) {
+                    getFeedsByDirectUrlPromise.then(function (feed) {
+                        cb(null, feed);
+                    }, function (err) {
+                        cb(null, err);
+                    });
+                },
+                function (cb) {
+                    getFeedsByStringQueryPromise.then(function (feeds) {
+                        cb(null, feeds);
+                    }, function (err) {
+                        cb(null, err);
+                    });
+                }
+            ], function (err, results) {
+                var feedByDirectUrl = (results[0].type && results[0].type == "error") ? null : results[0];
+                var existingFeeds = (results[1].type && results[1].type == "error") ? [] : results[1];
+
+                if(feedByDirectUrl){
+                    var posts = feedByDirectUrl.posts;
+                    feedByDirectUrl = feedByDirectUrl.toObject();
+                    feedByDirectUrl.posts = posts;
+                }
+
+                cb(null, {
+                    //existing feeds
+                    feeds: existingFeeds,
+
+                    //search by direct link to feed
+                    direct: feedByDirectUrl,
+
+                    //feeds that belong to site
+                    sites: []
+                });
+            });
+
+        }else{
+            var existingFeedByStringQuery = api.getFeedsByStringQuery(query);
+            existingFeedByStringQuery.then(function (feeds) {
+                cb(null, {
+                    feeds: feeds,
+                    direct: [],
+                    sites: []
+                });
+            }, function () {
+                cb(null, {
+                    feeds: [],
+                    direct: [],
+                    sites: []
+                });
+            })
+        };
+    },
+
+    /*
+     * Get domain name from url
+     * */
+    getDomain: function (queryUrl) {
+        return url.parse(queryUrl).host;
     },
 
     /*
@@ -60,7 +127,10 @@ var api = {
         }, function (err, feeds) {
             if(err){
                 logger.error(err);
-                return defer.reject(err);
+                return defer.reject({
+                    type: 'error',
+                    message: 'Cannot find feeds'
+                });
             }
             feeds = feeds.map(function (d) {
                 var plainD = d.toObject();
