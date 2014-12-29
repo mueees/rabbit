@@ -157,8 +157,13 @@ a
     animation-duration 0.5s
 .growl
   position fixed
-  right 0
-  bottom 0
+  right 5px
+  bottom 5px
+  min-width 300px
+
+.alert
+  border-radius 0
+
 .panel
   background none
   border-radius 0
@@ -243,9 +248,19 @@ a
 
   &.post-line
     position relative
-    padding 3px 0 3px
     border-bottom 1px solid silver
-    transition background 0.1s ease-in
+
+    img
+      width 100%
+
+    .preview
+      transition background 0.1s ease-in
+      padding 3px 0 3px
+
+    .main
+      .closePost
+        padding 20px 0
+        cursor pointer
 
     .title
       padding-left 15px
@@ -276,23 +291,24 @@ a
       .title
         font-weight bold
     &:hover
-      cursor pointer
-      background primary-light-50
-      .action-bar
-        position: absolute
-        right: 0
-        top: 0
-        display: block
-        background: second-main
-        height: 100%
-        color primary-dark
-        padding 8px 3px 10px 10px
-        transform translateX(0)
-        opacity 1
+      .preview
+        cursor pointer
+        background primary-light-50
+        .action-bar
+          position: absolute
+          right: 0
+          top: 0
+          display: block
+          background: second-main
+          height: 100%
+          color primary-dark
+          padding 8px 3px 10px 10px
+          transform translateX(0)
+          opacity 1
 
-        .btn
-          &:hover
-            color primary-dark
+          .btn
+            &:hover
+              color primary-dark
 
 .search-field
   position: relative

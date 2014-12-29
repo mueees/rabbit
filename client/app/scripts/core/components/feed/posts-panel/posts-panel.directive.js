@@ -13,7 +13,7 @@
 
                 scope.settings = config.settings;
                 scope.posts = [];
-                scope.isShowMoreBtn = true;
+                scope.isShowMoreBtn = false;
 
                 var options = config.options;
                 scope.getNextPosts = function(){
@@ -21,6 +21,8 @@
                         posts = posts.plain();
                         if(!posts.length){
                             scope.isShowMoreBtn = false;
+                        }else{
+                            scope.isShowMoreBtn = true;
                         }
                         scope.posts = scope.posts.concat(posts);
                         options.from += countPost;

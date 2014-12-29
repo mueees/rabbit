@@ -343,8 +343,15 @@ a.accent:focus {
 }
 .growl {
   position: fixed;
-  right: 0;
-  bottom: 0;
+  right: 5px;
+  bottom: 5px;
+  min-width: 300px;
+}
+.alert {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
 }
 .panel {
   background: none;
@@ -456,12 +463,21 @@ a.accent:focus {
 }
 .post.post-line {
   position: relative;
-  padding: 3px 0 3px;
   border-bottom: 1px solid #c0c0c0;
+}
+.post.post-line img {
+  width: 100%;
+}
+.post.post-line .preview {
   -webkit-transition: background 0.1s ease-in;
   -moz-transition: background 0.1s ease-in;
   -o-transition: background 0.1s ease-in;
   transition: background 0.1s ease-in;
+  padding: 3px 0 3px;
+}
+.post.post-line .main .closePost {
+  padding: 20px 0;
+  cursor: pointer;
 }
 .post.post-line .title {
   padding-left: 15px;
@@ -497,11 +513,11 @@ a.accent:focus {
 .post.post-line.unread .title {
   font-weight: bold;
 }
-.post.post-line:hover {
+.post.post-line:hover .preview {
   cursor: pointer;
   background: rgba(207,216,220,0.5);
 }
-.post.post-line:hover .action-bar {
+.post.post-line:hover .preview .action-bar {
   position: absolute;
   right: 0;
   top: 0;
@@ -516,7 +532,7 @@ a.accent:focus {
   transform: translateX(0);
   opacity: 1;
 }
-.post.post-line:hover .action-bar .btn:hover {
+.post.post-line:hover .preview .action-bar .btn:hover {
   color: #263238;
 }
 .search-field {

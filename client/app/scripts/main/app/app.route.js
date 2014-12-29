@@ -43,9 +43,7 @@
             })
             .state('main.app.index.newfeed', {
                 params: {
-                    feed: {
-                        dynamic: true
-                    }
+                    feed: null
                 },
                 url: '/newfeed',
                 templateUrl: "app/scripts/main/app/feed/new/new-feed.view.html",
