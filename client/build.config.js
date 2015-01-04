@@ -90,10 +90,12 @@ module.exports = {
             'app/vendor/angular-touch/angular-touch.min.js',
             'app/vendor/angular-ui-router/release/angular-ui-router.min.js',
             'app/vendor/angular-animate/angular-animate.min.js',
+            'app/vendor/angular-busy/dist/angular-busy.min.js',
             'app/vendor/ngstorage/ngStorage.js'
         ],
         css: [
-            'app/vendor/bootstrap/dist/css/bootstrap.css'
+            'app/vendor/bootstrap/dist/css/bootstrap.css',
+            'app/vendor/angular-busy/angular-busy.css'
         ],
         assets: [
 

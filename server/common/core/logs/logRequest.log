@@ -1191,3 +1191,36 @@
 {"status":400,"message":"signin error","level":"error","label":"controllers/user.js","timestamp":"2014-12-29T16:35:35.717Z"}
 {"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2014-12-29T16:36:04.650Z"}
 {"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2014-12-29T16:36:04.655Z"}
+{"level":"error","message":"","label":"mongooseDb/index.js","timestamp":"2014-12-29T19:27:57.322Z"}
+{"level":"error","message":"","label":"mongooseDb/index.js","timestamp":"2014-12-29T19:27:57.322Z"}
+{"level":"error","message":"","label":"mongooseDb/index.js","timestamp":"2014-12-29T19:27:57.411Z"}
+{"level":"error","message":"500 ENOENT, stat '/vagrant/client/build/app/index.html'","label":"api.service/index.js","timestamp":"2015-01-02T12:37:18.777Z"}
+{"level":"error","message":"500 ENOENT, stat '/vagrant/client/build/app/index.html'","label":"api.service/index.js","timestamp":"2015-01-02T12:37:18.842Z"}
+{"level":"error","message":"Can't use $match with Array.","label":"resource/post.model.js","timestamp":"2015-01-03T17:05:25.051Z"}
+{"level":"error","message":"undefined","label":"rss/post.js","timestamp":"2015-01-03T17:05:25.055Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2015-01-03T17:20:40.769Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2015-01-03T17:20:40.791Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2015-01-03T17:20:53.205Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2015-01-03T17:21:05.819Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2015-01-03T17:21:05.822Z"}
+{"level":"error","message":"Doesn't have connection to remote service","label":"client/index.js","timestamp":"2015-01-03T17:21:08.578Z"}
+{"level":"error","message":"Doesn't have connection to remote service","label":"middleware/checkAuth.js","timestamp":"2015-01-03T17:21:08.580Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2015-01-03T17:21:18.895Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2015-01-03T17:21:30.336Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2015-01-03T17:21:30.339Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-03T17:21:41.499Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-03T17:21:41.496Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2015-01-03T17:21:44.323Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2015-01-03T17:21:57.001Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2015-01-03T17:21:57.002Z"}
+{"level":"error","message":"Doesn't have connection to remote service","label":"client/index.js","timestamp":"2015-01-03T17:21:57.049Z"}
+{"level":"error","message":"Doesn't have connection to remote service","label":"middleware/getUser.js","timestamp":"2015-01-03T17:21:57.050Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2015-01-03T17:22:09.778Z"}
+{"level":"error","message":"Remote service disconnect.","label":"client/index.js","timestamp":"2015-01-03T17:22:16.203Z"}
+{"level":"error","message":"Doesn't have connection to remote service","label":"client/index.js","timestamp":"2015-01-03T17:22:19.571Z"}
+{"level":"error","message":"Doesn't have connection to remote service","label":"middleware/checkAuth.js","timestamp":"2015-01-03T17:22:19.572Z"}
+{"level":"error","message":"Doesn't have connection to remote service","label":"client/index.js","timestamp":"2015-01-03T17:22:21.243Z"}
+{"level":"error","message":"Doesn't have connection to remote service","label":"middleware/checkAuth.js","timestamp":"2015-01-03T17:22:21.247Z"}
+{"level":"error","message":"Doesn't have connection to remote service","label":"client/index.js","timestamp":"2015-01-03T17:22:23.124Z"}
+{"level":"error","message":"Doesn't have connection to remote service","label":"middleware/checkAuth.js","timestamp":"2015-01-03T17:22:23.124Z"}
+{"level":"error","message":"","label":"mongooseDb/index.js","timestamp":"2015-01-03T17:22:43.038Z"}

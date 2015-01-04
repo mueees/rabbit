@@ -1,9 +1,10 @@
 (function () {
     'use strict';
     angular.module('rss.core.web-components')
-        .factory('RssStateEngine', function ($q) {
+        .factory('RssStateEngine', function ($q, rssNameSpace) {
 
             function StateConfiguration(fullyQualifiedName, abstract, optClassName, optHandlerFn, optResolveFn, optData){
+
                 rss.assert.assertStringWithLength(fullyQualifiedName);
 
                 /**
@@ -12,6 +13,15 @@
                  * @private
                  */
                 var _fullyQualifiedName = fullyQualifiedName;
+
+                /**
+                 * Whether this is a parent abstract state
+                 * @type {!boolean}
+                 * @private
+                 */
+                var _abstract = abstract;
+
+                var _fullyQualifiedNameArray = fullyQualifiedName.split('.');
 
                 /**
                  * Resolve Function that is called when the state is activated or deactivate to determine if the state change is allowed
@@ -41,6 +51,13 @@
                 var _className = rss.util.isStringWithLength(optClassName) ? optClassName : 'rss-' + fullyQualifiedName.toLowerCase().split('.').join('-');
 
                 /**
+                 * The fully qualified name of the parent and may be empty if this is a root state
+                 * @type {string|null}
+                 * @private
+                 */
+                var _parent = _fullyQualifiedNameArray.length > 1 ? rssNameSpace.toString(_fullyQualifiedNameArray.slice(0, _fullyQualifiedNameArray.length - 1)) : null;
+
+                /**
                  * Sets the specified state active/de-active for the scope.
                  * @param scope
                  * @param active
@@ -50,6 +67,14 @@
                     rss.assert.assertScope(scope);
                     scope.rssActiveStateMap = scope.rssActiveStateMap || {};
                     scope.rssActiveStateMap[_fullyQualifiedName] = active;
+                };
+
+                /**
+                 * Returns the fully qualified parent name or null if this is the root state
+                 * @returns {string|null}
+                 */
+                this.getParent = function () {
+                    return _parent;
                 };
 
                 /**
@@ -71,6 +96,22 @@
                             }
                         });
                     }
+                };
+
+                /**
+                 * Returns true if this is an abstract state
+                 * @returns {!boolean}
+                 */
+                this.isAbstract = function () {
+                    return _abstract;
+                };
+
+                /**
+                 * Returns the very root name of this state
+                 * @returns {*}
+                 */
+                this.getRootParent = function () {
+                    return _fullyQualifiedNameArray.length > 0 ? _fullyQualifiedNameArray[0] : null;
                 };
 
                 /**
@@ -96,7 +137,7 @@
                  * Called internally to execute the Resolve if defined when a state change occurs
                  * @param {!boolean} activate Is the state been activated (true) or de-activated (false)
                  * @param {!$scope} scope
-                 * @returns {!promise}
+                 * @returns {!promise}`
                  */
                 this.executeResolve = function (activate, scope) {
                     var deferred = $q.defer();
@@ -159,6 +200,36 @@
             function RssStateEngine(onStateTransitionFn){
 
                 var _stateConfigurations = {};
+                var _stateChildren = {};
+
+
+                var _validateParentState = function (fullyQualifiedName) {
+                    // Locate the parent state
+                    rss.assert.assertStringWithLength(fullyQualifiedName);
+                    var parentState = _getState(fullyQualifiedName);
+                    // Make sure it is abstract or does not exist
+                    if (parentState) {
+                        rss.assert.assert(parentState.isAbstract(), '\'%s\' is not an abstract state and can not act as a parent.', fullyQualifiedName);
+                    } else {
+                        // Lets create an abstract state for this parent which will also check its parent
+                        _storeState(new StateConfiguration(fullyQualifiedName, true));
+                    }
+                };
+
+                /**
+                 * Returns the state configuration for the specified state if it exists
+                 * @param {!string|Array} fullyQualifiedName
+                 * @returns {StateConfiguration|null|undefined}
+                 * @private
+                 */
+                var _getState = function (fullyQualifiedName) {
+                    if (rss.util.isArrayWithLength(fullyQualifiedName)) {
+                        fullyQualifiedName = rssNameSpace.toString(fullyQualifiedName);
+                    }
+                    rss.assert.assertStringWithLength(fullyQualifiedName);
+
+                    return _stateConfigurations[fullyQualifiedName];
+                };
 
                 /**
                  * Stores the state configuration in the internal map
@@ -166,10 +237,23 @@
                  * @private
                  */
                 function _storeState(configuration){
+
                     rss.assert.assertInstanceof(configuration, StateConfiguration);
                     var fullyQualifiedName = configuration.getFullyQualifiedName();
                     rss.assert.assertStringWithLength(fullyQualifiedName);
+
+                    // Verify that the parent exists and that it is abstract
+                    var parentName = configuration.getParent();
+                    if (rss.util.isStringWithLength(parentName)) {
+                        _validateParentState(parentName);
+                    }
+
                     _stateConfigurations[fullyQualifiedName] = configuration;
+
+                    if (rss.util.isStringWithLength(parentName)) {
+                        _stateChildren[parentName] = _stateChildren[parentName] || [];
+                        _stateChildren[parentName].push(configuration);
+                    }
                 }
 
                 /**
@@ -185,6 +269,23 @@
                 };
 
                 /**
+                 * Called to loop through all parent abstract states and deactivate them
+                 * @param {!StateConfiguration} state
+                 * @param {$scope} scope
+                 * @private
+                 */
+                var _deactivateParent = function (state, scope) {
+                    var parentName = state.getParent();
+                    if (rss.util.isStringWithLength(parentName)) {
+                        var parentState = _getState(parentName);
+                        if (rss.util.isObject(parentState) && parentState.isAbstract() && parentState.isActive(scope)) {
+                            parentState.deactivateState(scope);
+                            _deactivateParent(parentState, scope);
+                        }
+                    }
+                };
+
+                /**
                  * Deactivate the specified active state and also updates all the parents
                  * @param {!StateConfiguration} configuration
                  * @param {!$scope} scope
@@ -192,6 +293,7 @@
                  */
                 var _deactivateState = function (state, scope) {
                     state.deactivateState(scope);
+                    _deactivateParent(state, scope);
                 };
 
                 /**
@@ -202,12 +304,12 @@
                  * @returns {StateConfiguration|null}
                  * @private
                  */
-                /*var _getActiveState = function (scope, parentName, ignoreName) {
-                    rx.assert.assertStringWithLength(parentName);
-                    rx.assert.assertStringWithLength(ignoreName);
+                var _getActiveState = function (scope, parentName, ignoreName) {
+                    rss.assert.assertStringWithLength(parentName);
+                    rss.assert.assertStringWithLength(ignoreName);
 
                     var activeState = null;
-                    rx.util.forEach(_stateChildren[parentName], function (childState) {
+                    rss.util.forEach(_stateChildren[parentName], function (childState) {
                         if (!activeState && childState && childState.isActive(scope) && !childState.isAbstract() && childState.getFullyQualifiedName() !== ignoreName) {
                             activeState = childState;
                         } else if (childState.isAbstract()) {
@@ -216,7 +318,7 @@
                     });
 
                     return activeState;
-                };*/
+                };
 
 
                 this.state = function (fullyQualifiedName, optAbstract, optClassName, optHandlerFn, optResolveFn, optData) {
@@ -234,6 +336,7 @@
                 };
 
                 this.transitionTo = function (stateName, scope) {
+
                     rss.assert.assertScope(scope);
                     rss.assert.assertFunction(scope.rssAddClass);
                     rss.assert.assertFunction(scope.rssRemoveClass);
@@ -245,8 +348,7 @@
 
                     rss.assert.assertObject(newState, 'There is no state defined for \'%s\'.', stateName);
                     if (!newState.isActive(scope)) {
-                        debugger;
-                        //var activeState = _getActiveState(scope, newState.getRootParent(), newState.getFullyQualifiedName());
+                        var activeState = _getActiveState(scope, newState.getRootParent(), newState.getFullyQualifiedName());
 
                         var promises = [];
                         promises.push(newState.executeResolve(true, scope));
@@ -255,14 +357,12 @@
                         var deferred = $q.defer();
 
                         $q.all(promises).then(function () {
-                            debugger;
-                            console.log('State transition allowed.');
                             // Both allowed the transition so now we can disable the current active state if any then activate the new state
                             var oldStateName = null;
-                            /*if (activeState) {
+                            if (activeState) {
                                 _deactivateState(activeState, scope);
                                 oldStateName = activeState.getFullyQualifiedName();
-                            }*/
+                            }
                             _activateState(newState, scope, oldStateName);
                             deferred.resolve();
                         }, function () {

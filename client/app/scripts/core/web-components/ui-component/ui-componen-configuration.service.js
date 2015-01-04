@@ -94,6 +94,24 @@
                                     scope.rxHidden = true;
                                 }
                             }
+                        },
+                        {
+                            name: RSS_COMPONENT_STATE.work.busy,
+                            abstract: false,
+                            handler: function (fullyQualifiedName, activate, scope, data) {
+                                if (activate) {
+                                    scope.rssBusy = true;
+                                }
+                            }
+                        },
+                        {
+                            name: RSS_COMPONENT_STATE.work.idle,
+                            abstract: false,
+                            handler: function (fullyQualifiedName, activate, scope, data) {
+                                if (activate) {
+                                    scope.rssBusy = false;
+                                }
+                            }
                         }
                     ];
                 }
