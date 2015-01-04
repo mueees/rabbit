@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('rss.core.web-components')
-        .factory('RssUiComponentClass', function (RssDecoratorFactory, rssUiComponentConfiguration, RssStateDecorator) {
+        .factory('RssUiComponentClass', function (RssDecoratorFactory, rssUiComponentConfiguration, RssStateDecorator, $q) {
 
             function CoreUIDirective(configuration){
 
@@ -76,6 +76,68 @@
                     }
 
                     _rssStateDecorator.decorateScope(scope, element, attrs, controllers);
+
+                    scope.rssBusyIndicator = {
+                        promise: null,
+                        templateUrl: 'app/scripts/core/components/regular-busy/regular-busy.view.html'
+                    };
+
+                    var _busyVisualEngine = {
+                        /**
+                         * A promise created internally if one is not supplied to the busy
+                         */
+                        deferred: null,
+
+                        /**
+                         * Determines if it the busy signal has been activated
+                         */
+                        started: false,
+
+                        /**
+                         * Called to initiate the busy icon
+                         * @param {?$promise=} optPromise Optional Angular promise that could be the result of a Rest
+                         * Call or specify null to use default behaviour
+                         */
+                        startBusy: function (optPromise) {
+                            if (!_busyVisualEngine.started) {
+                                _busyVisualEngine.started = true;
+                                _busyVisualEngine.deferred = !rss.util.isObject(optPromise) ? $q.defer() : null;
+                                optPromise = optPromise || _busyVisualEngine.deferred.promise;
+                                scope.rssBusyIndicator.promise = optPromise;
+                                optPromise.finally(function () {
+                                    scope.rssBusyIndicator.promise = null;
+                                    _busyVisualEngine.started = false;
+                                    _busyVisualEngine.deferred = null;
+                                });
+                            }
+                        },
+
+                        /**
+                         * Called to remove the busy indicator
+                         */
+                        endBusy: function () {
+                            if (_busyVisualEngine.started && _busyVisualEngine.deferred) {
+                                // We created the promise so we can stop it
+                                _busyVisualEngine.deferred.resolve();
+                            }
+                        },
+
+                        /**
+                         * Returns true if the busy indicator is currently active.
+                         * @returns {boolean}
+                         */
+                        isActive: function () {
+                            return _busyVisualEngine.started;
+                        }
+                    };
+
+                    scope.$watch('rssBusy', function (busy) {
+                        if (busy) {
+                            _busyVisualEngine.startBusy();
+                        } else {
+                            _busyVisualEngine.endBusy();
+                        }
+                    }, true);
 
                     ////////////////////////////////////////////////
                     // Call the developer defined link function/////

@@ -89,6 +89,17 @@ var feedSchema = new Schema({
             type: [ObjectId],
             default: []
         }
+    },
+
+    statistics: {
+        last_update: {
+            type: Date,
+            default: new Date()
+        },
+        postsByWeek: {
+            type: Number,
+            default: 0
+        }
     }
 });
 

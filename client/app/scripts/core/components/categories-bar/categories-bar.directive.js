@@ -1,7 +1,7 @@
 (function(){
     'use strict';
 
-    angular.module('rss.core.components.categories-bar').directive('rssCategoriesBar', function ($rootScope, $state, $stateParams, rssWebComponent, rssCategoryResource) {
+    angular.module('rss.core.components.categories-bar').directive('rssCategoriesBar', function ($timeout, $rootScope, $state, $stateParams, rssWebComponent, rssCategoryResource) {
 
         return rssWebComponent.RssUiComponentClass({
             restrict: "E",
@@ -17,9 +17,8 @@
 
                 rssCategoryResource.listFeed().then(function (categories) {
                     scope.categories = categories;
-                    debugger;
-                    scope.rssStateEngine.transitionTo('visibility.hidden');
                 }, function () {
+
                 });
 
                 scope.activeFeed = null;

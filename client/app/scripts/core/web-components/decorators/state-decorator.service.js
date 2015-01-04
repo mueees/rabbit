@@ -4,7 +4,6 @@
         .factory('RssStateDecorator', function (RssStateEngine) {
             function Decorator(_stateOptions){
 
-
                 var _rssStateEngine = new RssStateEngine(function (scope, newState, oldState) {
                     if (rss.util.isScope(scope) && rss.util.isStringWithLength(newState)) {
                         if (rss.util.isFunction(scope.rssOnStateChanged)) {
@@ -28,7 +27,6 @@
                      * @param {!string} oldState
                      */
                     scope.rssOnStateChanged = rss.util.noop;
-
 
                     scope.rssStateEngine = {
                         transitionTo: function (stateName) {

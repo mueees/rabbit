@@ -135,6 +135,16 @@ body {
   -o-border-radius: 0;
   border-radius: 0;
 }
+rss-categories-bar {
+  position: relative;
+  display: block;
+  min-height: 40px;
+}
+.rss-busy .cg-busy-default-spinner div {
+  background: #fff;
+  width: 7%;
+  height: 23%;
+}
 .btn {
   color: #ff9800;
   outline: none !important;

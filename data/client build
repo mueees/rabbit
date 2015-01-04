@@ -24,7 +24,6 @@ Tasks:
     - показывать посты в float-container, с возможностью переключаться клавиатурой и кнопками вперед назад
     - возможность пометить как readLater
     - возможность добавить tag
-    - добавить стейты для директив
     - добавить прелоадеры для директив
     - выводить посты по тегу
     - выводить рядом с фидом, иконку, и количество непрочитанных постов
@@ -36,7 +35,6 @@ Tasks:
     - добавить возможность показывать только непрочитанные посты, когда все посты прочитаны, показывать все прочитанные посты
     - добавить возможность просматривать все посты из определенной категории
     - добавить возможность просматривать недавно просмотренные посты
-
 
 
 ИТОГО: 30 * 1.5 = 45 рабочий час
@@ -53,7 +51,7 @@ How state work
 1. transitionTo(stateName)'
 2. scope._rssStateEngine.transitionTo(stateName, scope)
 3. get scope.rssActiveStateMap = scope.rssActiveStateMap || {}
-4. get newState from internal object
+    4. get newState from internal object
     //newState - this is object, typeof StateConfiguration
 5. check if newState.isActive(scope)
     // isActive this is method from StateConfiguration

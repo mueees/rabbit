@@ -186,7 +186,7 @@ postSchema.statics.checkUncheck = function(userId, postId, state, cb){
 postSchema.statics.getPosts = function(options, cb){
     var query = {},
         params = {
-            users: false
+            /*users: false*/
         };
 
     if( options.source.name == "feed" ){
@@ -194,9 +194,16 @@ postSchema.statics.getPosts = function(options, cb){
     }
 
     /*todo: we should return associated user data with post information*/
-    /*if( options.user ){
-        params["users.userId"] = options.user._id;
-    }*/
+    if( options.user ){
+        //params["users.userId"] = options.user._id;
+
+        console.log('WE have auth user');
+        query.users = {
+            '$in': {
+                'userId' : options.user._id
+            }
+        };
+    }
 
     this.find(query, params, {
         skip: options.from,
@@ -210,7 +217,7 @@ postSchema.statics.getPosts = function(options, cb){
             return cb("Cannot find posts");
         }
         cb(err, posts);
-    })
+    });
 };
 
 var Post = mongoose.model('posts', postSchema);
