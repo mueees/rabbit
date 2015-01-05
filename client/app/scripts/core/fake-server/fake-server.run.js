@@ -54,7 +54,7 @@
             $httpBackend.whenPOST(baseUrl+'/feed/add').respond({
             });
 
-            $httpBackend.whenPOST(baseUrl+'/feed/getById').respond({
+            $httpBackend.whenGET(new RegExp(baseUrl+'/feed?.*')).respond({
 
                 _id: '123123',
 
@@ -106,6 +106,17 @@
                     }
                 ]
             });
+
+            $httpBackend.whenPOST(new RegExp(baseUrl+'/post/getPosts?.*')).respond([
+                {
+                    id: '213',
+                    title: 'test1'
+                },
+                {
+                    id: '2134',
+                    title: 'test2'
+                }
+            ]);
 
             //search
             $httpBackend.whenPOST(baseUrl+'/search/find').respond({

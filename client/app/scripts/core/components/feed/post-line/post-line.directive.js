@@ -7,21 +7,26 @@
 
             link: function (scope) {
                 var config = scope.rssConfiguration.getConfiguration();
-                scope.post = config.post;
+
+                var postResource = config.post;
+                scope.post = postResource.plain();
                 scope.user = config.user;
                 scope.data = {
                     isOpen: false
                 };
 
-                scope.goToPost = function (event, post) {
-                    event.preventDefault();
-
-
-                }
-
                 scope.postClick = function () {
-                    //mark as unread or read
                     //open on float-container
+                    scope.data.isOpen = !scope.data.isOpen;
+
+                    if( postResource.users && !postResource.users.isRead ){
+                        scope.post.users.isRead = true;
+                        postResource.read({
+                            _id: postResource._id
+                        });
+                    }
+
+                    //mark as unread or read
 
                     /*
                     *

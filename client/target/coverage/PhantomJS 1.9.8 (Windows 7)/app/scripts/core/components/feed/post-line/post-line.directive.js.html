@@ -199,16 +199,16 @@
     <h1>Code coverage report for <span class="entity">./app/scripts/core/components/feed/post-line/post-line.directive.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">20% <small>(2 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">15.38% <small>(2 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">20% <small>(1 / 5)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">25% <small>(1 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">20% <small>(2 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">15.38% <small>(2 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -254,7 +254,10 @@
 36
 37
 38
-39</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+39
+40
+41
+42</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -263,19 +266,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -301,21 +307,24 @@
 &nbsp;
             link: <span class="fstat-no" title="function not covered" >function (scope) {</span>
 <span class="cstat-no" title="statement not covered" >                var config = scope.rssConfiguration.getConfiguration();</span>
-<span class="cstat-no" title="statement not covered" >                scope.post = config.post;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var postResource = config.post;</span>
+<span class="cstat-no" title="statement not covered" >                scope.post = postResource.plain();</span>
 <span class="cstat-no" title="statement not covered" >                scope.user = config.user;</span>
 <span class="cstat-no" title="statement not covered" >                scope.data = {</span>
                     isOpen: false
                 };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                scope.goToPost = <span class="fstat-no" title="function not covered" >function (event, post) {</span></span>
-<span class="cstat-no" title="statement not covered" >                    event.preventDefault();</span>
-&nbsp;
-&nbsp;
-                }
-&nbsp;
 <span class="cstat-no" title="statement not covered" >                scope.postClick = <span class="fstat-no" title="function not covered" >function () {</span></span>
-                    //mark as unread or read
                     //open on float-container
+<span class="cstat-no" title="statement not covered" >                    scope.data.isOpen = !scope.data.isOpen;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if( postResource.users &amp;&amp; !postResource.users.isRead ){</span>
+<span class="cstat-no" title="statement not covered" >                        scope.post.users.isRead = true;</span>
+<span class="cstat-no" title="statement not covered" >                        postResource.markUnread();</span>
+                    }
+&nbsp;
+                    //mark as unread or read
 &nbsp;
                     /*
                     *
@@ -335,7 +344,7 @@
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jan 03 2015 18:43:36 GMT+0200 (FLE Standard Time)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jan 05 2015 18:27:16 GMT+0200 (FLE Standard Time)</div>
 </div>
 
 <script src="../prettify.js"></script>

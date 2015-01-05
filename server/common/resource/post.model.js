@@ -6,6 +6,8 @@ var Schema = mongoose.Schema;
 
 var ObjectId = Schema.ObjectId;
 
+var ObjectIdFromType = mongoose.Types.ObjectId;
+
 var userDataSchema = new Schema({
 
     /*
@@ -17,24 +19,24 @@ var userDataSchema = new Schema({
     },
 
     /*
-    * Does user read this post ?
-    * */
+     * Does user read this post ?
+     * */
     isRead: {
         type: Boolean,
         default: false
     },
 
     /*
-    * Mark as read later
-    * */
+     * Mark as read later
+     * */
     readLater: {
         type: Boolean,
         default: false
     },
 
     /*
-    * All user can have the list of tags
-    * */
+     * All user can have the list of tags
+     * */
     tags: {
         type: [ObjectId],
         default: []
@@ -44,50 +46,53 @@ var userDataSchema = new Schema({
 var postSchema = new Schema({
 
     /*
-    * Title post
-    * */
+     * Title post
+     * */
     title: {
         type: String,
         default: ''
     },
 
     /*
-    * Full post ( body )
-    * */
+     * Full post ( body )
+     * */
     body: {
         type: String,
         default: ''
     },
 
     /*
-    * Link to post
-    * */
+     * Link to post
+     * */
     link: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
 
     /*
-    * Unique guid for post
-    * */
+     * Unique guid for post
+     * */
     guid: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
 
     /*
-    * Url to main image for post
-    * */
+     * Url to main image for post
+     * */
     image: {
         type: String,
         default: ''
     },
 
     /*
-    * Date, when post was published
-    * */
+     * Date, when post was published
+     * */
     pubdate: {
-        type: Date
+        type: Date,
+        default: new Date()
     },
 
     source: {
@@ -96,8 +101,8 @@ var postSchema = new Schema({
     },
 
     /*
-    * Feed id
-    * */
+     * Feed id
+     * */
     feedId: {
         type: ObjectId,
         required: true
@@ -137,6 +142,9 @@ postSchema.statics.readUnread = function(userId, postId, state, cb){
             var userData = userArr[0];
             userData.isRead = state;
         }
+
+        console.log(userData);
+        console.log(post.users);
 
         post.save(function (err, post) {
             if(err){
@@ -184,40 +192,92 @@ postSchema.statics.checkUncheck = function(userId, postId, state, cb){
 };
 
 postSchema.statics.getPosts = function(options, cb){
-    var query = {},
-        params = {
-            /*users: false*/
-        };
-
-    if( options.source.name == "feed" ){
-        query.feedId = options.source.params._id;
-    }
 
     /*todo: we should return associated user data with post information*/
     if( options.user ){
-        //params["users.userId"] = options.user._id;
-
-        console.log('WE have auth user');
-        query.users = {
-            '$in': {
-                'userId' : options.user._id
+        this.aggregate([
+            {
+                $match: {
+                    feedId: new ObjectIdFromType(options.source.params._id)
+                }
+            },
+            {
+                $sort: {
+                    pubdate: -1
+                }
+            },
+            {
+                $skip: options.from
+            },
+            {
+                $limit: options.count
+            },
+            {
+                $project : {
+                    "users" : {
+                        $cond : [ { $eq : [ "$users", [] ] }, [ {
+                            isRead: false,
+                            readLater: false,
+                            tags: [],
+                            userId: options.user._id
+                        } ], '$users' ]
+                    },
+                    title: 1,
+                    body: 1,
+                    image: 1,
+                    source: 1,
+                    feedId: 1,
+                    pubdate: 1
+                }
+            },
+            {
+                $unwind : "$users"
+            },
+            {
+                $match: {
+                    $or :[
+                        {
+                            "users.userId" :new ObjectIdFromType(options.user._id)
+                        },
+                        {
+                            "users.userId" : options.user._id
+                        }
+                    ]
+                }
             }
-        };
+        ], function (err, posts) {
+            if(err){
+                logger.error(err.message);
+                return cb("Cannot find posts");
+            }
+            cb(err, posts);
+        });
+    }else{
+
+        var query = {};
+
+        if( options.source.name == "feed" ){
+            query.feedId = options.source.params._id;
+        }
+
+        this.find(query, {
+            users: false,
+            __v: false
+        }, {
+            skip: options.from,
+            limit: options.count,
+            sort: {
+                pubdate: -1 //Sort by Date Added DESC
+            }
+        }, function (err, posts) {
+            if(err){
+                logger.error(err.message);
+                return cb("Cannot find posts");
+            }
+            cb(err, posts);
+        });
     }
 
-    this.find(query, params, {
-        skip: options.from,
-        limit: options.count,
-        sort: {
-            date: -1 //Sort by Date Added DESC
-        }
-    }, function (err, posts) {
-        if(err){
-            logger.error(err.message);
-            return cb("Cannot find posts");
-        }
-        cb(err, posts);
-    });
 };
 
 var Post = mongoose.model('posts', postSchema);

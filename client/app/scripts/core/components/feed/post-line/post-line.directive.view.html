@@ -1,6 +1,6 @@
-<div class="post post-line" ng-class='{"unread": !post.user.isRead}' >
+<div class="post post-line" ng-class='{"unread": !post.users.isRead}' >
 
-    <div class="preview-wrapper" ng-click="data.isOpen = !data.isOpen">
+    <div class="preview-wrapper" ng-click="postClick()">
         <div ng-if="!data.isOpen" class="preview">
             <div class="content" >
                 <!--<button ng-if="user.token" class="btn btn-link switchColor switchOn" title="Read later">

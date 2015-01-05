@@ -77,10 +77,10 @@ module.exports = function (app) {
     app.post(prefix + '/post/getPosts', getUser, postController.getPosts);
 
     /*Mark post as readed*/
-    app.post(prefix + '/rss/post/mark/read', checkAuth, postController.read);
+    app.post(prefix + '/post/mark/read', checkAuth, postController.read);
 
     /*Mark post as unreaded*/
-    app.post(prefix + '/rss/post/mark/unread', postController.unread);
+    app.post(prefix + '/post/mark/unread', postController.unread);
 
     /*Mark for reading later*/
     app.post(prefix + '/rss/post/readlater/check', postController.check);

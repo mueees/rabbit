@@ -2,43 +2,66 @@ var validator = require('validator'),
     async = require('async'),
     logger = require('common/core/logs')(module),
     FeedModel = require('common/resource/feed.model'),
+    PostModel = require('common/resource/post.model'),
     util = require('util'),
+    _ = require('underscore'),
     url = require('url'),
-    Q = require('q');
+    Q = require('q'),
+    mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    ObjectId = Schema.ObjectId;
+
+var ObjectId1 = require('mongoose').Types.ObjectId;
 
 //link database
 require("common/mongooseDb");
 
-function fakePromise() {
-    var defer = Q.defer();
-    setTimeout(function () {
-        console.log("Fake done");
-        defer.resolve();
-    }, 5000);
-    return defer.promise;
-}
-
-var discover = FeedModel.discoverFeed({
-    url: 'http://ibigdan.livejournal.com/data/rss1'
-});
-
-var p1 = fakePromise();
-
-async.parallel([
-    function (cb) {
-        p1.then(function (data) {
-            cb(null, data);
-        }, function (data) {
-            cb(null, data);
-        });
+PostModel.aggregate([
+    {
+        '$match': {
+            'feedId': new ObjectId1("54aa89409e7041a50cb1bac9")
+        }
     },
-    function (cb) {
-        discover.then(function (data) {
-            cb(null, data);
-        }, function (data) {
-            cb(null, data);
-        });
+    {
+        $sort: {
+            pubdate: -1
+        }
+    },
+    {
+        $project : {
+            "users" : {
+                $cond : [ { $eq : [ "$users", [] ] }, [ null ], '$users' ]
+            },
+            title: 1,
+            body: 1,
+            image: 1,
+            source: 1,
+            feedId: 1,
+            pubdate: 1
+        }
+    },
+    {
+        $unwind : "$users"
+    },
+    {
+        $match: {
+            $or :[
+                {
+                    "users.userId" :new ObjectId1("54aa89409e7041a50cb1bac0")
+                },
+                {
+                    "users" : null
+                }
+            ]
+        }
     }
-], function (err, results) {
-    debugger;
+], function (err, posts) {
+    if(err){
+        console.log(err);
+        process.exit();
+    }
+
+    console.log(posts);
+
+    process.exit();
 });

@@ -1224,3 +1224,109 @@
 {"level":"error","message":"Doesn't have connection to remote service","label":"client/index.js","timestamp":"2015-01-03T17:22:23.124Z"}
 {"level":"error","message":"Doesn't have connection to remote service","label":"middleware/checkAuth.js","timestamp":"2015-01-03T17:22:23.124Z"}
 {"level":"error","message":"","label":"mongooseDb/index.js","timestamp":"2015-01-03T17:22:43.038Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T08:24:17.739Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T08:24:17.762Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T08:24:37.964Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T08:24:37.966Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T10:17:23.030Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T10:17:23.038Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T10:17:23.056Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T10:17:26.661Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T10:17:26.665Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T10:17:26.671Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T10:17:38.447Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T10:17:38.448Z"}
+{"level":"error","message":"500 Arguments must be aggregate pipeline operators","label":"api.service/index.js","timestamp":"2015-01-05T10:40:24.565Z"}
+{"level":"error","message":"500 Arguments must be aggregate pipeline operators","label":"api.service/index.js","timestamp":"2015-01-05T12:07:30.439Z"}
+{"level":"error","message":"500 Arguments must be aggregate pipeline operators","label":"api.service/index.js","timestamp":"2015-01-05T12:09:43.172Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T12:38:25.677Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T12:38:25.685Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T12:56:35.822Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T12:56:35.828Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T12:56:35.843Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T12:56:45.941Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T12:56:45.949Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T12:58:36.801Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T12:58:36.803Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T12:58:36.814Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T12:58:43.290Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T12:58:43.291Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:03:19.404Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T13:03:19.412Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T13:03:19.419Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:03:28.521Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T13:03:28.543Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T13:03:28.546Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:03:29.786Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T13:03:29.792Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:03:37.279Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T13:03:37.282Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:06:38.462Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T13:06:38.471Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T13:06:38.494Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:06:41.855Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T13:06:41.857Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:07:39.083Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T13:07:39.087Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T13:07:39.091Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:07:44.011Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T13:07:44.013Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T13:07:44.015Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:07:47.103Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T13:07:47.104Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T13:08:24.964Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:08:24.963Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T13:08:24.975Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:08:31.615Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T13:08:31.616Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:11:20.325Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T13:11:20.347Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T13:11:20.353Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:11:30.038Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T13:11:30.039Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:15:40.242Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T13:15:40.251Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T13:15:40.259Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:15:52.043Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T13:15:52.045Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:31:31.876Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T13:31:31.878Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T13:31:31.883Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:31:34.420Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T13:31:34.421Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T13:31:34.422Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:31:35.453Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T13:31:35.455Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T13:31:35.458Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:39:44.062Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T13:39:44.070Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T13:39:44.082Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T13:39:52.934Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T13:39:52.936Z"}
+{"level":"error","message":"","label":"rss/feed.js","timestamp":"2015-01-05T14:01:02.867Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T14:32:56.162Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T14:32:56.167Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T14:32:56.480Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T14:32:56.483Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T14:32:58.563Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T14:32:58.564Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T14:33:45.950Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T14:33:45.977Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T14:33:46.255Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T14:33:46.267Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T14:33:47.791Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T14:33:47.797Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T14:34:16.832Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T14:34:16.838Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T14:34:17.201Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T14:34:17.212Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T14:34:21.749Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T14:34:21.750Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T14:34:22.724Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-05T14:34:22.725Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T14:34:26.746Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T14:34:26.748Z"}
+{"level":"error","message":"500 Cannot read property 'name' of undefined","label":"api.service/index.js","timestamp":"2015-01-05T16:44:07.958Z"}
+{"level":"error","message":"500 Cannot read property 'name' of undefined","label":"api.service/index.js","timestamp":"2015-01-05T16:45:39.865Z"}
+{"level":"error","message":"500 Cannot read property '_id' of undefined","label":"api.service/index.js","timestamp":"2015-01-05T16:47:17.805Z"}
+{"level":"error","message":"500 Cannot read property '_id' of undefined","label":"api.service/index.js","timestamp":"2015-01-05T16:48:24.567Z"}

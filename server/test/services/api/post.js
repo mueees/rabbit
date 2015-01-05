@@ -39,7 +39,7 @@ describe("Post api test", function () {
             })
     });
 
-    /*describe("POST /rss/post/mark/read", function () {
+    describe("POST /rss/post/mark/read", function () {
 
         describe("Success request", function () {
             var responseData,
@@ -284,11 +284,11 @@ describe("Post api test", function () {
             });
         });
 
-    });*/
+    });
 
     describe("POST /rss/post/mark/read", function () {
 
-        /*describe("Success request", function () {
+        describe("Success request", function () {
             var responseData,
                 promise,
                 def,
@@ -313,12 +313,10 @@ describe("Post api test", function () {
                     }, errorHandler)
                     .then(function () {
                         req.body = {
-                            options: {
-                                source: {
-                                    name: 'feed',
-                                    params: {
-                                        _id: global.feed._id
-                                    }
+                            source: {
+                                name: 'feed',
+                                params: {
+                                    _id: global.feed._id
                                 }
                             }
                         };
@@ -336,7 +334,7 @@ describe("Post api test", function () {
                 assert.ok(responseData.length);
                 done();
             });
-        });*/
+        });
 
         describe("Success request with user information", function () {
             var responseData,
@@ -363,12 +361,10 @@ describe("Post api test", function () {
                     }, errorHandler)
                     .then(function () {
                         req.body = {
-                            options: {
-                                source: {
-                                    name: 'feed',
-                                    params: {
-                                        _id: global.feed._id
-                                    }
+                            source: {
+                                name: 'feed',
+                                params: {
+                                    _id: global.feed._id
                                 }
                             }
                         };

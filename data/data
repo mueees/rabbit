@@ -43,6 +43,12 @@ export NODE_PATH=/vagrant/server
 cd /vagrant/server/init/initDevelopmentDB
 node index.js
 
+//expirience start
+export NODE_ENV=development
+export NODE_PATH=/vagrant/server
+cd /vagrant/server/expirience
+node index.js
+
 //start test
 export NODE_ENV=test
 export NODE_PATH=/vagrant/server

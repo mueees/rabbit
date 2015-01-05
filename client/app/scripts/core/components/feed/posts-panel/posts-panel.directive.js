@@ -18,18 +18,19 @@
                 var options = config.options;
                 scope.getNextPosts = function(){
                     source.getPosts(options).then(function (posts) {
-                        posts = posts.plain();
+                        //posts = posts.plain();
                         if(!posts.length){
                             scope.isShowMoreBtn = false;
                         }else{
                             scope.isShowMoreBtn = true;
                         }
+
                         scope.posts = scope.posts.concat(posts);
                         options.from += countPost;
                     }, function () {
                         alert('Cannot get posts');
                     });
-                }
+                };
 
                 scope.getNextPosts();
 
