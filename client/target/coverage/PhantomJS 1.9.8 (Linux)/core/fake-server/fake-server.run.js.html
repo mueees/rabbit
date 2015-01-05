@@ -357,10 +357,7 @@
 139
 140
 141
-142
-143
-144
-145</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+142</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -393,26 +390,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -473,6 +456,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -537,7 +531,12 @@
             });
 &nbsp;
             //category
-<span class="cstat-no" title="statement not covered" >            $httpBackend.whenGET(baseUrl+'/categories/getFullCategories?token=Fake+token').respond([{</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            $httpBackend.whenPOST(baseUrl+'/categories/add').respond({</span>
+                _id: '2132134'
+            });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            $httpBackend.whenGET(new RegExp(baseUrl+'/category/list/feed?.*')).respond([{</span>
                 _id: '2132134',
                 name: "Test category",
                 feeds: [
@@ -551,30 +550,11 @@
                     }]
             }]);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            $httpBackend.whenPOST(baseUrl+'/categories/add').respond({</span>
-                _id: '2132134'
-            });
-&nbsp;
-<span class="cstat-no" title="statement not covered" >            $httpBackend.whenGET(baseUrl+'/categories/list?token=Fake+token').respond([</span>
-                {
-                    _id: '21321345',
-                    name: "category 1"
-                },
-                {
-                    _id: '21321344',
-                    name: "category 2"
-                },
-                {
-                    _id: '21321343',
-                    name: "category 3"
-                }
-            ]);
-&nbsp;
             //feed
 <span class="cstat-no" title="statement not covered" >            $httpBackend.whenPOST(baseUrl+'/feed/add').respond({</span>
             });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            $httpBackend.whenPOST(baseUrl+'/feed/getById').respond({</span>
+<span class="cstat-no" title="statement not covered" >            $httpBackend.whenGET(new RegExp(baseUrl+'/feed?.*')).respond({</span>
 &nbsp;
                 _id: '123123',
 &nbsp;
@@ -627,6 +607,17 @@
                 ]
             });
 &nbsp;
+<span class="cstat-no" title="statement not covered" >            $httpBackend.whenPOST(new RegExp(baseUrl+'/post/getPosts?.*')).respond([</span>
+                {
+                    id: '213',
+                    title: 'test1'
+                },
+                {
+                    id: '2134',
+                    title: 'test2'
+                }
+            ]);
+&nbsp;
             //search
 <span class="cstat-no" title="statement not covered" >            $httpBackend.whenPOST(baseUrl+'/search/find').respond({</span>
                 feeds: [
@@ -653,7 +644,7 @@
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Dec 28 2014 12:43:04 GMT+0200 (EET)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jan 05 2015 21:37:46 GMT+0200 (EET)</div>
 </div>
 
 <script src="../../prettify.js"></script>

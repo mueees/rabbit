@@ -1330,3 +1330,11 @@
 {"level":"error","message":"500 Cannot read property 'name' of undefined","label":"api.service/index.js","timestamp":"2015-01-05T16:45:39.865Z"}
 {"level":"error","message":"500 Cannot read property '_id' of undefined","label":"api.service/index.js","timestamp":"2015-01-05T16:47:17.805Z"}
 {"level":"error","message":"500 Cannot read property '_id' of undefined","label":"api.service/index.js","timestamp":"2015-01-05T16:48:24.567Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T19:47:54.366Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T19:47:54.383Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T19:48:18.072Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T19:48:18.090Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T19:48:23.648Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T19:48:23.654Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-05T19:48:31.116Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-05T19:48:31.117Z"}
