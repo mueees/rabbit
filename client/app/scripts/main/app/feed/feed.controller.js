@@ -31,7 +31,7 @@
                     }
                 },
                 from: 0,
-                count: 10
+                count: 5
             },
             settings: {
                 user: user,

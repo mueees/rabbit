@@ -91,16 +91,34 @@ dbHelpers.db.clearDb().then(function () {
                 });
             }
 
-
-            PostModel.create(setup.posts, function (err) {
+            PostModel.create(setup.posts, function (err, posts) {
                 if(err){
                     logger.error(err);
                     process.exit();
                 }
-                logger.info('Posts was created');
-                logger.info("Init Development Database was ended");
-                process.exit();
-            })
+
+                var postOne = posts;
+                postOne.users.push(
+                    {
+                        userId: user._id
+                    },
+                    {
+                        userId: "54aa46a9f3d8f6b0065cfake"
+                    }
+                );
+
+                postOne.save(function (err) {
+                    if(err){
+                        logger.error(err);
+                        process.exit();
+                    }
+
+                    logger.info('Posts was created');
+                    logger.info("Init Development Database was ended");
+                    process.exit();
+                });
+
+            });
 
         });
 

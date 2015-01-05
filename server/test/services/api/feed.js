@@ -14,7 +14,7 @@ var response = {
         return false;
     };
 
-/*describe("POST /rss/feed/add", function () {
+describe("POST /rss/feed/add", function () {
 
     describe("Success request", function () {
         var responseData,
@@ -430,7 +430,7 @@ describe("POST /rss/feed/edit", function () {
         });
     });
 
-});*/
+});
 
 describe("POST /rss/feed/:id", function () {
     describe("Success request", function () {
