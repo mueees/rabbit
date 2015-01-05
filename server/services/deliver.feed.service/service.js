@@ -36,17 +36,13 @@ function getAllFeeds(cb){
     });
 }
 
-function filterFeeds(feeds, cb){
-
-}
-
 function Service(){}
 
 Service.prototype.deliverFeeds = function () {
     //find all feeds
     logger.debug('Start deliver Feeds');
     async.waterfall([
-        getAllFeeds(cb),
+        getAllFeeds,
 
     /*
      * Add feeds to queue
