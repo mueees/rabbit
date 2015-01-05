@@ -225,7 +225,7 @@ postSchema.statics.getPosts = function(options, cb){
                     title: 1,
                     body: 1,
                     image: 1,
-                    source: 1,
+                    link: 1,
                     feedId: 1,
                     pubdate: 1
                 }
