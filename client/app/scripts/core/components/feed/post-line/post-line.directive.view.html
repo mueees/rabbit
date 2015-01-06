@@ -2,7 +2,7 @@
 
     <div class="preview-wrapper" ng-click="postClick()">
         <div ng-if="!data.isOpen" class="preview">
-            <div class="content">
+            <div class="content" >
                 <!--<button ng-if="user.token" class="btn btn-link switchColor switchOn" title="Read later">
                     <i class="icon-bookmark"></i>
                 </button>-->
@@ -10,7 +10,7 @@
             </div>
             <div class="action-bar">
                 <!--<span>3 minutes</span>-->
-                <a title="Go to resource" class="btn btn-link btn-xs" ng-click="linkHandler($event)" target="_blank" href="{{post.link}}">
+                <a title="Go to resource" class="btn btn-link btn-xs" target="_blank" href="{{post.link}}">
                     <span class="icon-link"></span>
                 </a>
                 <!--<button ng-if="user.token" class="btn btn-link btn-xs" title="Mark as readed">
