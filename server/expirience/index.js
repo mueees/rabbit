@@ -16,6 +16,7 @@ var ObjectId1 = require('mongoose').Types.ObjectId;
 //link database
 require("common/mongooseDb");
 
+/*
 PostModel.aggregate([
     {
         '$match': {
@@ -64,4 +65,4 @@ PostModel.aggregate([
     console.log(posts);
 
     process.exit();
-});
+});*/
