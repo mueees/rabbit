@@ -12,7 +12,12 @@
                 scope.post = postResource.plain();
                 scope.user = config.user;
                 scope.data = {
-                    isOpen: false
+                    isOpen: false,
+                    pubdata: scope.post.pubdata
+                };
+
+                scope.linkHandler = function (event) {
+                    event.stopPropagation();
                 };
 
                 scope.postClick = function () {
@@ -25,15 +30,6 @@
                             _id: postResource._id
                         });
                     }
-
-                    //mark as unread or read
-
-                    /*
-                    *
-                    * Should pass source to float-container
-                    * and open current post there
-                    *
-                    * */
                 }
             },
 

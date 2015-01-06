@@ -225,6 +225,7 @@ postSchema.statics.getPosts = function(options, cb){
                     title: 1,
                     body: 1,
                     image: 1,
+                    guid: 1,
                     link: 1,
                     feedId: 1,
                     pubdate: 1
@@ -261,8 +262,14 @@ postSchema.statics.getPosts = function(options, cb){
         }
 
         this.find(query, {
-            users: false,
-            __v: false
+            title: 1,
+            body: 1,
+            image: 1,
+            guid: 1,
+            link: 1,
+            feedId: 1,
+            pubdate: 1,
+            _id: 1
         }, {
             skip: options.from,
             limit: options.count,
