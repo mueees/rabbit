@@ -1,0 +1,31 @@
+<div>
+    <div class="head">
+        <div class="pull-right" rss-quick-action >
+            <button class="btn btn-link btn-xs" tooltip-placement="right" tooltip="Delete category?" ng-click="quick.showQuickDialog($event)">
+                <span class="icon-cancel"></span>
+            </button>
+            <div class="action-panel" ng-if="quick.isShowDialog()">
+                <div>Do you really want to delete category?</div>
+                <button class="btn btn-link pull-right" ng-click="quick.close()">cancel</button>
+                <button class="btn btn-link btn-accent" ng-click="deleteCategory()">ok</button>
+            </div>
+        </div>
+        <button class="btn btn-link pull-right btn-xs" tooltip-placement="left" tooltip="Edit category?">
+            <span class="icon-pencil"></span>
+        </button>
+        <h4>{{category.name}}</h4>
+    </div>
+
+    <ul class="feeds-container">
+        <li class="feed" ng-repeat="feed in category.feeds">
+            <button class="btn btn-link pull-right btn-xs">
+                <span class="icon-cancel"></span>
+            </button>
+            <button class="btn btn-link pull-right btn-xs">
+                <span class="icon-pencil"></span>
+            </button>
+            <span>{{feed.name}}</span>
+        </li>
+    </ul>
+
+</div>
