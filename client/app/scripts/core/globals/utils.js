@@ -109,6 +109,55 @@ var _TIMESTAMP_ = new Date().getTime();
         return rss.util.isObject(value) && rss.util.isFunction(value.$on) && rss.util.isFunction(value.$watch);
     };
 
+    /**
+     * @param value milliseconds
+     */
+    rss.util.isLessMinute = function (value) {
+        return (value/1000 < 60) ? true: false;
+    };
+
+    /**
+     * @param value milliseconds
+     */
+    rss.util.isLessHours = function (value) {
+        return (value/1000/60 < 60) ? true: false;
+    };
+
+    /**
+     * @param value milliseconds
+     */
+    rss.util.isLessDay = function (value) {
+        return (value/1000/60/24 < 24) ? true: false;
+    };
+
+    /**
+     * @param value milliseconds
+     */
+    rss.util.getSeconds = function (value) {
+        return Math.floor(value/1000);
+    };
+
+    /**
+     * @param value milliseconds
+     */
+    rss.util.getMinutes = function (value) {
+        return Math.floor(value/1000/60);
+    };
+
+    /**
+     * @param value milliseconds
+     */
+    rss.util.getHours = function (value) {
+        return Math.floor(value/1000/60/60);
+    };
+
+    /**
+     * @param value milliseconds
+     */
+    rss.util.getDays = function (value) {
+        return Math.floor(value/1000/60/60/24);
+    };
+
     var urlRegEx;
 
     /**
