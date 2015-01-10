@@ -12,7 +12,20 @@
                 scope.post = postResource.plain();
                 scope.user = config.user;
                 scope.data = {
-                    isOpen: false
+                    isOpen: false,
+                    pubdate: scope.post.pubdate
+                };
+
+                scope.hideAndMarkUnread = function ($event) {
+                    $event.preventDefault();
+                    scope.data.isOpen = false;
+
+                    if( postResource.users && postResource.users.isRead ){
+                        scope.post.users.isRead = false;
+                        postResource.unread({
+                            _id: postResource._id
+                        });
+                    }
                 };
 
                 scope.postClick = function () {

@@ -10,6 +10,7 @@
             </div>
             <div class="action-bar">
                 <!--<span>3 minutes</span>-->
+                <rss-time-left rss-configuration="data.pubdate"></rss-time-left>
                 <a title="Go to resource" class="btn btn-link btn-xs" target="_blank" href="{{post.link}}">
                     <span class="icon-link"></span>
                 </a>
@@ -25,6 +26,10 @@
     <div class="main" ng-if="data.isOpen" >
         <div class="closePost" ng-click="data.isOpen = !data.isOpen"></div>
         <h3><a target="_blank" href="{{post.link}}">{{post.title}}</a></h3>
+        <div class="meta">
+            <rss-time-left rss-configuration="data.pubdate"></rss-time-left>
+            <a ng-if="post.users" href="#" ng-click="hideAndMarkUnread($event)">hide and mark unread</a>
+        </div>
         <br/>
         <div ng-bind-html="post.body"></div>
         <div class="closePost" ng-click="data.isOpen = !data.isOpen"></div>
