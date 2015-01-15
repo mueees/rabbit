@@ -5,7 +5,6 @@ var validator = require('validator'),
     util = require('util'),
     ServiceError = require('common/core/errors/service.error').ServiceError;
 
-/*connect to mongo*/
 require('common/mongooseDb');
 
 var api = {
@@ -45,7 +44,7 @@ var api = {
             }
 
             cb(null, user);
-        })
+        });
     },
 
     /*
@@ -102,7 +101,7 @@ var api = {
             cb(null, token);
         });
 
-     },
+    },
 
     /*
      * Logout user, delete his token
@@ -134,6 +133,13 @@ var api = {
 
             cb(null, user);
         })
+    },
+
+    /*
+     * Remove expired tokens
+     * */
+    removeExpiredTokens: function (cb) {
+        return UserModel.removeExpiredTokens();
     }
 };
 module.exports = api;

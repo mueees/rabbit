@@ -1,6 +1,6 @@
 var api = {},
     _ = require('underscore'),
-    dbApi = require('./db');
+    dbApi = require('common/helpers/db');
 
 require('./chai');
 _.extend(api, dbApi);

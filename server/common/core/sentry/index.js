@@ -5,7 +5,8 @@ var raven = require('raven'),
 var client = new raven.Client(config.get("raven:key"));
 
 function canSend(){
-    return (ENV == 'live');
+    return true;
+    //return (ENV == 'live');
 }
 
 function getRaven( module ){
@@ -31,10 +32,6 @@ function getRaven( module ){
         }
     }
 }
-
-var r = getRaven(module);
-r.message("wrapper");
-
 module.exports = getRaven;
 
 /*

@@ -373,6 +373,23 @@ userSchema.statics.removeFeed = function (userId, feedId, cb) {
     })
 };
 
+userSchema.statics.removeExpiredTokens = function () {
+    return this.update(
+        {},
+        {
+            '$pull': {
+                'tokens': {
+                    'date_expired': {
+                        '$lt': new Date()
+                    }
+                }
+            }
+        },
+        {
+            multi: true
+        }).exec();
+};
+
 userSchema.statics.changeCategoryForFeed = function (userId, categoryId, feedId, cb) {
     var UserModel = mongoose.model('users');
 

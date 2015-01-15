@@ -82,3 +82,20 @@ db.posts.aggregate(
         }
     ]
 );
+
+//remove expired tokens
+db.users.update(
+    {},
+    {
+        '$pull': {
+            'tokens': {
+                'date_expired': {
+                    '$lt': new Date()
+                }
+            }
+        }
+    },
+    {
+        multi: true
+    }
+);

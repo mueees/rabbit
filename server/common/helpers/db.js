@@ -87,6 +87,25 @@ var api = {
                     });
                 });
                 return def.promise;
+            },
+            addTokens: function (user, tokens) {
+                var def = Q.defer();
+
+                if (!user) {
+                    def.reject("Cannot find user");
+                }
+
+                UserModel.findById(user._id, function (err, user) {
+                    user.tokens.concat(tokens);
+                    user.save(function (err) {
+                        if(err){
+                            return def.reject(err);
+                        }
+                        def.resolve(user);
+                    });
+                });
+
+                return def.promise;
             }
         },
         category: {
