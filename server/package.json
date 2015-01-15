@@ -10,7 +10,6 @@
         "nodemailer": "1.3.0",
 
         "jade": "latest",
-        "express-session": "latest",
         "q": "1.1.2",
         "kue": "0.8.9",
         "nconf": "0.6.9",
@@ -26,6 +25,7 @@
         "chai": "latest",
         "mocha": "latest",
         "sinon": "latest",
-        "underscore": "latest"
+        "underscore": "latest",
+        "raven": "0.7.2"
     }
 }

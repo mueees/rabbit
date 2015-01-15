@@ -5,7 +5,6 @@ var express = require('express'),
     ServiceError = require('common/core/errors/service.error').ServiceError,
     logger = require('common/core/logs')(module),
     bodyParser = require('body-parser'),
-    session = require('express-session'),
     config = require('config');
 
 var app = express();
