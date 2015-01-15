@@ -12,8 +12,6 @@ if((node_site == 'development')){
     configFile = 'live.json'
 }
 
-console.log(configFile)
-
 nconf.file('main', {file: path.join(__dirname, 'main.json')});
 nconf.file('secret', {file: path.join(__dirname, 'secret.json')});
 nconf.file('configFile', {file: path.join(__dirname, configFile)});

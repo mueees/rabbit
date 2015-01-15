@@ -115,26 +115,19 @@ feedSchema.statics.discoverFeed = function (options) {
         timeout: options.timeout || 20000
     }).on('error', function (error) {
         var err = {
-            message: "Cannot make request",
-            type: 'error',
-            data: {
-                url: options.url
-            }
+            url: options.url
         };
-        logger.error(err.message, err.data);
+        logger.error(error, err);
         def.reject(err);
     })
         .pipe(new FeedParser())
         .on('error', function (error) {
-            var err = {
-                message: "Not a feed",
-                type: 'error',
-                data: {
-                    url: options.url
-                }
-            };
-            logger.error(err.message, err.data);
-            def.reject(err);
+            logger.error(error, {
+                url: options.url
+            });
+            def.reject({
+                url: options.url
+            });
         }).on('readable', function() {
             var post;
             var stream = this;
