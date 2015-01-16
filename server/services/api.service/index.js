@@ -35,7 +35,7 @@ route(app);
 
 //404
 app.use(function(req, res, next){
-    logger.warn({
+    logger.warn('404', {
         status: 404,
         url: req.url,
         method: req.method
@@ -51,6 +51,7 @@ app.use(function(err, req, res, next){
     }
 
     if( err instanceof ServiceError ){
+        logger.error(err);
         switch (err.status){
             case 500:
                 res.sendError(new HttpError(400, "Cannot execute request"));
@@ -60,9 +61,10 @@ app.use(function(err, req, res, next){
                 break;
         }
     }else if( err instanceof HttpError ){
+        logger.error(err);
         res.sendError(err);
     }else{
-        logger.error("500", err.message);
+        logger.error(err);
         res.status(500);
         res.send(err);
     }
