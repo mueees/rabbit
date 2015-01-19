@@ -35,7 +35,7 @@ route(app);
 
 //404
 app.use(function(req, res, next){
-    logger.warn('404', {
+    logger.warning('404', {
         status: 404,
         url: req.url,
         method: req.method
