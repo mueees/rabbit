@@ -93,7 +93,6 @@ userSchema.statics.isHaveUser = function(email, cb){
 };
 
 userSchema.statics.getUserByToken = function(token, cb){
-    logger.info("get request getUserByToken " + token);
     this.find({
         tokens: {
             $all: [
@@ -105,8 +104,6 @@ userSchema.statics.getUserByToken = function(token, cb){
             ]
         }
     }, null, function(err, users){
-
-        logger.info("getUserByToken");
 
         if( err ){
             logger.error(err);

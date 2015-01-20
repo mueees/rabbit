@@ -8,6 +8,7 @@ module.exports = function(req, res, next){
     if( !token ){
         return next();
     }
+
     authService.execute('getUserByToken', token, function (err, user) {
             if(err){
                 logger.error(err.message);

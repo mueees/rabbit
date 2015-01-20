@@ -22,6 +22,8 @@
         "node-inspector": "0.7.4",
         "dnode": "1.2.0",
 
+        "redis": "0.12.1",
+
         "chai": "latest",
         "mocha": "latest",
         "sinon": "latest",

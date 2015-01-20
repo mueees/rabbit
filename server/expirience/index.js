@@ -1,12 +1,14 @@
 var validator = require('validator'),
     async = require('async'),
     config = require('config'),
+    redis = require('redis'),
     logger = require('common/core/logs')(module),
     FeedModel = require('common/resource/feed.model'),
     PostModel = require('common/resource/post.model'),
     util = require('util'),
     _ = require('underscore'),
     url = require('url'),
+    request = require('request'),
     Q = require('q'),
     mongoose = require('mongoose'),
     Schema = mongoose.Schema,
@@ -17,15 +19,13 @@ var validator = require('validator'),
 require("common/mongooseDb");
 
 
+var tasks = kue.createQueue();
 var Job = kue.Job;
 
-/*Job.rangeByType(config.get("queues:tasks:updateFeed"), 'active', 0, 10, "DESC", function (err, jobs) {
-    console.log(err);
-    console.log(jobs);
-});*/
-
-
-Job.get('123', function (err, job) {
-    console.log(err)
-    console.log(job)
+Job.rangeByType('updateFeed', 'inactive', 0, -1, "DESC", function (err, jobs) {
+    if (err){
+        console.log(err);
+        return false;
+    }
+    console.log(jobs.length)
 });
