@@ -73,7 +73,7 @@ describe("Post api test", function () {
                             responseData = data;
                             done();
                         });
-                    }, errorHandler)
+                    }, errorHandler);
             });
 
             it("should check post as read for current user", function (done) {
@@ -132,6 +132,56 @@ describe("Post api test", function () {
                     }
                 });
             });
+        });
+
+        describe("Success request", function () {
+            var responseData,
+                promise,
+                def,
+                post,
+                req;
+
+            beforeEach(function (done) {
+                req = {
+                    body: {},
+                    user: {}
+                };
+                def = Q.defer();
+                promise = def.promise;
+                response.finish = def;
+
+                helpers.db.post.clearPosts()
+                    .then(function () {
+                        return helpers.db.post.add({
+                            feedId: global.feed._id
+                        }).then(function (data) {
+                            post = data.post;
+                        }, errorHandler)
+                    }, errorHandler)
+                    .then(function () {
+                        PostModel.readUnread(global.user._id, post._id, true, function () {
+                            req.body._id = post._id;
+                            req.user._id = global.user._id;
+                            postController.read(req, response, next);
+                            promise.then(function (data) {
+                                responseData = data;
+                                done();
+                            });
+                        });
+                    }, errorHandler);
+            });
+
+            it("should check post as read for current user. Should have just one user", function (done) {
+                assert.notOk(responseData.message);
+                PostModel.findById(post._id, function (err, post) {
+                    if(post.users[0].isRead == true && post.users.length === 1){
+                        done();
+                    }else{
+                        done(new Error('Should have just one user'));
+                    }
+                });
+            });
+
         });
 
     });

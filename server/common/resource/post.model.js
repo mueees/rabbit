@@ -132,19 +132,15 @@ postSchema.statics.readUnread = function(userId, postId, state, cb){
             }
         });
 
-        if(!userArr || !userArr.length){
+        if(!userArr){
             /* post doesn't have specific user information yet */
             post.users.push({
                 userId: userId,
                 isRead: state
             })
         }else{
-            var userData = userArr[0];
-            userData.isRead = state;
+            userArr.isRead = state;
         }
-
-        console.log(userData);
-        console.log(post.users);
 
         post.save(function (err, post) {
             if(err){

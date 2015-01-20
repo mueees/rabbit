@@ -1,7 +1,3 @@
-/*add connection to database*/
 require('../common/mongooseDb/index');
-
-/* test for api service */
+require('./services/api');
 require('./services/auth');
-/*
-require('./services/api');*/
