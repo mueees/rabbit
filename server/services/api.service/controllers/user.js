@@ -4,6 +4,7 @@ var Controller = require('common/core/controller/base'),
     HttpError = require('../errors/HttpError').HttpError,
     Q = require('q'),
     config = require('config'),
+    validator = require('validator'),
     kue = require('kue'),
     authService = require("../modules/authServiceRemote"),
     util = require('util');
@@ -15,6 +16,16 @@ var tasks = kue.createQueue();
 _.extend(Controller.prototype, {
     signup: function (req, res, next) {
         var body = req.body;
+        var errors = [];
+
+        if( !validator.isEmail(body.email) ) {
+            logger.error('signup: invalid email', {email: body.email});
+            errors.push({
+                message: 'signup: invalid email'
+            });
+        }
+
+
         authService.execute('signup', body.email, body.password, function (err, user) {
 
             if(err){
