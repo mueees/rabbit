@@ -8,6 +8,8 @@ var Controller = require('common/core/controller/base'),
     authService = require("../modules/authServiceRemote"),
     util = require('util');
 
+console.log(config.get('redis'));
+
 var tasks = kue.createQueue();
 
 _.extend(Controller.prototype, {

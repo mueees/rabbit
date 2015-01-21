@@ -1,7 +1,14 @@
 {
     "db": {
         "ip": "127.0.0.1",
-        "port": "27017",
+        "port": "7001",
         "nameDatabase": "rss_d"
+    },
+    "redis": {
+        "port": 6379,
+        "host": "127.0.0.1",
+        "options": {
+            "no_ready_check": false
+        }
     }
 }

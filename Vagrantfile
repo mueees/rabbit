@@ -14,11 +14,16 @@ Vagrant::Config.run do |config|
   # Port forwarding
 
   #api service
-  config.vm.forward_port 6001, 6001
-  config.vm.forward_port 6002, 6002
+  #config.vm.forward_port 6001, 6001
+  #config.vm.forward_port 6002, 6002
+
+  #mongo
+  config.vm.forward_port 27017, 7001
+  #redis
+  config.vm.forward_port 6379, 6379, auto_correct: true
 
   #port for node-inspector
-  config.vm.forward_port 8080, 8080
+  #config.vm.forward_port 8080, 8080
 
   #port for kue ui
   config.vm.forward_port 6003, 6003
