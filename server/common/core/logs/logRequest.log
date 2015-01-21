@@ -1404,3 +1404,9 @@
 {"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-06T11:31:42.077Z"}
 {"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-06T11:32:58.012Z"}
 {"level":"error","message":"Cannot find user","label":"middleware/getUser.js","timestamp":"2015-01-06T11:32:58.013Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-20T14:47:39.231Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-20T14:47:39.260Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-20T14:47:43.426Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-20T14:47:43.429Z"}
+{"level":"error","message":"Cannot find user","label":"auth.service/api.js","timestamp":"2015-01-20T14:47:53.743Z"}
+{"level":"error","message":"Cannot find user","label":"middleware/checkAuth.js","timestamp":"2015-01-20T14:47:53.745Z"}

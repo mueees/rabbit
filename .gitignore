@@ -6,6 +6,7 @@ client/target
 client/app/vendor
 
 server/config/secret.json
+Vagrantfile
 
 .idea
 .vagrant
