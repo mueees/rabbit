@@ -11,7 +11,8 @@
         'rss.core.components.categories-bar',
         'rss.core.components.search-bar',
 
-        'rss.app.feed'
+        'rss.app.feed',
+        'rss.app.organize'
     ]);
 
 })();

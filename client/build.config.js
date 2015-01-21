@@ -91,6 +91,8 @@ module.exports = {
             'app/vendor/angular-ui-router/release/angular-ui-router.min.js',
             'app/vendor/angular-animate/angular-animate.min.js',
             'app/vendor/angular-busy/dist/angular-busy.min.js',
+            'app/vendor/angular-bootstrap/ui-bootstrap.js',
+            'app/vendor/angular-bootstrap/ui-bootstrap-tpls.js',
             'app/vendor/ngstorage/ngStorage.js'
         ],
         css: [

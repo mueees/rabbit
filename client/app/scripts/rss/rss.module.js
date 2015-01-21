@@ -7,6 +7,7 @@ var rss = rss || {};
         'ui.router',
         'ngSanitize',
         'angular-growl',
+        'ui.bootstrap',
         /*'ngAnimate',*/
         'rss.core.error-handling',
 
@@ -14,6 +15,7 @@ var rss = rss || {};
         'rss.promo',
         'rss.app'
     ];
+
     if(rss.fakeServer){
         inject.push('rss.core.fake-server');
     }

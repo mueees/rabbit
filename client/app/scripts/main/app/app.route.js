@@ -41,6 +41,11 @@
                     }
                 }
             })
+            .state('main.app.index.organize', {
+                url: '/organize',
+                templateUrl: "app/scripts/main/app/organize/organize.controller.view.html",
+                controller: 'OrganizeController'
+            })
             .state('main.app.index.newfeed', {
                 params: {
                     feed: null

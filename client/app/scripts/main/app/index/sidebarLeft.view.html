@@ -55,10 +55,9 @@
                     </a>
                 </li>
                 <li class="list-group-item">
-                    <a href="#">
+                    <a href="#" ui-sref="main.app.index.organize">
                         Organize
                     </a>
-                </li>
                 <li class="list-group-item">
                     <a href="#">
                         Themes
@@ -69,15 +68,11 @@
                         Preferences
                     </a>
                 </li>
-                <li class="list-group-item">
-                    <a href="#">
-                        Organize
-                    </a>
                 </li>
             </ul>
         </div>
     </div>
 </div>
 <div ng-if="!user.token">
-    <rss-sign-bar  rss-configuration=""></rss-sign-bar>
+    <rss-sign-bar rss-configuration=""></rss-sign-bar>
 </div>
