@@ -1,5 +1,4 @@
-var authService = require('services/auth.service'),
-    helpers = require('test/helpers'),
+var helpers = require('test/helpers'),
     Q = require('q'),
     userController = require('services/api.service/controllers/user'),
     UserModel = require('common/resource/user.model');
@@ -7,7 +6,8 @@ var authService = require('services/auth.service'),
 
 var response = {
         send: function(){},
-        status: function () {}
+        status: function () {},
+        redirect: function () {}
     },
     next = function () {};
 
@@ -74,7 +74,6 @@ describe('POST /user/signup', function(){
 
         it('User should not exist', function(done){
             assert.ok(responseData.message);
-            assert.equal("Invalid Email", responseData.message);
             done();
         });
     });
@@ -302,6 +301,7 @@ describe("GET /user/signin", function () {
                 });
 
         });
+
         it('Should exist error', function(done){
             assert.ok(responseData.message);
             assert.equal("Wrong login or password" ,responseData.message);

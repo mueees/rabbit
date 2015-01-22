@@ -2,7 +2,6 @@ var UserModel = require('common/resource/user.model'),
     FeedModel = require('common/resource/feed.model'),
     PostModel = require('common/resource/post.model'),
     Q = require('q'),
-    authApi = require('services/auth.service/api'),
     async = require('async'),
     logger = require("common/core/logs")(module);
 
@@ -36,7 +35,7 @@ var api = {
                 options = options || {};
                 var email = options.email || "test@signup.com";
                 var pass = options.pass || "12345678";
-                authApi.signup(email, pass, function (err, user) {
+                UserModel.registerNewUser(email, pass, function (err, user) {
                     def.resolve(user);
                 });
                 return def.promise;
@@ -51,7 +50,7 @@ var api = {
                 async.waterfall([
                     //register user
                     function (cb) {
-                        authApi.signup(email, pass, function (err, user) {
+                        UserModel.signup(email, pass, function (err, user) {
                             confirmationId = user.confirmationId;
                             userData = user;
                             cb();
@@ -59,7 +58,7 @@ var api = {
                     },
                     //confirm user by token
                     function (cb) {
-                        authApi.confirmUser(confirmationId, function (err) {
+                        UserModel.confirmUser(confirmationId, function (err) {
                             cb();
                         });
                     }
@@ -78,7 +77,7 @@ var api = {
                     email: email,
                     pass: pass
                 }).then(function (user) {
-                    authApi.signin(email, pass, function (err, token) {
+                    UserModel.signin(email, pass, function (err, token) {
                         def.resolve({
                             user: user,
                             token: token

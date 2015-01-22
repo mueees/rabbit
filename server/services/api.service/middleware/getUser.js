@@ -1,6 +1,6 @@
 var HttpError = require('../errors/HttpError').HttpError,
     logger = require('common/core/logs')(module),
-    authService = require('../modules/authServiceRemote');
+    UserModel = require('common/resource/user.model');
 
 module.exports = function(req, res, next){
     var token = req.query.token;
@@ -9,18 +9,19 @@ module.exports = function(req, res, next){
         return next();
     }
 
-    authService.execute('getUserByToken', token, function (err, user) {
-            if(err){
-                logger.error(err.message);
-                if( err.status == 500 ){
-                    return next(new HttpError(400, "Server problem"));
-                }else{
-                    /* Cannot find user*/
-                    return next();
-                }
-            }
-            req.user = user;
-            next();
+    UserModel.getUserByToken(token, function (err, user) {
+        if(err){
+            logger.error("Cannot find user", {
+                error: err
+            });
+            return next();
         }
-    );
+
+        if(!user){
+            return next();
+        }
+
+        req.user = user;
+        next();
+    });
 };
