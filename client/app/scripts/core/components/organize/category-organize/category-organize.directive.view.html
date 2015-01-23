@@ -1,10 +1,10 @@
 <div>
     <div class="head">
         <div class="pull-right" >
-            <button class="btn btn-link btn-xs" tooltip-placement="right" tooltip="Delete category?" ng-click="toggleDeletePanel($event)">
+            <button class="btn btn-link btn-xs" tooltip-placement="right" tooltip="Delete category?" ng-click="toggleDeleteCategory($event)">
                 <span class="icon-cancel"></span>
             </button>
-            <rss-action-panel ng-if="isShowDeletePanel" rss-configuration="actionDeleteConfig"></rss-action-panel>
+            <rss-action-panel ng-if="isShowDeleteCategory" rss-configuration="actionDeleteConfig"></rss-action-panel>
         </div>
         <button class="btn btn-link pull-right btn-xs" tooltip-placement="left" tooltip="Edit category?">
             <span class="icon-pencil"></span>
@@ -13,14 +13,16 @@
     </div>
 
     <ul class="feeds-container">
-        <li class="feed" ng-repeat="feed in category.feeds">
-            <button class="btn btn-link pull-right btn-xs">
+        <li class="feed" ng-repeat="feed in category.feeds" ng-init="feed.isShowDeletePanel = false" >
+            <button class="btn btn-link pull-right btn-xs" ng-click="feed.isShowDeletePanel = !feed.isShowDeletePanel">
                 <span class="icon-cancel"></span>
             </button>
             <button class="btn btn-link pull-right btn-xs">
                 <span class="icon-pencil"></span>
             </button>
             <span>{{feed.name}}</span>
+
+            <rss-action-panel ng-if="feed.isShowDeletePanel" rss-configuration="getFeedCategory()"></rss-action-panel>
         </li>
     </ul>
 

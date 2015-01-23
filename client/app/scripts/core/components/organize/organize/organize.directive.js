@@ -14,8 +14,15 @@
                 rssCategoryResource.listFeed().then(function (categories) {
                     scope.categories = categories;
                 });
-                scope.deleteCategory = function (category) {
-                    console.log('delete');
+
+                scope.categoryApi = {
+                    deleteCategory: function (_id) {
+                        deleteCategory(_id);
+                    }
+                };
+
+                function deleteCategory (_id) {
+                    scope.categories = _.without(scope.categories, _.findWhere(scope.categories, {_id: _id}));
                 }
             }
         });

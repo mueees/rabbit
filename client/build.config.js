@@ -81,7 +81,7 @@ module.exports = {
 
             'app/vendor/underscore/underscore-min.js',
 
-            'app/vendor/restangular/dist/restangular.min.js',
+            'app/vendor/restangular/dist/restangular.js',
 
             'app/vendor/angular-growl/build/angular-growl.js',
 

@@ -45,7 +45,7 @@ module.exports = function (app) {
     app.post(prefix + '/rss/category/edit', categoryController.edit);
 
     /*Remove category*/
-    app.post(prefix + '/rss/category/remove', categoryController.remove);
+    app.post(prefix + '/category/remove', checkAuth, categoryController.remove);
 
     //feed
 
