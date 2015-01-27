@@ -13,8 +13,8 @@
     </div>
 
     <ul class="feeds-container">
-        <li class="feed" ng-repeat="feed in category.feeds" ng-init="feed.isShowDeletePanel = false" >
-            <button class="btn btn-link pull-right btn-xs" ng-click="feed.isShowDeletePanel = !feed.isShowDeletePanel">
+        <li class="feed" ng-repeat="feed in category.feeds"  >
+            <button class="btn btn-link pull-right btn-xs" ng-click="toggleFeedDeletePanel(feed)">
                 <span class="icon-cancel"></span>
             </button>
             <button class="btn btn-link pull-right btn-xs">
@@ -22,7 +22,7 @@
             </button>
             <span>{{feed.name}}</span>
 
-            <rss-action-panel ng-if="feed.isShowDeletePanel" rss-configuration="getFeedCategory()"></rss-action-panel>
+            <rss-action-panel ng-if="feed.showActivePanel" rss-configuration="getFeedActionConfig(feed)"></rss-action-panel>
         </li>
     </ul>
 

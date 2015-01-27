@@ -1,6 +1,6 @@
 (function(){
     'use strict';
-    angular.module('rss.core.components.organize.organize').directive('rssCategoryOrganize', function (rssWebComponent) {
+    angular.module('rss.core.components.organize.organize').directive('rssCategoryOrganize', function (rssWebComponent, rssFeedResource) {
         return rssWebComponent.RssUiComponentClass({
             restrict: "E",
 
@@ -23,15 +23,18 @@
                     textAccept: "Delete"
                 };
 
-                scope.getFeedCategory = function () {
+                scope.getFeedActionConfig = function (feed) {
                     return {
-                        text: "Do you really want to delete "
+                        text: "Do you really want to delete " + feed.name,
+                        textAccept: "Delete feed",
+                        close: function () {
+                            scope.toggleFeedDeletePanel(feed);
+                        },
+                        accept: function () {
+                            scope.deleteFeed(feed);
+                        }
                     }
                 };
-
-                scope.$on('close', function () {
-                    debugger;
-                });
 
                 scope.isShowDeleteCategory = false;
 
@@ -40,11 +43,23 @@
                     scope.isShowDeleteCategory = !scope.isShowDeleteCategory;
                 };
 
+                scope.toggleFeedDeletePanel = function (feed) {
+                    feed.showActivePanel = !feed.showActivePanel;
+                };
+
                 scope.deleteCategory = function () {
                     scope.category.remove().then(function () {
                         categoryApi.deleteCategory(scope.category._id);
                     });
                 };
+
+                scope.deleteFeed = function (feed) {
+                    scope.category.feeds = _.without(scope.category.feeds, _.findWhere(scope.category.feeds, {_id: feed._id}));
+                    /*rssFeedResource.remove(feed._id).then(function () {
+                     scope.category.feeds = _.without(scope.category.feeds, _.findWhere(scope.category.feeds, {_id: feed._id}));
+                    });*/
+                };
+
             }
         });
     });

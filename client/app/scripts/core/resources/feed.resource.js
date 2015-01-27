@@ -8,6 +8,12 @@
                 return feed;
             });
         });
+
+        /*return {
+            remove: function (_id) {
+                FeedResource.one('feed')
+            }
+        };*/
         return FeedResource.one('feed');
     });
 })();
