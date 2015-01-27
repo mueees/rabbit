@@ -37,9 +37,6 @@
             listFeed: function () {
                 var category = CategoryResource.all('category');
                 return category.listFeed();
-            },
-            remove: function () {
-
             }
         };
 

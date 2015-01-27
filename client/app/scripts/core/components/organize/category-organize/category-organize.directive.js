@@ -54,10 +54,9 @@
                 };
 
                 scope.deleteFeed = function (feed) {
-                    scope.category.feeds = _.without(scope.category.feeds, _.findWhere(scope.category.feeds, {_id: feed._id}));
-                    /*rssFeedResource.remove(feed._id).then(function () {
-                     scope.category.feeds = _.without(scope.category.feeds, _.findWhere(scope.category.feeds, {_id: feed._id}));
-                    });*/
+                    rssFeedResource.removeById(feed._id).then(function () {
+                        scope.category.feeds = _.without(scope.category.feeds, _.findWhere(scope.category.feeds, {_id: feed._id}));
+                    });
                 };
 
             }
