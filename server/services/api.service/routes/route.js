@@ -59,7 +59,7 @@ module.exports = function (app) {
     app.post(prefix + '/rss/feed/change/category', checkAuth, feedController.changeCategory);
 
     /*Remove feed*/
-    app.post(prefix + '/rss/feed/remove', checkAuth, feedController.remove);
+    app.post(prefix + '/feed/remove', checkAuth, feedController.remove);
 
     /*Get feed information*/
     app.get(prefix + '/feed/:id', getUser, feedController.getFeedById);

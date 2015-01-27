@@ -111,16 +111,17 @@ _.extend(Controller.prototype, {
     * @param {String} feedId
     * */
     remove: function (req, res, next) {
+        debugger;
         var body = req.body;
 
-        if(!body.feedId){
+        if(!body._id){
             res.finish.resolve({message: "Doesn't have feed id"});
             return next(new HttpError(400, {
                 message: "Doesn't have feed id"
             }));
         }
 
-        UserModel.removeFeed(req.user._id, body.feedId, function (err) {
+        UserModel.removeFeed(req.user._id, body._id, function (err) {
             if(err){
                 logger.error(err);
                 res.finish.resolve({message: "Cannot remove feed"});
