@@ -11,9 +11,6 @@ cd /home/mue/web/public/rabbit/server
 cd /home/mue/web/public/rabbit/server/services/kue.ui
 pm2 start index.js --name kueui
 
-cd /home/mue/web/public/rabbit/server/services/auth.service
-pm2 start index.js --name auth.service
-
 cd /home/mue/web/public/rabbit/server/services/email.sender.service
 pm2 start index.js --name email.sender.service
 

@@ -42,7 +42,7 @@ module.exports = function (app) {
     app.post(prefix + '/category/add', checkAuth, categoryController.add);
 
     /*Edit category*/
-    app.post(prefix + '/rss/category/edit', categoryController.edit);
+    app.post(prefix + '/category/edit', checkAuth, categoryController.edit);
 
     /*Remove category*/
     app.post(prefix + '/category/remove', checkAuth, categoryController.remove);
@@ -53,7 +53,7 @@ module.exports = function (app) {
     app.post(prefix + '/feed/add', checkAuth,  feedController.add);
 
     /*Edit feed*/
-    app.post(prefix + '/rss/feed/edit', checkAuth, feedController.edit);
+    app.post(prefix + '/feed/edit', checkAuth, feedController.edit);
 
     /* Change category for feed */
     app.post(prefix + '/rss/feed/change/category', checkAuth, feedController.changeCategory);

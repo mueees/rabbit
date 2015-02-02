@@ -6,15 +6,14 @@
         return {
             restrict: "E",
             template: '<div ng-include="getContentUrl()"></div>',
+
             scope: {
                 rssConfiguration: "&"
             },
+
             link: function (scope, element) {
                 var supportedType = ['confirm','prompt'];
                 var config = scope.rssConfiguration();
-
-
-
 
                 switch (config.type){
                     case 'confirm':
@@ -31,9 +30,16 @@
                         textCancel: "Cancel",
                         text: "This is just default text"
                     };
+
                     config = angular.extend(defaults, config);
                     var acceptOld = config.accept;
-                    //todo: finish promt function
+
+                    config.accept = function () {
+                        if(acceptOld) acceptOld(scope.data.value);
+                        config.close();
+                    };
+
+                    scope.data = config;
                 }
 
                 function _initializeConfirm(){
@@ -42,6 +48,7 @@
                         textCancel: "Cancel",
                         text: "This is just default text"
                     };
+
                     config = angular.extend(defaults, config);
                     var acceptOld = config.accept;
 
@@ -52,7 +59,6 @@
 
                     scope.data = config;
                 }
-
 
                 scope.getContentUrl = function(){
                     rss.assert.assertArrayWithValue(supportedType, config.type);

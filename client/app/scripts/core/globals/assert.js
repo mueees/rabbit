@@ -207,7 +207,6 @@ var rss = rss || {};
         },
 
         assertArrayWithValue: function (array, item, opt_message, var_args) {
-            debugger;
             rss.assert.assertArray(array, opt_message, var_args);
             rss.assert.assertHasLength(array, opt_message, var_args);
 

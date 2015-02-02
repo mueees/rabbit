@@ -1,0 +1,8 @@
+<form ng-submit="data.accept()" name="ActionPrompt">
+    <div class="rss-action-panel-text">{{data.text}}</div>
+    <div class="form-group">
+        <input type="text" ng-model="data.value" class="form-control" placeholder="Category name"/>
+    </div>
+    <button type="submit" class="btn btn-link btn-accent" ng-click="data.accept()">{{data.textAccept}}</button>
+    <button class="btn btn-link pull-right action-palette-close" ng-click="data.close()">{{data.textCancel}}</button>
+</form>

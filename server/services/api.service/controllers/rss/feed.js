@@ -98,10 +98,9 @@ _.extend(Controller.prototype, {
                 return next(new HttpError(400, "Cannot edit feed"))
             }
 
-            var data = {};
-            res.finish.resolve(data);
             res.status(200);
-            res.send(data);
+            res.send({});
+            res.finish.resolve({});
         });
     },
 

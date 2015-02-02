@@ -41,7 +41,6 @@ _.extend(Controller.prototype, {
     edit: function (req, res, next) {
         var body = req.body;
 
-
         if(!body.name || !body._id){
             res.finish.resolve({message: "Doesn't have name or id category"});
             return next(new HttpError(400, {

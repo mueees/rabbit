@@ -308,9 +308,8 @@ userSchema.statics.editName = function (userId, newName, feedId, cb) {
             return cb("Cannot find user, with userId " + userId);
         }
 
+        var isHaveFeed = false;
         user.categories.forEach(function (category) {
-            var isHaveFeed = false;
-            var index = null;
             category.feeds.forEach(function (feed) {
                 if(String(feed.feedId) == String(feedId)){
                     feed.name = newName;
@@ -318,19 +317,19 @@ userSchema.statics.editName = function (userId, newName, feedId, cb) {
                     return false;
                 }
             });
+        });
 
-            if(!isHaveFeed) {
-                logger.error("Cannot find feed for editing");
-                return cb("Cannot find feed for editing");
+        if(!isHaveFeed) {
+            logger.error("Cannot find feed for editing");
+            return cb("Cannot find feed for editing");
+        }
+
+        user.save(function (err, user) {
+            if(err){
+                logger.error(err.message);
+                return cb(err);
             }
-
-            user.save(function (err, user) {
-                if(err){
-                    logger.error(err.message);
-                    return cb(err);
-                }
-                cb(null);
-            });
+            cb(null);
         });
     })
 };

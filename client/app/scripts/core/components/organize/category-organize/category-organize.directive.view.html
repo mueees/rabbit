@@ -4,9 +4,10 @@
             <button class="btn btn-link btn-xs" tooltip-placement="right" tooltip="Delete category?" ng-click="toggleDeleteCategory($event)">
                 <span class="icon-cancel"></span>
             </button>
-            <rss-action-panel ng-if="isShowDeleteCategory" rss-configuration="actionDeleteConfig"></rss-action-panel>
+            <rss-action-panel ng-if="isShowDeleteCategory" rss-configuration="actionDeleteCategory"></rss-action-panel>
+            <rss-action-panel ng-if="isShowEditCategory" rss-configuration="actionEditCategory"></rss-action-panel>
         </div>
-        <button class="btn btn-link pull-right btn-xs" tooltip-placement="left" tooltip="Edit category?">
+        <button class="btn btn-link pull-right btn-xs" tooltip-placement="left" tooltip="Edit category?" ng-click="toggleEditCategory($event)">
             <span class="icon-pencil"></span>
         </button>
         <h4>{{category.name}}</h4>
@@ -14,15 +15,16 @@
 
     <ul class="feeds-container">
         <li class="feed" ng-repeat="feed in category.feeds"  >
-            <button class="btn btn-link pull-right btn-xs" ng-click="toggleFeedDeletePanel(feed)">
+            <button class="btn btn-link pull-right btn-xs" ng-click="toggleDeleteFeed(feed)">
                 <span class="icon-cancel"></span>
             </button>
-            <button class="btn btn-link pull-right btn-xs">
+            <button class="btn btn-link pull-right btn-xs" ng-click="toggleEditFeed(feed)">
                 <span class="icon-pencil"></span>
             </button>
             <span>{{feed.name}}</span>
 
-            <rss-action-panel ng-if="feed.showActivePanel" rss-configuration="getFeedActionConfig(feed)"></rss-action-panel>
+            <rss-action-panel ng-if="feed.showDeleteFeed" rss-configuration="getFeedDeleteConfig(feed)"></rss-action-panel>
+            <rss-action-panel ng-if="feed.showEditPanel" rss-configuration="getFeedEditConfig(feed)"></rss-action-panel>
         </li>
     </ul>
 

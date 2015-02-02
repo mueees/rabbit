@@ -9,6 +9,7 @@
                 category.addRestangularMethod('remove', 'post', 'remove', undefined, {}, {
                     _id: category._id
                 });
+                category.addRestangularMethod('edit', 'post', 'edit', undefined, {});
                 return category;
             });
 
@@ -31,7 +32,6 @@
                 return category;
             });
         });
-
 
         var api = {
             listFeed: function () {

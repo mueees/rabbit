@@ -6,6 +6,7 @@
             //element
             RestangularConfigurer.addElementTransformer('feed', false, function (feed) {
                 feed.addRestangularMethod('add', 'post', 'add', undefined);
+                feed.addRestangularMethod('edit', 'post', 'edit', undefined);
                 feed.addRestangularMethod('remove', 'post', 'remove', undefined, {}, {
                     _id: feed._id
                 });
@@ -28,6 +29,15 @@
                 var feed = FeedResource.one('feed');
                 return feed.remove({
                     _id: _id
+                });
+            },
+
+            changeName: function (_id, name) {
+                var feed = FeedResource.one('feed');
+
+                return feed.edit({
+                    _id: _id,
+                    name: name
                 });
             }
         };
