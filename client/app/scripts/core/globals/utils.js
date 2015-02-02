@@ -100,6 +100,12 @@ var _TIMESTAMP_ = new Date().getTime();
         return rss.util.isArray(value) && value.length > 0;
     };
 
+    rss.util.isArrayWithItem = function (array, value) {
+        var isArray = rss.util.isArray(array) && value.length > 0;
+        if(!isArray) return false;
+        return (array.indexOf(value) != -1) ? true : false;
+    };
+
     /**
      * Returns true if the value is a valid angular scope
      * @param value

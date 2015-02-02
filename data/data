@@ -2,9 +2,6 @@ export NODE_ENV=development
 export NODE_PATH=/vagrant/server
 cd /vagrant/server/services
 
-cd /vagrant/server/services/auth.service
-pm2 start index.js --name auth.service
-
 cd /vagrant/server/services/email.sender.service
 pm2 start index.js --name email.sender.service
 
