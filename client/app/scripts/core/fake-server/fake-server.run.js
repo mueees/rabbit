@@ -55,20 +55,14 @@
             });
 
             $httpBackend.whenGET(new RegExp(baseUrl+'/feed?.*')).respond({
-
                 _id: '123123',
-
                 name: "Web Feed",
-
                 inDatabase: true,
-
                 isUserFollow: false,
-
                 meta: {
                     readers: 12,
                     unread: 213
                 },
-
                 posts: [
                     {
                         _id: '123',

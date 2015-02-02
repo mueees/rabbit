@@ -206,6 +206,18 @@ var rss = rss || {};
             rss.assert.assertHasLength(value, opt_message, var_args);
         },
 
+        assertArrayWithValue: function (array, item, opt_message, var_args) {
+            debugger;
+            rss.assert.assertArray(array, opt_message, var_args);
+            rss.assert.assertHasLength(array, opt_message, var_args);
+
+            if (rss.ENABLE_ASSERTS && !rss.util.isArrayWithItem(array, item)) {
+                handleFailure('Expected array with item %s but got: %s.',
+                    [rss.util.typeOf(array), array], opt_message,
+                    Array.prototype.slice.call(arguments, 3));
+            }
+        },
+
         /**
          * Checks if the value is a function if rss.ENABLE_ASSERTS is true.
          * @param {*} value The value to check.

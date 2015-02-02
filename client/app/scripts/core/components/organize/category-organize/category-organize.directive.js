@@ -20,7 +20,8 @@
                         scope.toggleDeleteCategory();
                     },
                     text: "Do you really want to delete category?",
-                    textAccept: "Delete"
+                    textAccept: "Delete",
+                    type: 'confirm'
                 };
 
                 scope.getFeedActionConfig = function (feed) {
@@ -32,7 +33,8 @@
                         },
                         accept: function () {
                             scope.deleteFeed(feed);
-                        }
+                        },
+                        type: 'confirm'
                     }
                 };
 
